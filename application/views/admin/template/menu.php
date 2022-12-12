@@ -73,14 +73,14 @@
             <span class="menu-arrow"></span>
         </span>
         <div class="menu-sub menu-sub-accordion menu-active-bg">
-            <div class="menu-item">
+            <!-- <div class="menu-item">
                 <a <?= $this->uri->segment(1) == 'laporanharian' || $this->uri->segment(1) == '' ? 'class="menu-link active"' : 'class="menu-link"' ?> href="<?php echo site_url('laporanharian'); ?>" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
                     <span class="menu-bullet">
                         <span class="bullet bullet-dot"></span>
                     </span>
                     <span class="menu-title">Laporan Harian</span>
                 </a>
-            </div>
+            </div> -->
             <div class="menu-item">
                 <a <?= $this->uri->segment(1) == 'laporanbulanan' || $this->uri->segment(1) == '' ? 'class="menu-link active"' : 'class="menu-link"' ?> href="<?php echo site_url('laporanbulanan'); ?>" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
                     <span class="menu-bullet">

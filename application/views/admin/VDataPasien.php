@@ -398,22 +398,6 @@
                     </div>
                     <div class="row justify-content-start">
                         <div class="col-4">
-                            <label class="fw-bold ">Nama Puskesmas</label>
-                        </div>
-                        <div class="col">
-                            <p>Puskesmas Dinoyo</p>
-                        </div>
-                    </div>
-                    <div class="row justify-content-start">
-                        <div class="col-4">
-                            <label class="fw-bold ">Nama Rumah Sakit</label>
-                        </div>
-                        <div class="col">
-                            <p>Rumah Sakit Dinoyo</p>
-                        </div>
-                    </div>
-                    <div class="row justify-content-start">
-                        <div class="col-4">
                             <label class="fw-bold ">Alamat</label>
                         </div>
                         <div class="col">
@@ -442,6 +426,22 @@
                         </div>
                         <div class="col">
                             <p>112.621391</p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-start">
+                        <div class="col-4">
+                            <label class="fw-bold ">Nama Puskesmas</label>
+                        </div>
+                        <div class="col">
+                            <p>Puskesmas Dinoyo</p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-start">
+                        <div class="col-4">
+                            <label class="fw-bold ">Nama Rumah Sakit</label>
+                        </div>
+                        <div class="col">
+                            <p>Rumah Sakit Dinoyo</p>
                         </div>
                     </div>
                     <div class="row justify-content-start">
