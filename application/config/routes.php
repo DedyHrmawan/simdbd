@@ -49,22 +49,56 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'Welcome/Beranda';
+$route['default_controller'] = 'DepanController/Beranda';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 //admin
 $route['home']                      = 'Welcome/Home';
-$route['datapasien']                = 'Welcome/DataPasien';
-$route['jentik']                    = 'Welcome/JentikBerkala';
-$route['epidemiologis']             = 'Welcome/Epidemiologis';
 $route['laporanharian']             = 'Welcome/LaporanHarian';
 $route['laporanbulanan']            = 'Welcome/LaporanBulanan';
-$route['info']                      = 'Welcome/Info';
-$route['carousel']                  = 'Welcome/Carousel';
-$route['feedback']                  = 'Welcome/Feedback';
+
+$route['datapasien']                = 'PasienController/DataPasien';
+$route['datapasien/tambah']         = 'PasienController/store';
+$route['datapasien/edit']           = 'PasienController/edit';
+$route['datapasien/hapus']          = 'PasienController/delete';
+$route['datapasien/ajxGet']         = 'PasienController/ajxGet';
+
+$route['jentik']                    = 'PengamatanController/JentikBerkala';
+$route['jentik/tambah']             = 'PengamatanController/store';
+$route['jentik/edit']               = 'PengamatanController/edit';
+$route['jentik/hapus']              = 'PengamatanController/delete';
+$route['jentik/ajxGet']             = 'PengamatanController/ajxGet';
+
+$route['epidemiologis']             = 'EpidemiologisController/Epidemiologis';
+$route['epidemiologis/tambah']      = 'EpidemiologisController/store';
+$route['epidemiologis/edit']        = 'EpidemiologisController/edit';
+$route['epidemiologis/hapus']       = 'EpidemiologisController/delete';
+$route['epidemiologis/ajxGet']      = 'EpidemiologisController/ajxGet';
+$route['epidemiologis/ajxGetPasien']= 'EpidemiologisController/ajxGetPasien';
+
+$route['info']                    = 'InformasiController/Info';
+$route['info/tambah']             = 'InformasiController/store';
+$route['info/edit']               = 'InformasiController/edit';
+$route['info/hapus']              = 'InformasiController/delete';
+$route['info/ajxGet']             = 'InformasiController/ajxGet';
+
+$route['carousel']                = 'CarouselController/Carousel';
+$route['carousel/tambah']         = 'CarouselController/store';
+$route['carousel/edit']           = 'CarouselController/edit';
+$route['carousel/hapus']          = 'CarouselController/delete';
+$route['carousel/ajxGet']         = 'CarouselController/ajxGet';
+
+$route['feedback']                = 'FeedbackController/Feedback';
+$route['feedback/hapus']          = 'FeedbackController/delete';
+$route['feedback/ajxGet']         = 'FeedbackController/ajxGet';
 
 //depan
-$route['beranda']               = 'Welcome/Beranda';
-$route['login']              = 'Welcome/Login';
-$route['informasi']              = 'Welcome/Informasi';
+$route['beranda']               = 'DepanController/Beranda';
+$route['login']                 = 'DepanController/Login';
+$route['informasi']             = 'DepanController/InfoDepan';
+$route['informasi/(:any)']      = 'DepanController/Informasi/$1';
+$route['kirimfeedback']         = 'DepanController/kirimfeedback';
+
+$route['auth']          = 'AuthController/auth';
+$route['logout']        = 'AuthController/logout';

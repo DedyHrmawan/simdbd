@@ -38,20 +38,29 @@
 			<!--begin::Content-->
 			<div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
 				<!--begin::Logo-->
-				<a href="<?=site_url('login')?>" class="mb-12">
+				<a href="<?=site_url('/')?>" class="mb-12">
 					<img alt="Logo" src="assets/media/logos/logo-blue.png" class="h-60px" />
 				</a>
 				<!--end::Logo-->
 				<!--begin::Wrapper-->
 				<div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
 					<!--begin::Form-->
-					<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" data-kt-redirect-url="../../demo1/dist/index.html" action="#">
+					<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" data-kt-redirect-url="../../demo1/dist/index.html" action="<?= site_url('auth') ?>" method="post">
 						<!--begin::Heading-->
 						<div class="text-center mb-10">
 							<!--begin::Title-->
 							<h1 class="text-dark mb-3">Login Admin</h1>
 							<!--end::Title-->
 						</div>
+						<?php
+						if ($this->session->flashdata('error_login')) {
+							echo '
+								<div class="alert alert-danger" role="alert">
+									'.$this->session->flashdata('error_login').'
+								</div>
+							';
+						}
+						?>
 						<!--begin::Heading-->
 						<!--begin::Input group-->
 						<div class="fv-row mb-10">
@@ -59,7 +68,7 @@
 							<label class="form-label fs-6 fw-bolder text-dark">Username</label>
 							<!--end::Label-->
 							<!--begin::Input-->
-							<input class="form-control form-control-lg form-control-solid" type="text" name="email" autocomplete="off" />
+							<input class="form-control form-control-lg form-control-solid" type="text" name="username" autocomplete="off" />
 							<!--end::Input-->
 						</div>
 						<!--end::Input group-->
