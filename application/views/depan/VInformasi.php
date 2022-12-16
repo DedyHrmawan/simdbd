@@ -15,7 +15,7 @@
                                 <!--begin::Wrapper-->
                                 <div class="mb-8">
                                     <!--begin::Title-->
-                                    <h2 href="#" class="text-dark  fs-2 fw-bolder">Judul Informasi</h2>
+                                    <h2 href="#" class="text-dark  fs-2 fw-bolder"><?= $informasi[0]->judul_info ?></h2>
                                         <!--end::Title-->
                                         <!--begin::Info-->
                                         <div class="d-flex flex-wrap mb-6">
@@ -34,7 +34,11 @@
                                                 <!--end::Svg Icon-->
                                                 <!--end::Icon-->
                                                 <!--begin::Label-->
-                                                <span class="fw-bolder text-gray-400">06 April 2021</span>
+                                                <?php
+                                                    $date=date_create($informasi[0]->tgl_info);
+                                                    $tanggal = date_format($date,"d F Y");
+                                                ?>
+                                                <span class="fw-bolder text-gray-400"><?= $tanggal ?></span>
                                                 <!--end::Label-->
                                             </div>
                                             <div class="me-9 my-1">
@@ -43,31 +47,14 @@
                                         </div>
                                         <div class="overlay mt-8">
                                             <!--begin::Image-->
-                                            <div class="bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-350px" style="background-image:url('assets/media/stock/1600x800/img-1.jpg')"></div>
+                                            <div class="bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-350px" style="background-image:url('<?= $informasi[0]->gambar ?>')"></div>
                                         </div>
                                         <!--end::Container-->
                                 </div>
                                 <!--end::Wrapper-->
                                 <!--begin::Description-->
-                                <div class="fs-5 fw-bold text-gray-600">
-                                    <!--begin::Text-->
-                                    <p class="mb-8">First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words per minute and your writing skills are sharp. From the seed of the idea to finally hitting “Publish,” you might spend several days or maybe even a week “writing” a blog post, but it’s important to spend those vital hours planning your post and even thinking about
-                                        <a href="../../demo1/dist/pages/blog/post.html" class="link-primary pe-1">Your Post</a>(yes, thinking counts as working if you’re a blogger) before you actually write it.
-                                    </p>
-                                    <!--end::Text-->
-                                    <!--begin::Text-->
-                                    <p class="mb-8">There’s an old maxim that states,
-                                        <span class="text-gray-800 pe-1">“No fun for the writer, no fun for the reader.”</span>No matter what industry you’re working in, as a blogger, you should live and die by this statement.
-                                    </p>
-                                    <!--end::Text-->
-                                    <!--begin::Text-->
-                                    <p class="mb-8">Before you do any of the following steps, be sure to pick a topic that actually interests you. Nothing – and
-                                        <a href="../../demo1/dist/pages/blog/home.html" class="link-primary pe-1">I mean NOTHING</a>– will kill a blog post more effectively than a lack of enthusiasm from the writer. You can tell when a writer is bored by their subject, and it’s so cringe-worthy it’s a little embarrassing.
-                                    </p>
-                                    <!--end::Text-->
-                                    <!--begin::Text-->
-                                    <p class="mb-17">I can hear your objections already. “But Dan, I have to blog for a cardboard box manufacturing company.” I feel your pain, I really do. During the course of my career, I’ve written content for dozens of clients in some less-than-thrilling industries (such as financial regulatory compliance and corporate housing), but the hallmark of a professional blogger is the ability to write well about any topic, no matter how dry it may be. Blogging is a lot easier, however, if you can muster at least a little enthusiasm for the topic at hand.</p>
-                                    <!--end::Text-->
+                                <div class="fs-5 fw-bold text-gray-600" style="text-align:justify;">
+                                    <?= $informasi[0]->desc_info ?>
                                 </div>
                             </div>
                             <!--end::Post content-->
@@ -75,38 +62,18 @@
                         <!--end::Content-->
                         <!--begin::Sidebar-->
                         <div class="flex-column flex-lg-row-auto w-100 w-xl-300px mb-10">
-                            <div class="mb-16">
-                                <h4 class="text-black mb-7">Postingan Terbaru</h4>
-                                <div class="d-flex flex-stack mb-7">
-                                    <div class="symbol symbol-60px symbol-2by3 me-4">
-                                        <div class="symbol-label" style="background-image: url('assets/media/stock/600x400/img-1.jpg')"></div>
-                                    </div>
-                                    <div class="m-0">
-                                        <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">About Bootstrap Admin</a>
-                                        <span class="text-gray-600 fw-bold d-block pt-1 fs-7">We’ve been a focused on making a the sky</span>
-                                    </div>
-                                </div>
-                                <div class="d-flex flex-stack mb-7">
-                                    <div class="symbol symbol-60px symbol-2by3 me-4">
-                                        <div class="symbol-label" style="background-image: url('assets/media/stock/600x400/img-2.jpg')"></div>
-                                    </div>
-                                    <div class="m-0">
-                                        <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">A yellow sofa</a>
-                                        <span class="text-gray-600 fw-bold d-block pt-1 fs-7">We’ve been a focused on making a the sky</span>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="m-0">
-                                <h4 class="text-black mb-7">Daftar Menu</h4>
-                                <div class="d-flex flex-stack fw-bold fs-5 text-muted mb-4">
-                                    <a href="#" class="text-muted text-hover-primary pe-2">Menu 1</a>
-                                </div>
-                                <div class="d-flex flex-stack fw-bold fs-5 text-muted mb-4">
-                                    <a href="#" class="text-muted text-hover-primary pe-2">Menu 2</a>
-                                </div>
-                                <div class="d-flex flex-stack fw-bold fs-5 text-muted mb-4">
-                                    <a href="#" class="text-muted text-hover-primary pe-2">Menu 3</a>
-                                </div>
+                                <h4 class="text-black mb-7">Daftar Artikel</h4>
+                                <?php
+                                    foreach($list as $item){
+                                        $link = site_url('informasi/'.$item->id_info);
+                                        echo '
+                                        <div class="d-flex flex-stack fw-bold fs-5 text-muted mb-4">
+                                            <a href="'.$link.'" class="text-muted text-hover-primary pe-2">'.$item->judul_info.'</a>
+                                        </div>
+                                        ';
+                                    }
+                                ?>
                             </div>
                         </div>
                         <!--end::Sidebar-->

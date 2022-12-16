@@ -23,31 +23,13 @@ class Welcome extends CI_Controller
 	//admin
 	public function Home()
 	{
+		if (isset($_SESSION['logged_in']) == FALSE || $this->session->userdata('hak_akses') != "ADMIN") {
+			redirect('/');
+		};
 		$data = array(
 			'title' => 'Home - SIM DBD PUSKESMAS DINOYO'
 		);
 		$this->template->admin('admin/VBeranda', $data);
-	}
-	public function DataPasien()
-	{
-		$data = array(
-			'title' => 'Data Pasien - SIM DBD PUSKESMAS DINOYO'
-		);
-		$this->template->admin('admin/VDataPasien', $data);
-	}
-	public function JentikBerkala()
-	{
-		$data = array(
-			'title' => 'Pengamatan Jentik Berkala - SIM DBD PUSKESMAS DINOYO'
-		);
-		$this->template->admin('admin/VJentikBerkala', $data);
-	}
-	public function Epidemiologis()
-	{
-		$data = array(
-			'title' => 'Penyelidikan Epidemiologis - SIM DBD PUSKESMAS DINOYO'
-		);
-		$this->template->admin('admin/VEpidemiologis', $data);
 	}
 	public function LaporanHarian()
 	{
@@ -62,51 +44,5 @@ class Welcome extends CI_Controller
 			'title' => 'Laporan Bulanan - SIM DBD PUSKESMAS DINOYO'
 		);
 		$this->template->admin('admin/VLaporanBulanan', $data);
-	}
-	public function Feedback()
-	{
-		$data = array(
-			'title' => 'Feedback - SIM DBD PUSKESMAS DINOYO'
-		);
-		$this->template->admin('admin/VFeedback', $data);
-	}
-	public function Info()
-	{
-		$data = array(
-			'title' => 'Informasi - SIM DBD PUSKESMAS DINOYO'
-		);
-		$this->template->admin('admin/VInfo', $data);
-	}
-	public function Carousel()
-	{
-		$data = array(
-			'title' => 'Carousel - SIM DBD PUSKESMAS DINOYO'
-		);
-		$this->template->admin('admin/VCarousel', $data);
-	}
-
-	//depan
-	public function Beranda()
-	{
-		$data = array(
-			'title' => 'Beranda - SIM DBD PUSKESMAS DINOYO'
-		);
-		$this->template->depan('depan/VBeranda', $data);
-	}
-
-	public function Login()
-	{
-		$data = array(
-			'title' => 'Login - SIM DBD PUSKESMAS DINOYO'
-		);
-		$this->load->view('depan/VLogin', $data);
-	}
-
-	public function Informasi()
-	{
-		$data = array(
-			'title' => 'Informasi - SIM DBD PUSKESMAS DINOYO'
-		);
-		$this->template->depan('depan/VInformasi', $data);
 	}
 }

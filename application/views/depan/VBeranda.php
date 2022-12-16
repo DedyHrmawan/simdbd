@@ -60,18 +60,15 @@
 					<div class="text-center mb-5 mb-lg-10 py-10 py-lg-20">
 						<div class="tns tns-default">
 							<div data-tns="true" data-tns-loop="true" data-tns-swipe-angle="false" data-tns-speed="2000" data-tns-autoplay="true" data-tns-autoplay-timeout="18000" data-tns-controls="true" data-tns-nav="false" data-tns-items="1" data-tns-center="false" data-tns-dots="false" data-tns-prev-button="#kt_team_slider_prev1" data-tns-next-button="#kt_team_slider_next1">
-								<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-									<img src="assets/media/product-demos/demo1.png" class="card-rounded shadow mw-100" alt="" />
-								</div>
-								<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-									<img src="assets/media/product-demos/demo2.png" class="card-rounded shadow mw-100" alt="" />
-								</div>
-								<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-									<img src="assets/media/product-demos/demo4.png" class="card-rounded shadow mw-100" alt="" />
-								</div>
-								<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-									<img src="assets/media/product-demos/demo5.png" class="card-rounded shadow mw-100" alt="" />
-								</div>
+								<?php
+									foreach($carousel as $item){
+										echo '
+										<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
+											<img src="'.$item->gambar.'" width="800" min-width="700" class="card-rounded shadow mw-100" alt="" />
+										</div>
+										';
+									}
+								?>
 							</div>
 							<button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_prev1">
 								<span class="svg-icon svg-icon-3x">
@@ -154,45 +151,28 @@
 				<h3 class="fs-2hx text-dark mb-5" id="informasi" data-kt-scroll-offset="{default: 100, lg: 150}">Informasi</h3>
 			</div>
 			<div class="row g-10">
-				<div class="col-md-4">
-					<div class="card-xl-stretch me-md-6">
-						<a class="d-block bgi-no-repeat bgi-size-cover bgi-position-center card-rounded position-relative min-h-175px mb-5" style="background-image:url('https://www.pekanbaru.go.id/berkas_file/news/20092022/15997-news-kasus-dbd-di-pekanba.jpeg'); width: 100%;" data-fslightbox="lightbox-video-tutorials" href=""></a>
-						<div class="m-0">
-							<a href="" class="fs-4 text-dark fw-bolder text-hover-primary text-dark lh-base">Tanda dan Gejala Demam Berdarah Dengue</a>
-							<div class="fw-bold fs-5 text-gray-600 text-dark my-4">Deman Berdarah Dengue (DBD) adalah penyakit yang disebabkan oleh infeksi virus dengue melalui gigitan nyamuk Aedes terutama Aedes aegypti. Demam dengue merupakan ... <a class="fs-6 fw-bold link-primary" href="<?= site_url('informasi') ?>">Baca Selengkapnya</a></div>
-							<div class="fs-6 fw-bolder">
-								<span href="" class="text-gray-700 text-hover-primary">Admin</span>
-								<span class="text-muted">- 21 Maret 2021</span>
+				<?php
+					foreach($informasi as $item){
+						$link = site_url('informasi/'.$item->id_info);
+						$date=date_create($item->tgl_info);
+        				$tanggal = date_format($date,"d F Y");
+						echo '
+						<div class="col-md-4">
+							<div class="card-xl-stretch me-md-6">
+								<a class="d-block bgi-no-repeat bgi-size-cover bgi-position-center card-rounded position-relative min-h-175px mb-5" style="background-image:url('.$item->gambar.'); width: 100%;" data-fslightbox="lightbox-video-tutorials"></a>
+								<div class="m-0">
+									<a href="'.$link.'" class="fs-4 text-dark fw-bolder text-hover-primary text-dark lh-base">'.$item->judul_info.'</a>
+									<div class="fw-bold fs-5 text-gray-600 text-dark my-4">'.mb_strimwidth($item->desc_info, 0, 200, "...").'<a class="fs-6 fw-bold link-primary" href="'.$link.'">Baca Selengkapnya</a></div>
+									<div class="fs-6 fw-bolder">
+										<span href="" class="text-gray-700 text-hover-primary">Admin</span>
+										<span class="text-muted">- '.$tanggal.'</span>
+									</div>
+								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card-xl-stretch me-md-6">
-						<a class="d-block bgi-no-repeat bgi-size-cover bgi-position-center card-rounded position-relative min-h-175px mb-5" style="background-image:url('https://www.pekanbaru.go.id/berkas_file/news/20092022/15997-news-kasus-dbd-di-pekanba.jpeg'); width: 100%;" data-fslightbox="lightbox-video-tutorials" href=""></a>
-						<div class="m-0">
-							<a href="" class="fs-4 text-dark fw-bolder text-hover-primary text-dark lh-base">Tanda dan Gejala Demam Berdarah Dengue</a>
-							<div class="fw-bold fs-5 text-gray-600 text-dark my-4">Deman Berdarah Dengue (DBD) adalah penyakit yang disebabkan oleh infeksi virus dengue melalui gigitan nyamuk Aedes terutama Aedes aegypti. Demam dengue merupakan ... <a class="fs-6 fw-bold link-primary" href="<?= site_url('informasi') ?>">Baca Selengkapnya</a></div>
-							<div class="fs-6 fw-bolder">
-								<span href="" class="text-gray-700 text-hover-primary">Admin</span>
-								<span class="text-muted">- 21 Maret 2021</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card-xl-stretch me-md-6">
-						<a class="d-block bgi-no-repeat bgi-size-cover bgi-position-center card-rounded position-relative min-h-175px mb-5" style="background-image:url('https://www.pekanbaru.go.id/berkas_file/news/20092022/15997-news-kasus-dbd-di-pekanba.jpeg'); width: 100%;" data-fslightbox="lightbox-video-tutorials" href=""></a>
-						<div class="m-0">
-							<a href="" class="fs-4 text-dark fw-bolder text-hover-primary text-dark lh-base">Tanda dan Gejala Demam Berdarah Dengue</a>
-							<div class="fw-bold fs-5 text-gray-600 text-dark my-4">Deman Berdarah Dengue (DBD) adalah penyakit yang disebabkan oleh infeksi virus dengue melalui gigitan nyamuk Aedes terutama Aedes aegypti. Demam dengue merupakan ... <a class="fs-6 fw-bold link-primary" href="<?= site_url('informasi') ?>">Baca Selengkapnya</a></div>
-							<div class="fs-6 fw-bolder">
-								<span href="" class="text-gray-700 text-hover-primary">Admin</span>
-								<span class="text-muted">- 21 Maret 2021</span>
-							</div>
-						</div>
-					</div>
-				</div>
+						';
+					}
+				?>
 			</div>
 		</div>
 	</div>
@@ -203,27 +183,36 @@
 					<div class="text-center mb-5 mb-lg-10">
 						<h3 class="fs-2hx text-dark mb-5" id="feedback" data-kt-scroll-offset="{default: 100, lg: 150}">Feedback</h3>
 					</div>
+					<?php
+					if ($this->session->flashdata('success_feedback')) {
+						echo '
+							<div class="alert alert-success" role="alert">
+								'.$this->session->flashdata('success_feedback').'
+							</div>
+						';
+					}
+					?>
 					<div class="row mb-3">
 						<div class="col-md-12 pe-lg-10">
-							<form action="" class="form mb-15" method="post">
+							<form action="<?= site_url('kirimfeedback') ?>" class="form mb-15" method="post">
 								<!-- <h1 class="fw-bolder text-dark mb-9">Send Us Email</h1> -->
 								<div class="row mb-5">
 									<div class="col-md-6 fv-row">
 										<label class="fs-5 fw-bold mb-2">Nama</label>
-										<input type="text" class="form-control form-control-solid" placeholder="Masukan Nama" name="" />
+										<input type="text" class="form-control form-control-solid" placeholder="Masukan Nama" name="nama_feedback" required />
 									</div>
 									<div class="col-md-6 fv-row">
 										<label class="fs-5 fw-bold mb-2">Email</label>
-										<input type="text" class="form-control form-control-solid" placeholder="Masukan Email" name="" />
+										<input type="email" class="form-control form-control-solid" placeholder="Masukan Email" name="email_feedback" required/>
 									</div>
 								</div>
 								<div class="d-flex flex-column mb-5 fv-row">
 									<label class="fs-5 fw-bold mb-2">Subjek</label>
-									<input class="form-control form-control-solid" placeholder="" name="subject" />
+									<input class="form-control form-control-solid" placeholder="" name="judul_feedback" required />
 								</div>
 								<div class="d-flex flex-column mb-10 fv-row">
 									<label class="fs-6 fw-bold mb-2">Pesan</label>
-									<textarea class="form-control form-control-solid" rows="6" name="message" placeholder=""></textarea>
+									<textarea class="form-control form-control-solid" rows="6" name="pesan_feedback" placeholder="" required></textarea>
 								</div>
 								<button type="submit" class="btn btn-success" id="kt_contact_submit_button">
 									<span class="indicator-label">Kirim Feedback</span>
