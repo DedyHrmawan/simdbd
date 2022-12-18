@@ -19,7 +19,7 @@ class AuthController extends CI_Controller
                     'logged_in'     => TRUE
                 );   
                 $this->session->set_userdata($newdata);                   
-                redirect('home');
+                redirect('datapasien');
             }else{
                 $this->session->set_flashdata('error_login', 'Username atau password salah!');  
                 redirect('login');
