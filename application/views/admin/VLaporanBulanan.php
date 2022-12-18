@@ -1,3 +1,11 @@
+<style>
+    table,
+    th,
+    td {
+        border: 3px solid black !important;
+        border-collapse: collapse !important;
+    }
+</style>
 <div class="post d-flex flex-column-fluid mt-1" id="kt_post">
     <div id="kt_content_container" class="container-xxl">
         <div class="card mb-5 mb-xl-8">
@@ -9,27 +17,38 @@
             <div class="card-body py-3">
                 <p>PUSKESMAS DINOYO</p>
                 <div class="table-responsive">
-                    <table class="table table-rounded table-row-bordered table-row-gray-300 align-middle gs-0 gy-3" id="tabelFeedback">
+                    <table class="table align-middle gs-0 gy-3" id="tabelBulanan">
                         <thead>
-                            <tr class="fw-bolder text-muted">
-                                <th>Minggu Ke</th>
-                                <th>No</th>
-                                <th>Nama Penderita</th>
+                            <tr class="fw-bolder align-middle text-center">
+                                <th rowspan="2">Minggu Ke</th>
+                                <th rowspan="2">No</th>
+                                <th rowspan="2">Nama Penderita</th>
                                 <th colspan="2">Umur</th>
-                                <th colspan="2">Alamat</th>
+                                <th>Alamat</th>
+                                <th colspan="2">Tanggal</th>
+                                <th>Tanggal</th>
+                                <th rowspan="2">Ket</th>
                             </tr>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
+                            <tr class="fw-bolder align-middle text-center">
                                 <th>L</th>
                                 <th>P</th>
-                                <th>Kecamatan</th>
                                 <th>Kelurahan</th>
+                                <th>Mulai Sakit</th>
+                                <th>Masuk RS</th>
+                                <th>PE</th>
                             </tr>
                         </thead>
-                        <tbody>
-
+                        <tbody class="text-left">
+                            <td rowspan="2">Minggu ke 3</td>
+                            <td rowspan="2">17</td>
+                            <td rowspan="2">Girito</td>
+                            <td>1</td>
+                            <td></td>
+                            <td>Lowokwaru</td>
+                            <td >08 Oktober 2022</td>
+                            <td >08 Oktober 2023</td>
+                            <td>08 Desember 2022</td>
+                            <td rowspan="2">Isi dari keterangan saya tidak tahu apa saja. ini hanya keterangan dummy.</td>
                         </tbody>
                     </table>
                 </div>
@@ -40,7 +59,7 @@
 
 <?php $this->load->view('admin/template/footer') ?>
 <script>
-    $('#tabelFeedback').dataTable({
+    $('#tabelBulanan').dataTable({
         paging: false,
         ordering: false,
         info: false,
