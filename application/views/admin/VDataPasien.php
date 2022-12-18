@@ -51,7 +51,7 @@
                                                     </svg>
                                                 </span>
                                             </a>
-                                            <a href="#" title="Jentik berkala" data-bs-toggle="modal" data-bs-target="#mdl_delPasien" data-id="'.$item->id_px.'" class="btn btn-icon btn-bg-light btn-active-color-primary mdl_delPasien btn-sm m-1">
+                                            <a href="#" title="Hapus Pasien" data-bs-toggle="modal" data-bs-target="#mdl_delPasien" data-id="'.$item->id_px.'" class="btn btn-icon btn-bg-light btn-active-color-primary mdl_delPasien btn-sm m-1">
                                                 <span class="svg-icon svg-icon-3">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                         <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor" />
@@ -80,7 +80,6 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="mb-3">Tambah Pasien </h3>
-
                 <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
                     <span class="svg-icon svg-icon-muted svg-icon-2hx"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor" />
@@ -89,7 +88,6 @@
                         </svg></span>
                 </div>
             </div>
-
             <div class="modal-body">
                 <form action="<?= site_url('datapasien/tambah') ?>" method="post">
                     <div class="d-flex flex-column mb-8 fv-row">

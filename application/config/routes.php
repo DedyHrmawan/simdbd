@@ -93,6 +93,10 @@ $route['feedback']                = 'FeedbackController/Feedback';
 $route['feedback/hapus']          = 'FeedbackController/delete';
 $route['feedback/ajxGet']         = 'FeedbackController/ajxGet';
 
+$route['email']                   = 'Welcome/email';
+
+$route['kasus']                   = 'Welcome/PenangananKasus';
+
 //depan
 $route['beranda']               = 'DepanController/Beranda';
 $route['login']                 = 'DepanController/Login';

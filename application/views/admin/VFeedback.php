@@ -95,9 +95,15 @@
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                            <span class="required">Subjek</span>
+                        </label>
+                        <input type="text" class="form-control form-control-solid" value="Subjek Isi ape" name="" required disabled />
+                    </div>
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                             <span class="required">Pesan</span>
                         </label>
-                        <textarea class="form-control form-control-solid" name="" id="" cols="30" rows="10" required></textarea>
+                        <textarea class="form-control form-control-solid tinyMce" name="" id="" cols="30" rows="10" required></textarea>
                     </div>
             </div>
 
@@ -220,6 +226,16 @@
 
     $("#edit_tglPJB").flatpickr({
         dateFormat: "d F Y",
+    });
+
+    tinymce.init({
+        selector: ".tinyMce",
+        menubar: false,
+        toolbar: ["styleselect fontselect fontsizeselect",
+            "undo redo | cut copy paste | bold italic | link image | alignleft aligncenter alignright alignjustify",
+            "bullist numlist | outdent indent | blockquote subscript superscript | advlist | autolink | lists charmap | print preview |  code"
+        ],
+        plugins: "advlist autolink link image lists charmap print preview code"
     });
 </script>
 <script>

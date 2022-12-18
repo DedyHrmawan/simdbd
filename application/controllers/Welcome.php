@@ -1,25 +1,14 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+//Load Composer's autoloader
+require 'vendor/autoload.php';
 
 class Welcome extends CI_Controller
 {
-
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/userguide3/general/urls.html
-	 */
-
 	//admin
 	public function Home()
 	{
@@ -45,4 +34,48 @@ class Welcome extends CI_Controller
 		);
 		$this->template->admin('admin/VLaporanBulanan', $data);
 	}
+
+	public function PenangananKasus()
+	{
+		$data = array(
+			'title' => 'Penanganan Kasus - SIM DBD PUSKESMAS DINOYO'
+		);
+		$this->template->admin('admin/VPenangananKasus', $data);
+	}
+
+	public function email()
+    {
+        $mail = new PHPMailer();
+
+        //Server settings
+        // $mail->SMTPDebug = 'smtp.googlemail.com';
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.googlemail.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'simsdbd@gmail.com';
+        $mail->Password   = 'rtpvpjcratesonpg';
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port       = 465;
+        
+		$mail->Timeout = 60;
+		$mail->SMTPKeepAlive = true;
+
+        //Recipients
+        $mail->setFrom('simsdbd@gmail.com', 'SIM DBD');
+        $mail->addReplyTo('simsdbd@gmail.com', 'SIM DBD');
+        $mail->addAddress('deblenk.dh@gmail.com');
+       
+        //Content
+        $mail->isHTML(true);
+        $mail->Subject = 'Subjek From Feedback';
+        $mail->Body    = 'Pesan from input';
+        
+        if (!$mail->send()) {
+            echo 'Email tidak dapat terkirim !';
+            echo 'Email Error: ' . $mail->ErrorInfo;
+        } else {
+            echo 'Email berhasil dikirim !';
+        }
+    }
+	
 }
