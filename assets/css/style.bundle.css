@@ -48008,3 +48008,6 @@ body {
 	background-color: #fff;
 	border: 0;
 }
+.hide {
+  display: none;
+}
