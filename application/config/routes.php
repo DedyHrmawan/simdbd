@@ -56,7 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 //admin
 $route['home']                      = 'Welcome/Home';
 $route['laporanharian']             = 'Welcome/LaporanHarian';
-$route['laporanbulanan']            = 'Welcome/LaporanBulanan';
+$route['laporanbulanan']            = 'LaporanController/LaporanBulanan';
 
 $route['datapasien']                = 'PasienController/DataPasien';
 $route['datapasien/tambah']         = 'PasienController/store';
@@ -92,10 +92,9 @@ $route['carousel/ajxGet']         = 'CarouselController/ajxGet';
 $route['feedback']                = 'FeedbackController/Feedback';
 $route['feedback/hapus']          = 'FeedbackController/delete';
 $route['feedback/ajxGet']         = 'FeedbackController/ajxGet';
+$route['email']                   = 'FeedbackController/email';
 
-$route['email']                   = 'Welcome/email';
-
-$route['kasus']                   = 'Welcome/PenangananKasus';
+$route['kasus']                   = 'PenangananController/PenangananKasus';
 
 //depan
 $route['beranda']               = 'DepanController/Beranda';
