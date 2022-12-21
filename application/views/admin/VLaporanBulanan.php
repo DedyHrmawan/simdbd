@@ -11,7 +11,7 @@
         <div class="card mb-5 mb-xl-8">
             <div class="card-header d-flex justify-content-center border-0 pt-5">
                 <h3 class="card-title ">
-                    <span class="card-label text-center fw-bolder fs-3 mb-1">Laporan Bulanan Kegiatan Penemuan Penderita Tersangka DBD <br> Bulan Mei 2022</span>
+                    <span class="card-label text-center fw-bolder fs-3 mb-1">Laporan Bulanan Kegiatan Penemuan Penderita Tersangka DBD <br> 2022</span>
                 </h3>
             </div>
             <div class="card-body py-3">
@@ -39,17 +39,41 @@
                             </tr>
                         </thead>
                         <tbody class="text-left">
-                            <td rowspan="2">Minggu ke 3</td>
-                            <td rowspan="2">17</td>
-                            <td rowspan="2">Girito</td>
-                            <td>1</td>
-                            <td></td>
-                            <td>Lowokwaru</td>
-                            <td >08 Oktober 2022</td>
-                            <td >08 Oktober 2023</td>
-                            <td>08 Desember 2022</td>
-                            <td rowspan="2">Isi dari keterangan saya tidak tahu apa saja. ini hanya keterangan dummy.</td>
-                        </tbody>
+                            <?php
+                                $no = 1;
+                                foreach($list as $item){
+                                    $firstOfMonth = date("Y-m-01", strtotime($item->tgl_pe));
+                                    $week = intval(date("W", strtotime($item->tgl_pe))) - intval(date("W", strtotime($firstOfMonth)))+1;
+                                    $L = '';$P = '';
+                                    $date = date_create($item->tgl_sakit);
+                                    $sakit = date_format($date,"d F Y");
+                                    $date = date_create($item->tgl_masuk_rumkit);
+                                    $rumkit = date_format($date,"d F Y");
+                                    $date = date_create($item->tgl_pe);
+                                    $petgl = date_format($date,"d F Y");
+                                    if($item->gender_px == 'Laki-laki'){
+                                        $L = $item->umur_px;
+                                    }else if($item->gender_px == 'Perempuan'){
+                                        $P = $item->umur_px;
+                                    }
+                                    echo '
+                                        <tr>
+                                        <td style="text-align:center;">'.$week.'</td>
+                                        <td>'.$no.'</td>
+                                        <td>'.$item->nama_px.'</td>
+                                        <td >'.$L.'</td>
+                                        <td>'.$P.'</td>
+                                        <td>'.$item->nama_kelurahan.'</td>
+                                        <td >'.$sakit.'</td>
+                                        <td >'.$rumkit.'</td>
+                                        <td>'.$petgl.'</td>
+                                        <td></td>   
+                                        </tr>     
+                                    ';    
+                                    $no++;                                
+                                }
+                            ?>
+                            </tbody>
                     </table>
                 </div>
             </div>

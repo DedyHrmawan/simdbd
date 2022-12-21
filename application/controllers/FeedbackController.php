@@ -1,4 +1,10 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+//Load Composer's autoloader
+require 'vendor/autoload.php';
 
 class FeedbackController extends CI_Controller
 {
@@ -38,6 +44,46 @@ class FeedbackController extends CI_Controller
         $dataDelete = $_POST;
         $this->Feedback->delete($dataDelete);
         redirect('feedback');
+    }
+
+    public function email()
+    {
+        $param = $_POST;
+
+        $mail = new PHPMailer();
+
+        //Server settings
+        // $mail->SMTPDebug = 'smtp.googlemail.com';
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.googlemail.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'simsdbd@gmail.com';
+        $mail->Password   = 'rtpvpjcratesonpg';
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port       = 465;
+        
+		$mail->Timeout = 60;
+		$mail->SMTPKeepAlive = true;
+
+        //Recipients
+        $mail->setFrom('simsdbd@gmail.com', 'SIM DBD');
+        $mail->addReplyTo('simsdbd@gmail.com', 'SIM DBD');       
+        
+        $mail->ClearAddresses();
+        $mail->ClearAllRecipients();        
+        $mail->addAddress($param['email']);
+        //Content
+        $mail->isHTML(true);
+        $mail->Subject = $param['subjek'];
+        $mail->Body    = $param['pesan'];
+        
+        if (!$mail->send()) {
+            echo 'Email tidak dapat terkirim !';
+            echo 'Email Error: ' . $mail->ErrorInfo;
+            echo $param['email']; echo $param['subjek'];
+        } else {
+            redirect('feedback');
+        }
     }
 
 }

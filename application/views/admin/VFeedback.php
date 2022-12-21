@@ -74,7 +74,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="mb-3">Balas Feedback dari <b>Dedy Hermawan</b> </h3>
+                <h3 class="mb-3">Balas Feedback dari <b><span id="namaEmail"></span></b> </h3>
 
                 <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
                     <span class="svg-icon svg-icon-muted svg-icon-2hx"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -86,28 +86,30 @@
             </div>
 
             <div class="modal-body">
-                <form action="#" method="post">
+                <form action="<?= site_url('email') ?>" method="post">
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                             <span class="required">Email</span>
                         </label>
-                        <input type="text" class="form-control form-control-solid" value="dedy@gmail.com" name="" required disabled />
+                        <input type="text" class="form-control form-control-solid" id="emailSender" required disabled />
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                             <span class="required">Subjek</span>
                         </label>
-                        <input type="text" class="form-control form-control-solid" value="Subjek Isi ape" name="" required disabled />
+                        <input type="text" class="form-control form-control-solid" id="subjekSender" required disabled />
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                             <span class="required">Pesan</span>
                         </label>
-                        <textarea class="form-control form-control-solid tinyMce" name="" id="" cols="30" rows="10" required></textarea>
+                        <textarea class="form-control form-control-solid tinyMce" name="pesan" id="" cols="30" rows="10" ></textarea>
                     </div>
             </div>
 
             <div class="modal-footer">
+                <input type="hidden" id="emaill" name="email">
+                <input type="hidden" id="subjekk" name="subjek">
                 <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
                 <button type="submit" id="" class="btn btn-primary">Kirim</button>
             </div>
@@ -254,6 +256,25 @@
                 $('#detTgl').html(res[0].tgl_feedback)
                 $('#detJudul').html(res[0].judul_feedback)
                 $('#detPesan').html(res[0].pesan_feedback)
+            }
+        })
+    })
+
+    $('#tabelFeedback tbody').on('click', '.mdl_editJentik', function() {
+        const id = $(this).data('id');
+        $.ajax({
+            url: "<?= site_url('feedback/ajxGet') ?>",
+            type: "post",
+            dataType: 'json',
+            data: {
+                id_feedback: id
+            },
+            success: res => {
+                $('#emailSender').val(res[0].email_feedback)
+                $('#subjekSender').val(res[0].judul_feedback)
+                $('#subjekk').val(res[0].judul_feedback)
+                $('#emaill').val(res[0].email_feedback)
+                $('#namaEmail').html(res[0].nama_feedback)
             }
         })
     })
