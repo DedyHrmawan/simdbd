@@ -25,7 +25,7 @@
 									</span>
 								</button>
 								<a href="<?= site_url('') ?>">
-									<img alt="Logo" src="assets/media/logos/logo-white-bg.png" class="logo-default h-45px h-lgx-50px" />
+									<img alt="Logo" src="assets/media/logos/logo-blue.png" class="logo-default h-45px h-lgx-50px" />
 									<img alt="Logo" src="assets/media/logos/logo-blue.png" class="logo-sticky h-40px h-lg-45px" />
 								</a>
 							</div>
@@ -56,34 +56,51 @@
 						</div>
 					</div>
 				</div>
-				<div class="d-flex flex-column flex-center w-100 min-h-350px min-h-lg-500px px-9">
-					<div class="text-center mb-5 mb-lg-10 py-10 py-lg-20">
-						<div class="tns tns-default">
-							<div data-tns="true" data-tns-loop="true" data-tns-swipe-angle="false" data-tns-speed="2000" data-tns-autoplay="true" data-tns-autoplay-timeout="18000" data-tns-controls="true" data-tns-nav="false" data-tns-items="1" data-tns-center="false" data-tns-dots="false" data-tns-prev-button="#kt_team_slider_prev1" data-tns-next-button="#kt_team_slider_next1">
-								<?php
-									foreach($carousel as $item){
-										echo '
+				<div class="d-flex flex-column w-100 min-h-350px min-h-lg-500px px-9">
+					<div class="mb-5 mb-lg-8 py-10 py-lg-20">
+						<div class="row">
+							<div class="col-8">
+								<div class="tns tns-default">
+									<div data-tns="true" data-tns-loop="true" data-tns-swipe-angle="false" data-tns-speed="2000" data-tns-autoplay="true" data-tns-autoplay-timeout="8000" data-tns-controls="true" data-tns-nav="false" data-tns-items="1" data-tns-center="false" data-tns-dots="false" data-tns-prev-button="#kt_team_slider_prev1" data-tns-next-button="#kt_team_slider_next1">
+										<?php
+										foreach ($carousel as $item) {
+											echo '
 										<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-											<img src="'.$item->gambar.'" width="800" min-width="700" class="card-rounded shadow mw-100" alt="" />
+											<img src="' . $item->gambar . '" width="800" min-width="700" class="card-rounded shadow mw-100" alt="" />
 										</div>
 										';
-									}
-								?>
+										}
+										?>
+									</div>
+									<button hidden class="btn btn-icon btn-white btn-active-color-success" id="kt_team_slider_prev1">
+										<span class="svg-icon svg-icon-2x">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+												<path d="M11.2657 11.4343L15.45 7.25C15.8642 6.83579 15.8642 6.16421 15.45 5.75C15.0358 5.33579 14.3642 5.33579 13.95 5.75L8.40712 11.2929C8.01659 11.6834 8.01659 12.3166 8.40712 12.7071L13.95 18.25C14.3642 18.6642 15.0358 18.6642 15.45 18.25C15.8642 17.8358 15.8642 17.1642 15.45 16.75L11.2657 12.5657C10.9533 12.2533 10.9533 11.7467 11.2657 11.4343Z" fill="currentColor" />
+											</svg>
+										</span>
+									</button>
+									<button hidden class="btn btn-icon btn-white btn-active-color-success" id="kt_team_slider_next1">
+										<span class="svg-icon svg-icon-2x">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+												<path d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z" fill="currentColor" />
+											</svg>
+										</span>
+									</button>
+								</div>
 							</div>
-							<button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_prev1">
-								<span class="svg-icon svg-icon-3x">
-									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-										<path d="M11.2657 11.4343L15.45 7.25C15.8642 6.83579 15.8642 6.16421 15.45 5.75C15.0358 5.33579 14.3642 5.33579 13.95 5.75L8.40712 11.2929C8.01659 11.6834 8.01659 12.3166 8.40712 12.7071L13.95 18.25C14.3642 18.6642 15.0358 18.6642 15.45 18.25C15.8642 17.8358 15.8642 17.1642 15.45 16.75L11.2657 12.5657C10.9533 12.2533 10.9533 11.7467 11.2657 11.4343Z" fill="currentColor" />
-									</svg>
-								</span>
-							</button>
-							<button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_next1">
-								<span class="svg-icon svg-icon-3x">
-									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-										<path d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z" fill="currentColor" />
-									</svg>
-								</span>
-							</button>
+							<div class="col mt-xl-20 text-left text-white">
+								<h1 class="text-white">Puskesmas Dinoyo adalah salah satu puskesmas di Kota Malang.</h1>
+								<br>
+								<p class="fs-5">Wilayah kerja puskesmas meliputi :</p>
+								<ol class="fs-6">
+									<li>Kelurahan Ketawanggede.</li>
+									<li>Kelurahan Dinoyo.</li>
+									<li>Kelurahan Tlogomas.</li>
+									<li>Kelurahan Sumbersari.</li>
+									<li>Kelurahan Tunggulwulung.</li>
+									<li>Kelurahan Merjosari.</li>
+								</ol>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -152,26 +169,26 @@
 			</div>
 			<div class="row g-10">
 				<?php
-					foreach($informasi as $item){
-						$link = site_url('informasi/'.$item->id_info);
-						$date=date_create($item->tgl_info);
-        				$tanggal = date_format($date,"d F Y");
-						echo '
+				foreach ($informasi as $item) {
+					$link = site_url('informasi/' . $item->id_info);
+					$date = date_create($item->tgl_info);
+					$tanggal = date_format($date, "d F Y");
+					echo '
 						<div class="col-md-4">
 							<div class="card-xl-stretch me-md-6">
-								<a class="d-block bgi-no-repeat bgi-size-cover bgi-position-center card-rounded position-relative min-h-175px mb-5" style="background-image:url('.$item->gambar.'); width: 100%;" data-fslightbox="lightbox-video-tutorials"></a>
+								<a class="d-block bgi-no-repeat bgi-size-cover bgi-position-center card-rounded position-relative min-h-175px mb-5" style="background-image:url(' . $item->gambar . '); width: 100%;" data-fslightbox="lightbox-video-tutorials"></a>
 								<div class="m-0">
-									<a href="'.$link.'" class="fs-4 text-dark fw-bolder text-hover-primary text-dark lh-base">'.$item->judul_info.'</a>
-									<div class="fw-bold fs-5 text-gray-600 text-dark my-4">'.mb_strimwidth($item->desc_info, 0, 200, "...").'<a class="fs-6 fw-bold link-primary" href="'.$link.'">Baca Selengkapnya</a></div>
+									<a href="' . $link . '" class="fs-4 text-dark fw-bolder text-hover-primary text-dark lh-base">' . $item->judul_info . '</a>
+									<div class="fw-bold fs-5 text-gray-600 text-dark my-4">' . mb_strimwidth($item->desc_info, 0, 200, "...") . '<a class="fs-6 fw-bold link-primary" href="' . $link . '">Baca Selengkapnya</a></div>
 									<div class="fs-6 fw-bolder">
 										<span href="" class="text-gray-700 text-hover-primary">Admin</span>
-										<span class="text-muted">- '.$tanggal.'</span>
+										<span class="text-muted">- ' . $tanggal . '</span>
 									</div>
 								</div>
 							</div>
 						</div>
 						';
-					}
+				}
 				?>
 			</div>
 		</div>
@@ -187,7 +204,7 @@
 					if ($this->session->flashdata('success_feedback')) {
 						echo '
 							<div class="alert alert-success" role="alert">
-								'.$this->session->flashdata('success_feedback').'
+								' . $this->session->flashdata('success_feedback') . '
 							</div>
 						';
 					}
@@ -203,7 +220,7 @@
 									</div>
 									<div class="col-md-6 fv-row">
 										<label class="fs-5 fw-bold mb-2">Email</label>
-										<input type="email" class="form-control form-control-solid" placeholder="Masukan Email" name="email_feedback" required/>
+										<input type="email" class="form-control form-control-solid" placeholder="Masukan Email" name="email_feedback" required />
 									</div>
 								</div>
 								<div class="d-flex flex-column mb-5 fv-row">
@@ -265,14 +282,8 @@
 <script>
 	var options = {
 		series: [{
-			name: 'Net Profit',
-			data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
-		}, {
-			name: 'Revenue',
-			data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
-		}, {
-			name: 'Free Cash Flow',
-			data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
+			name: 'Kasus DBD',
+			data: [44, 55, 57, 56, 61, 58, 63, 60, 66, 10, 19, 66]
 		}],
 		chart: {
 			type: 'bar',
@@ -294,11 +305,11 @@
 			colors: ['transparent']
 		},
 		xaxis: {
-			categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+			categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
 		},
 		yaxis: {
 			title: {
-				text: '$ (thousands)'
+				text: 'Jumlah Kasus DBD'
 			}
 		},
 		fill: {
@@ -307,7 +318,7 @@
 		tooltip: {
 			y: {
 				formatter: function(val) {
-					return "$ " + val + " thousands"
+					return val + " kasus"
 				}
 			}
 		}

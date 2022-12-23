@@ -74,7 +74,7 @@
     </div>
 </div>
 <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true" data-kt-menu-expand="false">
-    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+    <div data-kt-menu-trigger="click" <?= $this->uri->segment(1) == 'laporanbulanan' || $this->uri->segment(1) == 'laporan_umur' ? 'class="menu-item menu-accordion hover show"' : 'class="menu-item menu-accordion"' ?>>
         <span class="menu-link">
             <span class="menu-icon">
                 <span class="svg-icon svg-icon-2">
@@ -88,20 +88,20 @@
             <span class="menu-arrow"></span>
         </span>
         <div class="menu-sub menu-sub-accordion menu-active-bg">
-            <!-- <div class="menu-item">
-                <a <?= $this->uri->segment(1) == 'laporanharian' || $this->uri->segment(1) == '' ? 'class="menu-link active"' : 'class="menu-link"' ?> href="<?php echo site_url('laporanharian'); ?>" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
-                    <span class="menu-bullet">
-                        <span class="bullet bullet-dot"></span>
-                    </span>
-                    <span class="menu-title">Laporan Harian</span>
-                </a>
-            </div> -->
             <div class="menu-item">
                 <a <?= $this->uri->segment(1) == 'laporanbulanan' || $this->uri->segment(1) == '' ? 'class="menu-link active"' : 'class="menu-link"' ?> href="<?php echo site_url('laporanbulanan'); ?>" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
                     <span class="menu-bullet">
                         <span class="bullet bullet-dot"></span>
                     </span>
                     <span class="menu-title">Laporan Bulanan</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a <?= $this->uri->segment(1) == 'laporan_umur' || $this->uri->segment(1) == '' ? 'class="menu-link active"' : 'class="menu-link"' ?> href="<?php echo site_url('laporan_umur'); ?>" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
+                    <span class="menu-bullet">
+                        <span class="bullet bullet-dot"></span>
+                    </span>
+                    <span class="menu-title">Laporan Harian</span>
                 </a>
             </div>
         </div>

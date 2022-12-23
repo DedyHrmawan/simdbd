@@ -55,7 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 //admin
 $route['home']                      = 'Welcome/Home';
-$route['laporanharian']             = 'Welcome/LaporanHarian';
+$route['laporan_umur']             = 'Welcome/LaporanGolongan';
 $route['laporanbulanan']            = 'LaporanController/LaporanBulanan';
 
 $route['datapasien']                = 'PasienController/DataPasien';
