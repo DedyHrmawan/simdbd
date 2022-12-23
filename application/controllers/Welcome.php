@@ -20,12 +20,12 @@ class Welcome extends CI_Controller
 		);
 		$this->template->admin('admin/VBeranda', $data);
 	}
-	public function LaporanHarian()
+	public function LaporanGolongan()
 	{
 		$data = array(
-			'title' => 'Laporan Harian - SIM DBD PUSKESMAS DINOYO'
+			'title' => 'Laporan Golongan Umur dan Jenis Kelamin - SIM DBD PUSKESMAS DINOYO'
 		);
-		$this->template->admin('admin/VLaporanHarian', $data);
+		$this->template->admin('admin/VLaporanGolongan', $data);
 	}
 
 	public function PenangananKasus()
