@@ -15,31 +15,53 @@
                 </h3>
             </div>
             <div class="card-body py-3">
-                <div class="row">
-                    <div class="col-6 mt-10">
+                <div class="row">                    
+                    <div class="col-2">
+                        <div class="d-flex flex-column mb-8 fv-row">                            
+                        <form action="<?= site_url('laporanbulanan/filter') ?>" method="post">
+                            <select class="form-select " data-control="select2" name="mmonth">
+                                <option value="1" <?= $bulan == '1'?'selected' : '' ?>>Januari</option>
+                                <option value="2" <?= $bulan == '2'?'selected' : '' ?>>Februari</option>
+                                <option value="3" <?= $bulan == '3'?'selected' : '' ?>>Maret</option>
+                                <option value="4" <?= $bulan == '4'?'selected' : '' ?>>April</option>
+                                <option value="5" <?= $bulan == '5'?'selected' : '' ?>>Mei</option>
+                                <option value="6" <?= $bulan == '6'?'selected' : '' ?>>Juni</option>
+                                <option value="7" <?= $bulan == '7'?'selected' : '' ?>>Juli</option>
+                                <option value="8" <?= $bulan == '8'?'selected' : '' ?>>Agustus</option>
+                                <option value="9" <?= $bulan == '9'?'selected' : '' ?>>September</option>
+                                <option value="10" <?= $bulan == '10'?'selected' : '' ?>>Oktober</option>
+                                <option value="11" <?= $bulan == '11'?'selected' : '' ?>>November</option>
+                                <option value="12" <?= $bulan == '12'?'selected' : '' ?>>Desember</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="d-flex flex-column mb-8 fv-row">
+                            <select class="form-select" data-control="select2" name="yyear">
+                                <?php
+                                    foreach($tahun as $item){
+                                        $selected = '';
+                                        if($item->thn == $seltahun){
+                                            $selected = 'selected';
+                                        }
+                                        echo '                                            
+                                            <option value="'.$item->thn.'" '.$selected.'>'.$item->thn.'</option>
+                                        ';
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-1">                        
+                        <button type="submit" class="btn btn-md btn-primary">Filter</button>
+                    </div>
+                    </form>
+                    <div class="col-2">
+                        <a href="<?= site_url('laporanbulanan/download/'.$bulan.'/'.$seltahun) ?>" class="btn btn-md btn-primary"><i class="fas fa-file-download"></i>Download</a>
+                    </div>   
+                    <div>
                         <p>PUSKESMAS DINOYO</p>
-                    </div>
-                    <div class="col-2">
-                        <div class="d-flex flex-column mb-8 fv-row">
-                            <select class="form-select " data-control="select2">
-                                <option value="1">Januari</option>
-                                <option value="2">Februari</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="d-flex flex-column mb-8 fv-row">
-                            <select class="form-select" data-control="select2">
-                                <option value="3">2021</option>
-                                <option value="4">2022</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div>
-                            <a class="btn btn-md btn-primary"><i class="fas fa-file-download"></i>Download</a>
-                        </div>
-                    </div>
+                    </div>                 
                 </div>
                 <div class="table-responsive">
                     <table class="table align-middle gs-0 gy-3" id="tabelBulanan">
@@ -68,16 +90,19 @@
                             <?php
                             $no = 1;
                             foreach ($list as $item) {
-                                $firstOfMonth = date("Y-m-01", strtotime($item->tgl_pe));
-                                $week = intval(date("W", strtotime($item->tgl_pe))) - intval(date("W", strtotime($firstOfMonth))) + 1;
+                                $week = ceil((date("d",strtotime($item->tgl_sakit)) - date("w",strtotime($item->tgl_sakit)) - 1) / 7) + 1; 
+
                                 $L = '';
                                 $P = '';
                                 $date = date_create($item->tgl_sakit);
                                 $sakit = date_format($date, "d F Y");
                                 $date = date_create($item->tgl_masuk_rumkit);
                                 $rumkit = date_format($date, "d F Y");
-                                $date = date_create($item->tgl_pe);
-                                $petgl = date_format($date, "d F Y");
+                                $petgl = '';
+                                if(!empty($item->tgl_pe)){
+                                    $date = date_create($item->tgl_pe);
+                                    $petgl = date_format($date, "d F Y");
+                                }
                                 if ($item->gender_px == 'Laki-laki') {
                                     $L = $item->umur_px;
                                 } else if ($item->gender_px == 'Perempuan') {
@@ -94,9 +119,9 @@
                                         <td >' . $sakit . '</td>
                                         <td >' . $rumkit . '</td>
                                         <td>' . $petgl . '</td>
-                                        <td></td>
+                                        <td>'.$item->ket.'</td>
                                         <td>  
-                                            <a href="" title="Edit Keterangan" data-bs-toggle="modal" data-bs-target="#mdl_editKet" data-id="" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm mdl_editKet m-1">
+                                            <a href="" title="Edit Keterangan" data-bs-toggle="modal" data-bs-target="#mdl_editKet" data-id="'.$item->id_px.'" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm mdl_editKet m-1">
                                                 <span class="svg-icon svg-icon-3">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                         <path opacity="0.3" d="M21.4 8.35303L19.241 10.511L13.485 4.755L15.643 2.59595C16.0248 2.21423 16.5426 1.99988 17.0825 1.99988C17.6224 1.99988 18.1402 2.21423 18.522 2.59595L21.4 5.474C21.7817 5.85581 21.9962 6.37355 21.9962 6.91345C21.9962 7.45335 21.7817 7.97122 21.4 8.35303ZM3.68699 21.932L9.88699 19.865L4.13099 14.109L2.06399 20.309C1.98815 20.5354 1.97703 20.7787 2.03189 21.0111C2.08674 21.2436 2.2054 21.4561 2.37449 21.6248C2.54359 21.7934 2.75641 21.9115 2.989 21.9658C3.22158 22.0201 3.4647 22.0084 3.69099 21.932H3.68699Z" fill="currentColor" />
@@ -132,19 +157,24 @@
                 </div>
             </div>
 
+            <form action="<?= site_url('laporanbulanan/keterangan') ?>" method="post">
             <div class="modal-body">
                 <div class="d-flex flex-column mb-8 fv-row">
                     <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                         <span class="required">Keterangan</span>
                     </label>
-                    <textarea class="form-control form-control-solid" placeholder="Masukan Keterangan" name="" id="" cols="10" rows="5"></textarea>
+                    <textarea class="form-control form-control-solid" placeholder="Masukan Keterangan" name="ket" id="ketEdit" cols="10" rows="5"></textarea>
                 </div>
             </div>
 
             <div class="modal-footer">
+                <input type="hidden" id="idKeterangan" name="id_px">
+                <input type="hidden" name="bln" value="<?= $bulan ?>">
+                <input type="hidden" name="thn" value="<?= $seltahun ?>">
                 <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-primary">Simpan</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
+            </form>
         </div>
     </div>
 </div>
@@ -164,4 +194,20 @@
     $("#edit_tglPJB").flatpickr({
         dateFormat: "d F Y",
     });
+
+    $('#tabelBulanan tbody').on('click', '.mdl_editKet', function() {
+        const id = $(this).data('id');
+        $.ajax({
+            url: "<?= site_url('laporanbulanan/ajxGetKeterangan') ?>",
+            type: "post",
+            dataType: 'json',
+            data: {
+                id_px: id
+            },
+            success: res => {
+                $('#ketEdit').val(res[0].ket)
+                $('#idKeterangan').val(res[0].id_px)
+            }
+        })
+    })
 </script>
