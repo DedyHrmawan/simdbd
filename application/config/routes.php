@@ -55,8 +55,15 @@ $route['translate_uri_dashes'] = FALSE;
 
 //admin
 $route['home']                      = 'Welcome/Home';
-$route['laporan_umur']             = 'Welcome/LaporanGolongan';
 $route['laporanbulanan']            = 'LaporanController/LaporanBulanan';
+$route['laporanbulanan/filter']     = 'LaporanController/filter';
+$route['laporanbulanan/ajxGetKeterangan']     = 'LaporanController/ajxGetKeterangan';
+$route['laporanbulanan/keterangan']     = 'LaporanController/editKet';
+$route['laporanbulanan/download/(:any)/(:any)'] = 'LaporanController/downloadPdf/$1/$2';
+
+$route['laporan_umur']             = 'LaporanHarianController/LaporanGolongan';
+$route['laporan_umur/filter']      = 'LaporanHarianController/filter';
+$route['laporan_umur/download/(:any)/(:any)'] = 'LaporanHarianController/downloadPdf/$1/$2';
 
 $route['datapasien']                = 'PasienController/DataPasien';
 $route['datapasien/tambah']         = 'PasienController/store';
@@ -95,6 +102,11 @@ $route['feedback/ajxGet']         = 'FeedbackController/ajxGet';
 $route['email']                   = 'FeedbackController/email';
 
 $route['kasus']                   = 'PenangananController/PenangananKasus';
+$route['kasus/ajxGetPE']          = 'PenangananController/ajxGetPE';
+$route['kasus/ajxGet']            = 'PenangananController/ajxGet';
+$route['kasus/tambah']             = 'PenangananController/store';
+$route['kasus/edit']              = 'PenangananController/edit';
+$route['kasus/delete']            = 'PenangananController/delete';
 
 //depan
 $route['beranda']               = 'DepanController/Beranda';

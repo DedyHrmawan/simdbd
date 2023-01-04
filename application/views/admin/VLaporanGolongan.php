@@ -16,7 +16,7 @@
             </div>
             <div class="card-body py-3">
                 <div class="row">
-                    <div class="col-6 ">
+                    <div class="col-5 ">
                         <div class="row">
                             <div class="col-3">
                                 <p>Propinsi</p>
@@ -44,23 +44,47 @@
                     </div>
                     <div class="col-2 mt-10">
                         <div class="d-flex flex-column mb-8 fv-row">
-                            <select class="form-select " data-control="select2">
-                                <option value="1">Januari</option>
-                                <option value="2">Februari</option>
+                            <form action="<?= site_url('laporan_umur/filter') ?>" method="post">
+                            <select class="form-select " data-control="select2" name="mmonth">
+                                <option value="1" <?= $bulan == '1'?'selected' : '' ?>>Januari</option>
+                                <option value="2" <?= $bulan == '2'?'selected' : '' ?>>Februari</option>
+                                <option value="3" <?= $bulan == '3'?'selected' : '' ?>>Maret</option>
+                                <option value="4" <?= $bulan == '4'?'selected' : '' ?>>April</option>
+                                <option value="5" <?= $bulan == '5'?'selected' : '' ?>>Mei</option>
+                                <option value="6" <?= $bulan == '6'?'selected' : '' ?>>Juni</option>
+                                <option value="7" <?= $bulan == '7'?'selected' : '' ?>>Juli</option>
+                                <option value="8" <?= $bulan == '8'?'selected' : '' ?>>Agustus</option>
+                                <option value="9" <?= $bulan == '9'?'selected' : '' ?>>September</option>
+                                <option value="10" <?= $bulan == '10'?'selected' : '' ?>>Oktober</option>
+                                <option value="11" <?= $bulan == '11'?'selected' : '' ?>>November</option>
+                                <option value="12" <?= $bulan == '12'?'selected' : '' ?>>Desember</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-2 mt-10">
                         <div class="d-flex flex-column mb-8 fv-row">
-                            <select class="form-select" data-control="select2">
-                                <option value="3">2021</option>
-                                <option value="4">2022</option>
+                            <select class="form-select" data-control="select2" name="yyear">
+                                <?php
+                                    foreach($tahun as $item){
+                                        $selected = '';
+                                        if($item->thn == $seltahun){
+                                            $selected = 'selected';
+                                        }
+                                        echo '                                            
+                                            <option value="'.$item->thn.'" '.$selected.'>'.$item->thn.'</option>
+                                        ';
+                                    }
+                                ?>
                             </select>
                         </div>
                     </div>
+                    <div class="col-1 mt-10">                        
+                        <button type="submit" class="btn btn-md btn-primary">Filter</button>
+                    </div>
+                    </form>
                     <div class="col-2 mt-10">
                         <div>
-                            <a class="btn btn-md btn-primary"><i class="fas fa-file-download"></i>Download</a>
+                            <a href="<?= site_url('laporan_umur/download/'.$bulan.'/'.$seltahun) ?>" class="btn btn-md btn-primary"><i class="fas fa-file-download"></i>Download</a>
                         </div>
                     </div>
                 </div>
@@ -101,43 +125,109 @@
                             </tr>
                         </thead>
                         <tbody class="text-center">
-                            <tr>
-                                <td>1</td>
-                                <td>Lowokwaru</td>
-                                <td>0</td>
-                                <td>1</td>
-                                <td>0</td>
-                                <td>1</td>
-                                <td>0</td>
-                                <td>1</td>
-                                <td>0</td>
-                                <td>1</td>
-                                <td>0</td>
-                                <td>1</td>
-                                <td>0</td>
-                                <td>1</td>
-                                <td>0</td>
-                                <td>1</td>
-                                <td>1</td>
-                            </tr>
+                            <?php                                
+                                $no = 1;
+                                $at = array();$at[0]=0;$at[1]=0;
+                                $bt = array();$bt[0]=0;$bt[1]=0;
+                                $ct = array();$ct[0]=0;$ct[1]=0;
+                                $dt = array();$dt[0]=0;$dt[1]=0;
+                                $et = array();$et[0]=0;$et[1]=0;
+                                $ft = array();$ft[0]=0;$ft[1]=0;
+                                $totalt = 0;
+                                $lt = 0; $pt = 0;
+                                foreach($kelurahan as $item){
+                                    $a = array();$a[0]=0;$a[1]=0;
+                                    $b = array();$b[0]=0;$b[1]=0;
+                                    $c = array();$c[0]=0;$c[1]=0;
+                                    $d = array();$d[0]=0;$d[1]=0;
+                                    $e = array();$e[0]=0;$e[1]=0;
+                                    $f = array();$f[0]=0;$f[1]=0;
+                                    $total = 0;
+                                    $l = 0; $p = 0;
+                                    foreach($list as $key){
+                                        if($item->kelurahan == $key->nama_kelurahan){
+                                            if($key->umur_px <= 1){
+                                                if($key->gender_px == 'Laki-laki'){
+                                                    $a[0]++; $l++; $at[0]++; $lt++;
+                                                }else if($key->gender_px == 'Perempuan'){
+                                                    $a[1]++; $p++; $at[1]++; $pt++; 
+                                                }
+                                            }else if($key->umur_px > 1 && $key->umur_px <= 4){
+                                                if($key->gender_px == 'Laki-laki'){
+                                                    $b[0]++; $l++; $bt[0]++; $lt++;
+                                                }else if($key->gender_px == 'Perempuan'){
+                                                    $b[1]++; $p++; $bt[1]++; $pt++;
+                                                }
+                                            }else if($key->umur_px > 4 && $key->umur_px <= 14){
+                                                if($key->gender_px == 'Laki-laki'){
+                                                    $c[0]++; $l++; $ct[0]++; $lt++;
+                                                }else if($key->gender_px == 'Perempuan'){
+                                                    $c[1]++; $p++; $ct[1]++; $pt++;
+                                                }
+                                            }else if($key->umur_px > 14 && $key->umur_px <= 24){
+                                                if($key->gender_px == 'Laki-laki'){
+                                                    $d[0]++; $l++; $dt[0]++; $lt++;
+                                                }else if($key->gender_px == 'Perempuan'){
+                                                    $d[1]++; $p++; $dt[1]++; $pt++;
+                                                }
+                                            }else if($key->umur_px > 24 && $key->umur_px <= 44){
+                                                if($key->gender_px == 'Laki-laki'){
+                                                    $e[0]++; $l++; $et[0]++; $lt++;
+                                                }else if($key->gender_px == 'Perempuan'){
+                                                    $e[1]++; $p++; $et[1]++; $pt++;
+                                                }
+                                            }else if($key->umur_px > 45){
+                                                if($key->gender_px == 'Laki-laki'){
+                                                    $f[0]++; $l++; $ft[0]++; $lt++;
+                                                }else if($key->gender_px == 'Perempuan'){
+                                                    $f[1]++; $p++; $ft[1]++; $pt++;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    $total = $l + $p;
+                                    echo '
+                                    <tr>
+                                        <td>'.$no.'</td>
+                                        <td>'.$item->kelurahan.'</td>
+                                        <td>'.$a[0].'</td>
+                                        <td>'.$a[1].'</td>
+                                        <td>'.$b[0].'</td>
+                                        <td>'.$b[1].'</td>                                
+                                        <td>'.$c[0].'</td>
+                                        <td>'.$c[1].'</td>                                
+                                        <td>'.$d[0].'</td>
+                                        <td>'.$d[1].'</td>
+                                        <td>'.$e[0].'</td>
+                                        <td>'.$e[1].'</td>
+                                        <td>'.$f[0].'</td>
+                                        <td>'.$f[1].'</td>
+                                        <td>'.$l.'</td>
+                                        <td>'.$p.'</td>
+                                        <td>'.$total.'</td>
+                                    </tr>
+                                    ';
+                                    $no++;
+                                }
+                            ?>                            
                         </tbody>
                         <tfoot class="text-center">
                             <th colspan="2">Jumlah</th>
-                            <th>0</th>
-                            <th>1</th>
-                            <th>0</th>
-                            <th>1</th>
-                            <th>0</th>
-                            <th>1</th>
-                            <th>0</th>
-                            <th>1</th>
-                            <th>0</th>
-                            <th>1</th>
-                            <th>0</th>
-                            <th>1</th>
-                            <th>0</th>
-                            <th>1</th>
-                            <th>1</th>
+                            <th><?= $at[0] ?></th>
+                            <th><?= $at[1] ?></th>
+                            <th><?= $bt[0] ?></th>
+                            <th><?= $bt[1] ?></th>
+                            <th><?= $ct[0] ?></th>
+                            <th><?= $ct[1] ?></th>
+                            <th><?= $dt[0] ?></th>
+                            <th><?= $dt[1] ?></th>
+                            <th><?= $et[0] ?></th>
+                            <th><?= $et[1] ?></th>
+                            <th><?= $ft[0] ?></th>
+                            <th><?= $ft[1] ?></th>
+                            <th><?= $lt ?></th>
+                            <th><?= $pt ?></th>
+                            <th><?= $lt+$pt ?></th>
                         </tfoot>
                     </table>
                 </div>

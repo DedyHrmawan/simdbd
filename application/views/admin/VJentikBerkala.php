@@ -459,7 +459,7 @@
                 $('#detLatitude').html(res[0].latitude)
                 $('#detLongitude').html(res[0].longitude)
                 $('#detTanggal').html(res[0].tgl_pjb)
-                $('#detDlm').html(res[0].jml_tandon_luar_periksa)
+                $('#detDlm').html(res[0].jml_tandon_dlm_periksa)
                 $('#detDlmPos').html(res[0].jml_tandon_dlm_jentik)
                 $('#detLuar').html(res[0].jml_tandon_luar_periksa)
                 $('#detLuarPos').html(res[0].jml_tandon_luar_jentik)

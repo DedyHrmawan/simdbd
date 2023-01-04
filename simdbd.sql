@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Des 2022 pada 01.43
+-- Waktu pembuatan: 04 Jan 2023 pada 09.52
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -76,7 +76,7 @@ CREATE TABLE `epidemiologi` (
 
 INSERT INTO `epidemiologi` (`id_pe`, `tgl_pe`, `id_px`, `riw_perjalanan`, `tgl_perjalanan`, `riw_tamu`, `nama_suspek`, `gender_suspek`, `umur_suspek`, `nama_kk`, `latitude`, `longitude`, `tandon_dlm_periksa`, `tandon_dlm_pos`, `tandon_luar_periksa`, `tandon_luar_pos`, `total_periksa`, `total_pos`, `bepergian`, `tetangga`) VALUES
 (6, '2022-12-16', 3, 'Ndatau', '2022-12-08', 'Ya', 'Jesslyn;Ella', 'Perempuan;Perempuan', '23;24', 'Jokopi;Darmo', '10.238178;10.3847216', '13.2348298;12.1381381', '12;1', '2;0', '13;1', '2;0', '25;2', '4;0', 'Tidak', 'Ya'),
-(7, '2022-12-01', 4, 'Sulawesi', '2022-11-20', 'Ya', 'Ryan;Cyntia', 'Laki-laki;Perempuan', '23;25', 'Dias;Fruspa', '12.4029193;12.5649839', '-2.2323481;-25483857', '10;5', '2;2', '10;5', '2;2', '20;10', '4;4', 'Ya', 'Tidak');
+(7, '2022-12-02', 4, 'Sulawesi', '2022-11-20', 'Ya', 'Ryan;Cyntia', 'Laki-laki;Perempuan', '23;25', 'Dias;Fruspa', '12.4029193;12.5649839', '-2.2323481;-25483857', '10;5', '2;2', '10;5', '2;2', '20;10', '4;4', 'Ya', 'Tidak');
 
 -- --------------------------------------------------------
 
@@ -100,7 +100,7 @@ CREATE TABLE `feedback` (
 INSERT INTO `feedback` (`id_feedback`, `nama_feedback`, `tgl_feedback`, `email_feedback`, `judul_feedback`, `pesan_feedback`) VALUES
 (1, 'Giri', '2022-12-15 10:40:34', 'dangiriel@gmail.com', 'Tanya dong', 'Oke oke tenkyuu'),
 (2, 'dani', '2022-12-15 10:44:39', 'danikojelc@gmail.com', 'masukan aja', 'baik terima kasih'),
-(3, 'Hiens', '2022-12-15 10:48:33', 'hiensozawa@gmail.com', 'tes fitur', 'gud');
+(3, 'Hiens', '2022-12-15 10:48:33', 'imayidid@gmail.com', 'tes fitur', 'gud');
 
 -- --------------------------------------------------------
 
@@ -129,6 +129,25 @@ INSERT INTO `informasi` (`id_info`, `judul_info`, `desc_info`, `tgl_info`, `gamb
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `penanganan`
+--
+
+CREATE TABLE `penanganan` (
+  `id_penanganan` int(11) NOT NULL,
+  `id_pe` int(11) NOT NULL,
+  `penularan` varchar(10) NOT NULL,
+  `radius` varchar(30) DEFAULT NULL,
+  `tgl_penanganan` date NOT NULL,
+  `kelurahan` varchar(50) NOT NULL,
+  `jumlah_rumah` int(11) NOT NULL,
+  `keterangan` text NOT NULL,
+  `tgl_pe` date NOT NULL,
+  `nik` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `penderita`
 --
 
@@ -147,16 +166,18 @@ CREATE TABLE `penderita` (
   `latitude` text NOT NULL,
   `longitude` text NOT NULL,
   `tgl_sakit` date NOT NULL,
-  `tgl_masuk_rumkit` date NOT NULL
+  `tgl_masuk_rumkit` date NOT NULL,
+  `ket` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `penderita`
 --
 
-INSERT INTO `penderita` (`id_px`, `nik_px`, `nama_px`, `gender_px`, `dob_px`, `umur_px`, `namaortu_px`, `namapuskesmas_px`, `namarumkit_px`, `alamat_px`, `nama_kelurahan`, `latitude`, `longitude`, `tgl_sakit`, `tgl_masuk_rumkit`) VALUES
-(3, '3582739101990003', 'Dedy Hermina', 'Laki-laki', '1997-12-04', 24, 'Hiens', 'Puskesmas Swasta', 'Rumkit Swasta', 'Jalan Kanan Kiri 12', 'Lowokwaru', '10.1828371841', '1.285287282', '2022-12-01', '2022-12-05'),
-(4, '3574022947110002', 'Johanna Kellyn', 'Perempuan', '1997-12-10', 26, 'Hiens', 'Pus Swasta', 'Rum Swasta', 'Jalan Kanan Kiri 12', 'Lowokwaru', '12.5238254', '-2.2349829', '2022-12-01', '2022-12-08');
+INSERT INTO `penderita` (`id_px`, `nik_px`, `nama_px`, `gender_px`, `dob_px`, `umur_px`, `namaortu_px`, `namapuskesmas_px`, `namarumkit_px`, `alamat_px`, `nama_kelurahan`, `latitude`, `longitude`, `tgl_sakit`, `tgl_masuk_rumkit`, `ket`) VALUES
+(3, '3582739101990003', 'Dedy Hermina', 'Laki-laki', '1997-12-04', 24, 'Hiens', 'Puskesmas Swasta', 'Rumkit Swasta', 'Jalan Kanan Kiri 12', 'Lowokwaru', '10.1828371841', '1.285287282', '2022-12-01', '2022-12-05', 'Oke'),
+(4, '3574022947110002', 'Johanna Kellyn', 'Perempuan', '1997-12-10', 26, 'Hiens', 'Pus Swasta', 'Rum Swasta', 'Jalan Kanan Kiri 12', 'Lowokwaru', '12.5238254', '-2.2349829', '2022-12-01', '2022-12-08', 'Fine'),
+(5, '2147483647', 'Brian', 'Laki-laki', '1998-01-06', 28, 'Hiens', 'Pus Swasta', 'Rum Swasta', 'Jalan Kanan Kiri 12', 'Sumbersari', '11111111', '4444444', '2023-01-04', '2023-01-04', 'Tes');
 
 -- --------------------------------------------------------
 
@@ -205,7 +226,8 @@ CREATE TABLE `pjb` (
 --
 
 INSERT INTO `pjb` (`id_pjb`, `tgl_pjb`, `nama_kelurahan`, `jml_tandon_dlm_periksa`, `total_periksa`, `total_pos`, `jml_tandon_dlm_jentik`, `latitude`, `longitude`, `nama_kk`, `jml_tandon_luar_periksa`, `jml_tandon_luar_jentik`) VALUES
-(2, '2022-12-01', 'Lowokwaru', 10, 15, 2, 0, '11111111', '2222222', 'Geeree', 5, 2);
+(2, '2022-12-01', 'Lowokwaru', 10, 15, 2, 0, '11111111', '2222222', 'Geeree', 5, 2),
+(3, '2023-01-03', 'Lowokwaru', 10, 20, 10, 5, '11111111', '2222222', 'Dan Giri', 10, 5);
 
 --
 -- Indexes for dumped tables
@@ -234,6 +256,12 @@ ALTER TABLE `feedback`
 --
 ALTER TABLE `informasi`
   ADD PRIMARY KEY (`id_info`);
+
+--
+-- Indeks untuk tabel `penanganan`
+--
+ALTER TABLE `penanganan`
+  ADD PRIMARY KEY (`id_penanganan`);
 
 --
 -- Indeks untuk tabel `penderita`
@@ -282,10 +310,16 @@ ALTER TABLE `informasi`
   MODIFY `id_info` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT untuk tabel `penanganan`
+--
+ALTER TABLE `penanganan`
+  MODIFY `id_penanganan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT untuk tabel `penderita`
 --
 ALTER TABLE `penderita`
-  MODIFY `id_px` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_px` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengguna`
@@ -297,7 +331,7 @@ ALTER TABLE `pengguna`
 -- AUTO_INCREMENT untuk tabel `pjb`
 --
 ALTER TABLE `pjb`
-  MODIFY `id_pjb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pjb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
