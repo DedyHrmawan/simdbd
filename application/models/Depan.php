@@ -16,6 +16,16 @@ class Depan extends CI_Model{
         $res = $this->db->query($sql)->result();
         return $res;
     }
+    public function getChart(){
+        $sql = "SELECT COUNT(id_px) as total,MONTH(tgl_sakit) as bulan FROM penderita GROUP BY MONTH(tgl_sakit)";
+        $res = $this->db->query($sql)->result();
+        return $res;
+    }
+    public function getChartChange($param){
+        $sql = "SELECT COUNT(id_px) as total,MONTH(tgl_sakit) as bulan FROM penderita WHERE nama_kelurahan = '$param'  GROUP BY MONTH(tgl_sakit)";
+        $res = $this->db->query($sql)->result();
+        return $res;
+    }
     public function insert($param){
         $this->db->insert('feedback', $param);
         return $this->db->insert_id();

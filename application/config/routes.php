@@ -117,3 +117,4 @@ $route['kirimfeedback']         = 'DepanController/kirimfeedback';
 
 $route['auth']          = 'AuthController/auth';
 $route['logout']        = 'AuthController/logout';
+$route['getChartVal']   = 'DepanController/chartChange';
