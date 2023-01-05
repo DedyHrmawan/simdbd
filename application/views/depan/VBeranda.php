@@ -7,7 +7,6 @@
 		color: #3CB371;
 	}
 </style>
-
 <body id="kt_body" data-bs-spy="scroll" data-bs-target="#kt_landing_menu" data-bs-offset="200" class="bg-white position-relative">
 	<div class="d-flex flex-column flex-root">
 		<div class="mb-0" id="home">
@@ -125,10 +124,14 @@
 										<br />
 										<div class="row">
 											<div class="col-sm-4">
-												<select class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option" data-allow-clear="true">
+												<select class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option" id="selKel" data-allow-clear="true">
 													<option></option>
-													<option value="1">Tunggulwulung</option>
-													<option value="2" selected>Lowokwaru</option>
+													<option value="Dinoyo">Dinoyo</option>
+													<option value="Ketawanggede">Ketawanggede</option>
+													<option value="Tlogomas">Tlogomas</option>
+													<option value="Sumbersari">Sumbersari</option>
+													<option value="Tunggulwulung">Tunggulwulung</option>
+													<option value="Merjosari">Merjosari</option>
 												</select>
 											</div>
 										</div>
@@ -283,7 +286,7 @@
 	var options = {
 		series: [{
 			name: 'Kasus DBD',
-			data: [44, 55, 57, 56, 61, 58, 63, 60, 66, 10, 19, 66]
+			data: [<?= $dataChart ?>]
 		}],
 		chart: {
 			type: 'bar',
@@ -310,6 +313,11 @@
 		yaxis: {
 			title: {
 				text: 'Jumlah Kasus DBD'
+			},
+			labels: {
+				formatter: function(val) {
+					return val.toFixed(0);
+				}
 			}
 		},
 		fill: {
@@ -326,4 +334,25 @@
 
 	var chart = new ApexCharts(document.querySelector("#chart"), options);
 	chart.render();
+
+	$("#selKel").change(function(e) {
+        var kel = $("#selKel").val();
+        $.ajax({
+            url: "<?= site_url('getChartVal') ?>",
+            type: "post",
+            dataType: 'json',
+            data: {
+                kel: kel
+            },
+            success: res => {
+				var db = JSON.stringify(res);
+				console.log(JSON.parse(db))
+				
+				chart.updateSeries([{
+					name: 'Kasus DBD',
+					data: JSON.parse(db)
+				}])
+            }
+        })
+    });
 </script>
