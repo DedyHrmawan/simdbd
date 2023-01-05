@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Jan 2023 pada 09.52
+-- Waktu pembuatan: 05 Jan 2023 pada 02.46
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -175,9 +175,10 @@ CREATE TABLE `penderita` (
 --
 
 INSERT INTO `penderita` (`id_px`, `nik_px`, `nama_px`, `gender_px`, `dob_px`, `umur_px`, `namaortu_px`, `namapuskesmas_px`, `namarumkit_px`, `alamat_px`, `nama_kelurahan`, `latitude`, `longitude`, `tgl_sakit`, `tgl_masuk_rumkit`, `ket`) VALUES
-(3, '3582739101990003', 'Dedy Hermina', 'Laki-laki', '1997-12-04', 24, 'Hiens', 'Puskesmas Swasta', 'Rumkit Swasta', 'Jalan Kanan Kiri 12', 'Lowokwaru', '10.1828371841', '1.285287282', '2022-12-01', '2022-12-05', 'Oke'),
-(4, '3574022947110002', 'Johanna Kellyn', 'Perempuan', '1997-12-10', 26, 'Hiens', 'Pus Swasta', 'Rum Swasta', 'Jalan Kanan Kiri 12', 'Lowokwaru', '12.5238254', '-2.2349829', '2022-12-01', '2022-12-08', 'Fine'),
-(5, '2147483647', 'Brian', 'Laki-laki', '1998-01-06', 28, 'Hiens', 'Pus Swasta', 'Rum Swasta', 'Jalan Kanan Kiri 12', 'Sumbersari', '11111111', '4444444', '2023-01-04', '2023-01-04', 'Tes');
+(3, '3582739101990003', 'Dedy Hermina', 'Laki-laki', '1997-12-04', 24, 'Hiens', 'Puskesmas Swasta', 'Rumkit Swasta', 'Jalan Kanan Kiri 12', 'Dinoyo', '10.1828371841', '1.285287282', '2022-12-01', '2022-12-05', 'Oke'),
+(4, '3574022947110002', 'Johanna Kellyn', 'Perempuan', '1997-12-10', 26, 'Hiens', 'Pus Swasta', 'Rum Swasta', 'Jalan Kanan Kiri 12', 'Dinoyo', '12.5238254', '-2.2349829', '2022-12-01', '2022-12-08', 'Fine'),
+(5, '2147483647', 'Brian', 'Laki-laki', '1998-01-06', 28, 'Hiens', 'Pus Swasta', 'Rum Swasta', 'Jalan Kanan Kiri 12', 'Dinoyo', '11111111', '4444444', '2023-01-04', '2023-01-04', 'Tes'),
+(6, '3232152213121', 'Data Tes', 'Laki-laki', '2023-01-05', 15, 'Hiens', 'Pus Swasta', 'Rum Swasta', 'Jalan Kanan Kiri 12', 'Sumbersari', '11111111', '1231231312', '2023-02-02', '2023-01-05', '');
 
 -- --------------------------------------------------------
 
@@ -319,7 +320,7 @@ ALTER TABLE `penanganan`
 -- AUTO_INCREMENT untuk tabel `penderita`
 --
 ALTER TABLE `penderita`
-  MODIFY `id_px` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_px` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengguna`
