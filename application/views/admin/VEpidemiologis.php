@@ -16,10 +16,10 @@
                             <tr class="fw-bolder text-muted">
                                 <th>No</th>
                                 <th>NIK</th>
+                                <th>Nama</th>
                                 <th>Kelurahan</th>
-                                <th>Tanggal Periksa</th>
-                                <th>Total Periksa</th>
-                                <th>Total Positif Jentik</th>
+                                <th>Tanggal PE</th>
+                                <th>Tanggal Mulai Sakit</th>
                                 <th class="min-w-150px">Aksi</th>
                             </tr>
                         </thead>
@@ -29,17 +29,18 @@
                                 foreach($list as $item){
                                     $date=date_create($item->tgl_pe);
                                     $tglpe = date_format($date,"d F Y");
+                                    $date=date_create($item->tgl_sakit);
+                                    $tgl_sakit = date_format($date,"d F Y");
                                     $periksa = explode(";",$item->total_periksa);
                                     $pos = explode(";",$item->total_pos);
                                     echo '
                                     <tr>
                                         <td class="text-dark fw-bolder">'.$no.'</td>
+                                        <td class="text-dark fw-bolder">'.$item->nik_px.'</td>
                                         <td class="text-dark fw-bolder">'.$item->nama_px.'</td>
                                         <td class="text-dark fw-bolder">'.$item->nama_kelurahan.'</td>
                                         <td class="text-dark fw-bolder">'.$tglpe.'</td>
-                                        <!-- NOTED : Untuk Total Periksa dan Total Positif Jentik ini dijumlahkan dari jumlah periksa dan jumlah total positif jentik  -->
-                                        <td class="text-dark fw-bolder">'.array_sum($periksa).'</td>
-                                        <td class="text-dark fw-bolder">'.array_sum($pos).'</td>
+                                        <td class="text-dark fw-bolder">'.$tgl_sakit.'</td>
                                         <td class="">
                                             <a href="" title="Detail PE" data-bs-toggle="modal" data-bs-target="#mdl_detPE" data-id="'.$item->id_pe.'" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm mdl_detPE me-1">
                                                 <span class="svg-icon svg-icon-muted svg-icon-2hx"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
