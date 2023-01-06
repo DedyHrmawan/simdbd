@@ -16,7 +16,7 @@
                             <tr class="fw-bolder text-muted">
                                 <th>No</th>
                                 <th>ID PE</th>
-                                <th>Tanggal PE</th>
+                                <th>Tanggal Penanganan Kasus</th>
                                 <th>Kelurahan</th>
                                 <th>Penularan Kasus</th>
                                 <th>Radius Penularan</th>
@@ -25,28 +25,28 @@
                         </thead>
                         <tbody>
                             <?php
-                                $no = 1;
-                                foreach($list as $item){
-                                    
-                                    $date=date_create($item->tgl_pe);
-                                    $tgl_pe = date_format($date,"d F Y");
-                                    echo '
+                            $no = 1;
+                            foreach ($list as $item) {
+
+                                $date = date_create($item->tgl_penanganan);
+                                $tgl_penanganan = date_format($date, "d F Y");
+                                echo '
                                     <tr>
-                                        <td class="text-dark fw-bolder">'.$no.'</td>
-                                        <td class="text-dark fw-bolder">PE0'.$item->id_pe.'</td>
-                                        <td class="text-dark fw-bolder">'.$tgl_pe.'</td>
-                                        <td class="text-dark fw-bolder">'.$item->kelurahan.'</td>
-                                        <td><span class="badge badge-warning">'.$item->penularan.'</span></td>
-                                        <td><span class="badge badge-warning">'.$item->radius.'</span></td>
+                                        <td class="text-dark fw-bolder">' . $no . '</td>
+                                        <td class="text-dark fw-bolder">PE0' . $item->id_pe . '</td>
+                                        <td class="text-dark fw-bolder">' . $tgl_penanganan . '</td>
+                                        <td class="text-dark fw-bolder">' . $item->kelurahan . '</td>
+                                        <td><span class="badge badge-warning">' . $item->penularan . '</span></td>
+                                        <td><span class="badge badge-warning">' . $item->radius . '</span></td>
                                         <td class="">
-                                            <a href="" title="Detail Penanganan Kasus" data-bs-toggle="modal" data-bs-target="#mdl_detKasus" data-id="'.$item->id_penanganan.'" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm mdl_detKasus me-1">
+                                            <a href="" title="Detail Penanganan Kasus" data-bs-toggle="modal" data-bs-target="#mdl_detKasus" data-id="' . $item->id_penanganan . '" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm mdl_detKasus me-1">
                                                 <span class="svg-icon svg-icon-muted svg-icon-2hx"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                         <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor" />
                                                         <rect x="11" y="17" width="7" height="2" rx="1" transform="rotate(-90 11 17)" fill="currentColor" />
                                                         <rect x="11" y="9" width="2" height="2" rx="1" transform="rotate(-90 11 9)" fill="currentColor" />
                                                     </svg></span>
                                             </a>
-                                            <a href="" title="Edit Penanganan Kasus" data-bs-toggle="modal" data-bs-target="#mdl_editKasus" data-id="'.$item->id_penanganan.'" class="btn btn-icon btn-bg-light btn-active-color-primary mdl_editKasus btn-sm m-1">
+                                            <a href="" title="Edit Penanganan Kasus" data-bs-toggle="modal" data-bs-target="#mdl_editKasus" data-id="' . $item->id_penanganan . '" class="btn btn-icon btn-bg-light btn-active-color-primary mdl_editKasus btn-sm m-1">
                                                 <span class="svg-icon svg-icon-3">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                         <path opacity="0.3" d="M21.4 8.35303L19.241 10.511L13.485 4.755L15.643 2.59595C16.0248 2.21423 16.5426 1.99988 17.0825 1.99988C17.6224 1.99988 18.1402 2.21423 18.522 2.59595L21.4 5.474C21.7817 5.85581 21.9962 6.37355 21.9962 6.91345C21.9962 7.45335 21.7817 7.97122 21.4 8.35303ZM3.68699 21.932L9.88699 19.865L4.13099 14.109L2.06399 20.309C1.98815 20.5354 1.97703 20.7787 2.03189 21.0111C2.08674 21.2436 2.2054 21.4561 2.37449 21.6248C2.54359 21.7934 2.75641 21.9115 2.989 21.9658C3.22158 22.0201 3.4647 22.0084 3.69099 21.932H3.68699Z" fill="currentColor" />
@@ -54,7 +54,7 @@
                                                     </svg>
                                                 </span>
                                             </a>
-                                            <a href="#" title="Hapus Penanganan Kasus" data-bs-toggle="modal" data-bs-target="#mdl_delKasus" data-id="'.$item->id_penanganan.'" class="btn btn-icon btn-bg-light btn-active-color-primary mdl_delKasus btn-sm m-1">
+                                            <a href="#" title="Hapus Penanganan Kasus" data-bs-toggle="modal" data-bs-target="#mdl_delKasus" data-id="' . $item->id_penanganan . '" class="btn btn-icon btn-bg-light btn-active-color-primary mdl_delKasus btn-sm m-1">
                                                 <span class="svg-icon svg-icon-3">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                         <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor" />
@@ -66,9 +66,9 @@
                                         </td>
                                     </tr>
                                     ';
-                                    $no++;
-                                }
-                            ?>                            
+                                $no++;
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -102,11 +102,11 @@
                         <select class="form-select form-select-solid" data-control="select2" id="peValue" data-dropdown-parent="#mdl_addkasus" name="id_pe" data-placeholder="Pilih ID PE" required data-allow-clear="true">
                             <option></option>
                             <?php
-                                foreach($listpe as $item){
-                                    echo '                                        
-                                        <option value="'.$item->id_pe.'">PE0'.$item->id_pe.'</option>
+                            foreach ($listpe as $item) {
+                                echo '                                        
+                                        <option value="' . $item->id_pe . '">PE0' . $item->id_pe . '</option>
                                     ';
-                                }
+                            }
                             ?>
                         </select>
                     </div>
@@ -176,19 +176,29 @@
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                     <span class="required">Tanggal Fogging</span>
                                 </label>
-                                <input class="form-control form-control-solid tglKasus" id="" placeholder="Masukan Tanggal Fogging" name="tgl_penanganan"/>
+                                <input class="form-control form-control-solid tglKasus" id="" placeholder="Masukan Tanggal Fogging" name="tgl_penanganan" />
                             </div>
                             <div class="d-flex flex-column mb-8 fv-row">
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                     <span class="required">Kelurahan</span>
                                 </label>
-                                <input type="text" class="form-control form-control-solid" id="" name="kelurahan" placeholder="Masukan Kelurahan"/>
+                                <select class="form-control form-control-solid" name="kelurahan" id="" required>
+                                    <option value="Ketawanggede">Pilih Kelurahan !</option>
+                                    <option value="Ketawanggede">Ketawanggede</option>
+                                    <option value="Dinoyo">Dinoyo</option>
+                                    <option value="Tlogomas">Tlogomas</option>
+                                    <option value="Sumbersari">Sumbersari</option>
+                                    <option value="Tunggulwulung">Tunggulwulung</option>
+                                    <option value="Merjosari">Merjosari</option>
+                                </select>
+                                <!-- <input type="text" class="form-control form-control-solid" id="" name="kelurahan" placeholder="Masukan Kelurahan"/> -->
+
                             </div>
                             <div class="d-flex flex-column mb-8 fv-row">
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                     <span class="required">Jumlah Rumah</span>
                                 </label>
-                                <input type="number" class="form-control form-control-solid" id="" name="jumlah_rumah" placeholder="Masukan Jumlah Rumah"/>
+                                <input type="number" min="0" class="form-control form-control-solid" id="" name="jumlah_rumah" placeholder="Masukan Jumlah Rumah" />
                             </div>
                             <div class="d-flex flex-column mb-8 fv-row">
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
@@ -202,19 +212,28 @@
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                     <span class="required">Tanggal PSN</span>
                                 </label>
-                                <input class="form-control form-control-solid tglKasus" id="" placeholder="Masukan Tanggal PSN" name="tgl_penanganan_psn"/>
+                                <input class="form-control form-control-solid tglKasus" id="" placeholder="Masukan Tanggal PSN" name="tgl_penanganan_psn" />
                             </div>
                             <div class="d-flex flex-column mb-8 fv-row">
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                     <span class="required">Kelurahan</span>
                                 </label>
-                                <input type="text" class="form-control form-control-solid" id="" name="kelurahan_psn" placeholder="Masukan Kelurahan"/>
+                                <select class="form-control form-control-solid" name="kelurahan_psn" id="" required>
+                                    <option value="Ketawanggede">Pilih Kelurahan !</option>
+                                    <option value="Ketawanggede">Ketawanggede</option>
+                                    <option value="Dinoyo">Dinoyo</option>
+                                    <option value="Tlogomas">Tlogomas</option>
+                                    <option value="Sumbersari">Sumbersari</option>
+                                    <option value="Tunggulwulung">Tunggulwulung</option>
+                                    <option value="Merjosari">Merjosari</option>
+                                </select>
+                                <!-- <input type="text" class="form-control form-control-solid" id="" name="kelurahan_psn" placeholder="Masukan Kelurahan" /> -->
                             </div>
                             <div class="d-flex flex-column mb-8 fv-row">
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                     <span class="required">Jumlah Rumah</span>
                                 </label>
-                                <input type="number" class="form-control form-control-solid" id="" name="jumlah_rumah_psn" placeholder="Masukan Jumlah Rumah"/>
+                                <input type="number" min="0" class="form-control form-control-solid" id="" name="jumlah_rumah_psn" placeholder="Masukan Jumlah Rumah" />
                             </div>
                             <div class="d-flex flex-column mb-8 fv-row">
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
@@ -332,13 +351,22 @@
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                     <span class="required">Kelurahan</span>
                                 </label>
-                                <input type="text" class="form-control form-control-solid" id="kelurahanEdit" name="kelurahan" />
+                                <select class="form-control form-control-solid" name="kelurahan" id="kelurahanEdit" required>
+                                    <option value="Ketawanggede">Pilih Kelurahan !</option>
+                                    <option value="Ketawanggede">Ketawanggede</option>
+                                    <option value="Dinoyo">Dinoyo</option>
+                                    <option value="Tlogomas">Tlogomas</option>
+                                    <option value="Sumbersari">Sumbersari</option>
+                                    <option value="Tunggulwulung">Tunggulwulung</option>
+                                    <option value="Merjosari">Merjosari</option>
+                                </select>
+                                <!-- <input type="text" class="form-control form-control-solid" id="kelurahanEdit" name="kelurahan" /> -->
                             </div>
                             <div class="d-flex flex-column mb-8 fv-row">
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                     <span class="required">Jumlah Rumah</span>
                                 </label>
-                                <input type="number" class="form-control form-control-solid" id="rumahEdit" name="jumlah_rumah" />
+                                <input type="number" min="0" class="form-control form-control-solid" id="rumahEdit" name="jumlah_rumah" />
                             </div>
                             <div class="d-flex flex-column mb-8 fv-row">
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
@@ -358,13 +386,22 @@
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                     <span class="required">Kelurahan</span>
                                 </label>
-                                <input type="text" class="form-control form-control-solid" id="kelurahanPsnEdit" name="kelurahan_psn" />
+                                <select class="form-control form-control-solid" name="kelurahan_psn" id="kelurahanPsnEdit" required>
+                                    <option value="Ketawanggede">Pilih Kelurahan !</option>
+                                    <option value="Ketawanggede">Ketawanggede</option>
+                                    <option value="Dinoyo">Dinoyo</option>
+                                    <option value="Tlogomas">Tlogomas</option>
+                                    <option value="Sumbersari">Sumbersari</option>
+                                    <option value="Tunggulwulung">Tunggulwulung</option>
+                                    <option value="Merjosari">Merjosari</option>
+                                </select>
+                                <!-- <input type="text" class="form-control form-control-solid" id="kelurahanPsnEdit" name="kelurahan_psn" /> -->
                             </div>
                             <div class="d-flex flex-column mb-8 fv-row">
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                     <span class="required">Jumlah Rumah</span>
                                 </label>
-                                <input type="number" class="form-control form-control-solid" id="rumahPsnEdit" name="jumlah_rumah_psn" />
+                                <input type="number" min="0" class="form-control form-control-solid" id="rumahPsnEdit" name="jumlah_rumah_psn" />
                             </div>
                             <div class="d-flex flex-column mb-8 fv-row">
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
@@ -472,7 +509,7 @@
                         </div>
                         <div class="col">
                             <p id="radiusdet"><span class="badge badge-warning">
-                                    </span>
+                                </span>
                             </p>
                             <!-- <p id=""><span class="badge badge-success">< 400 M</span></p> -->
                         </div>
@@ -638,12 +675,12 @@
                     $("#edit_btn_psn").show().addClass("show");
                     $("#edit_tab_psn").show().addClass("show active");
                     radius_hide();
-                    
+
                     $('#tglPsnEdit').val(res[0].tgl_penanganan)
                     $('#kelurahanPsnEdit').val(res[0].kelurahan)
                     $('#rumahPsnEdit').val(res[0].jumlah_rumah)
-                    $('#keteranganPsnEdit').val(res[0].keterangan)                    
-                }else if(res[0].penularan == "Ya"){
+                    $('#keteranganPsnEdit').val(res[0].keterangan)
+                } else if (res[0].penularan == "Ya") {
                     $("#edit_btn_psn").hide();
                     $("#edit_tab_psn").hide();
                     $("#edit_btn_fogging").show();
@@ -655,8 +692,8 @@
                     $('#rumahEdit').val(res[0].jumlah_rumah)
                     $('#keteranganEdit').val(res[0].keterangan)
                 };
-                
-                
+
+
             }
         })
     })
@@ -676,9 +713,9 @@
                 $('#tglpenanganandet').html(res[0].tgl_penanganan)
                 $('#kelurahandet').html(res[0].kelurahan)
                 $('#rumahdet').html(res[0].jumlah_rumah)
-                $('#keterangandet').html(res[0].keterangan)   
-                $('#penularandet').html(res[0].penularan)  
-                $('#radiusdet').html(res[0].radius)                 
+                $('#keterangandet').html(res[0].keterangan)
+                $('#penularandet').html(res[0].penularan)
+                $('#radiusdet').html(res[0].radius)
             }
         })
     })

@@ -138,10 +138,10 @@
                         </label>
                         <div class="row">
                             <div class="col">
-                                <input type="number" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" name="jml_tandon_dlm_periksa" required />
+                                <input type="number" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" name="jml_tandon_dlm_periksa" min="0" required />
                             </div>
                             <div class="col">
-                                <input type="number" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" name="jml_tandon_dlm_jentik" required />
+                                <input type="number" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" name="jml_tandon_dlm_jentik" min="0" required />
                             </div>
                         </div>
                     </div>
@@ -151,10 +151,10 @@
                         </label>
                         <div class="row">
                             <div class="col">
-                                <input type="number" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" name="jml_tandon_luar_periksa" required />
+                                <input type="number" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" name="jml_tandon_luar_periksa" min="0" required />
                             </div>
                             <div class="col">
-                                <input type="number" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" name="jml_tandon_luar_jentik" required />
+                                <input type="number" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" name="jml_tandon_luar_jentik" min="0" required />
                             </div>
                         </div>
                     </div>
@@ -229,10 +229,10 @@
                         </label>
                         <div class="row">
                             <div class="col">
-                                <input type="number" class="form-control form-control-solid" id="editDlm_pjb" name="jml_tandon_dlm_periksa" required />
+                                <input type="number" class="form-control form-control-solid" id="editDlm_pjb" name="jml_tandon_dlm_periksa" min="0" required />
                             </div>
                             <div class="col">
-                                <input type="number" class="form-control form-control-solid" id="editPosDlm_pjb" name="jml_tandon_dlm_jentik" required />
+                                <input type="number" class="form-control form-control-solid" id="editPosDlm_pjb" name="jml_tandon_dlm_jentik" min="0" required />
                             </div>
                         </div>
                     </div>
@@ -242,10 +242,10 @@
                         </label>
                         <div class="row">
                             <div class="col">
-                                <input type="number" class="form-control form-control-solid" id="editLuar_pjb" name="jml_tandon_luar_periksa" required />
+                                <input type="number" class="form-control form-control-solid" id="editLuar_pjb" name="jml_tandon_luar_periksa" min="0" required />
                             </div>
                             <div class="col">
-                                <input type="number" class="form-control form-control-solid" id="editPosLuar_pjb" name="jml_tandon_luar_jentik" required />
+                                <input type="number" class="form-control form-control-solid" id="editPosLuar_pjb" name="jml_tandon_luar_jentik" min="0" required />
                             </div>
                         </div>
                     </div>

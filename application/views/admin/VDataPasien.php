@@ -18,7 +18,7 @@
                                 <th>NIK</th>
                                 <th>Nama Lengkap</th>
                                 <th>Jenis Kelamin</th>
-                                <th>Nama Puskesmas</th>
+                                <th>Umur</th>
                                 <th>Kelurahan</th>
                                 <th class="min-w-150px">Aksi</th>
                             </tr>
@@ -33,7 +33,7 @@
                                         <td class="text-dark fw-bolder">'.$item->nik_px.'</td>
                                         <td class="text-dark fw-bolder">'.$item->nama_px.'</td>
                                         <td class="text-dark fw-bolder">'.$item->gender_px.'</td>
-                                        <td class="text-dark fw-bolder">'.$item->namapuskesmas_px.'</td>
+                                        <td class="text-dark fw-bolder">'.$item->umur_px.'</td>
                                         <td class="text-dark fw-bolder">'.$item->nama_kelurahan.'</td>
                                         <td class="">
                                             <a href="" title="Detail Penyakit" data-bs-toggle="modal" data-bs-target="#mdl_detPasien" data-id="'.$item->id_px.'" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm mdl_detPasien me-1">
@@ -122,7 +122,7 @@
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                             <span class="required">Umur</span>
                         </label>
-                        <input type="number" class="form-control form-control-solid" placeholder="Masukan Umur" name="umur_px" required />
+                        <input type="number" class="form-control form-control-solid" placeholder="Masukan Umur" name="umur_px" min="0" required />
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
@@ -245,7 +245,7 @@
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                             <span class="required">Umur</span>
                         </label>
-                        <input type="number" class="form-control form-control-solid" id="editUmur" name="umur_px" required />
+                        <input type="number" class="form-control form-control-solid" id="editUmur" name="umur_px" min="0" required />
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">

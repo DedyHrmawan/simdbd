@@ -71,19 +71,19 @@
                                 <th rowspan="2">No</th>
                                 <th rowspan="2">Nama Penderita</th>
                                 <th colspan="2">Umur</th>
-                                <th>Alamat</th>
-                                <th colspan="2">Tanggal</th>
-                                <th>Tanggal</th>
+                                <th rowspan="2">Kelurahan</th>
+                                <th colspan="5">Tanggal</th>
                                 <th rowspan="2">Ket</th>
                                 <th rowspan="2">Aksi</th>
                             </tr>
                             <tr class="fw-bolder align-middle text-center">
                                 <th>L</th>
                                 <th>P</th>
-                                <th>Kelurahan</th>
                                 <th>Mulai Sakit</th>
                                 <th>Masuk RS</th>
                                 <th>PE</th>
+                                <th>Fogging</th>
+                                <th>PSN</th>
                             </tr>
                         </thead>
                         <tbody class="text-left">
@@ -119,6 +119,8 @@
                                         <td >' . $sakit . '</td>
                                         <td >' . $rumkit . '</td>
                                         <td>' . $petgl . '</td>
+                                        <td></td>
+                                        <td></td>
                                         <td>'.$item->ket.'</td>
                                         <td>  
                                             <a href="" title="Edit Keterangan" data-bs-toggle="modal" data-bs-target="#mdl_editKet" data-id="'.$item->id_px.'" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm mdl_editKet m-1">
