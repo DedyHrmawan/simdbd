@@ -156,7 +156,7 @@
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                     <span class="required">Masukan Umur</span>
                                 </label>
-                                <input type="number" class="form-control form-control-solid" id="tambahUmur" name="" readonly required />
+                                <input type="number" min="0" class="form-control form-control-solid" id="tambahUmur" name="" readonly required />
                             </div>
                         </div>
                         <div class="col">
@@ -413,7 +413,7 @@
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                     <span class="required">Masukan Umur</span>
                                 </label>
-                                <input type="number" class="form-control form-control-solid" id="editUmur" readonly required />
+                                <input type="number" min="0" class="form-control form-control-solid" id="editUmur" readonly required />
                             </div>
                         </div>
                         <div class="col">
@@ -1064,7 +1064,7 @@
                         '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
                             '<span class="required">Umur</span>'+
                         '</label>'+
-                        '<input type="number" class="form-control form-control-solid" name="umur_suspek[]" required />'+
+                        '<input type="number" min="0" class="form-control form-control-solid" name="umur_suspek[]" required />'+
                     '</div>'+
                 '</div>'+
                 '<div class="col-2">'+
@@ -1120,10 +1120,10 @@
                         '</label>'+
                         '<div class="row">'+
                             '<div class="col">'+
-                                '<input type="number" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" name="tandondlmperiksa[]" required />'+
+                                '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" name="tandondlmperiksa[]" required />'+
                             '</div>'+
                             '<div class="col">'+
-                                '<input type="number" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" name="tandondlmpos[]" required />'+
+                                '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" name="tandondlmpos[]" required />'+
                             '</div>'+
                         '</div>'+
                     '</div>'+
@@ -1135,10 +1135,10 @@
                         '</label>'+
                         '<div class="row">'+
                             '<div class="col">'+
-                                '<input type="number" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" name="tandonluarperiksa[]" required />'+
+                                '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" name="tandonluarperiksa[]" required />'+
                             '</div>'+
                             '<div class="col">'+
-                                '<input type="number" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" name="tandonluarpos[]" required />'+
+                                '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" name="tandonluarpos[]" required />'+
                             '</div>'+
                         '</div>'+
                     '</div>'+
@@ -1189,7 +1189,7 @@
                         '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
                             '<span class="required">Umur</span>'+
                         '</label>'+
-                        '<input type="number" class="form-control form-control-solid" name="umur_suspek[]" required />'+
+                        '<input type="number" min="0" class="form-control form-control-solid" name="umur_suspek[]" required />'+
                     '</div>'+
                 '</div>'+
                 '<div class="col-2">'+
@@ -1245,10 +1245,10 @@
                         '</label>'+
                         '<div class="row">'+
                             '<div class="col">'+
-                                '<input type="number" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" name="tandondlmperiksa[]" required />'+
+                                '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" name="tandondlmperiksa[]" required />'+
                             '</div>'+
                             '<div class="col">'+
-                                '<input type="number" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" name="tandondlmpos[]" required />'+
+                                '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" name="tandondlmpos[]" required />'+
                             '</div>'+
                         '</div>'+
                     '</div>'+
@@ -1260,10 +1260,10 @@
                         '</label>'+
                         '<div class="row">'+
                             '<div class="col">'+
-                                '<input type="number" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" name="tandonluarperiksa[]" required />'+
+                                '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" name="tandonluarperiksa[]" required />'+
                             '</div>'+
                             '<div class="col">'+
-                                '<input type="number" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" name="tandonluarpos[]" required />'+
+                                '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" name="tandonluarpos[]" required />'+
                             '</div>'+
                         '</div>'+
                     '</div>'+
@@ -1414,7 +1414,7 @@
                                     '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
                                         '<span class="required">Umur</span>'+
                                     '</label>'+
-                                    '<input type="number" class="form-control form-control-solid" value="' + res[0].listumur[i] + '" name="umur_suspek[]" required />'+
+                                    '<input type="number" min="0" class="form-control form-control-solid" value="' + res[0].listumur[i] + '" name="umur_suspek[]" required />'+
                                 '</div>'+
                             '</div>'+
                             '<div class="col-2">'+
@@ -1472,10 +1472,10 @@
                                     '</label>'+
                                     '<div class="row">'+
                                         '<div class="col">'+
-                                            '<input type="number" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" value="' + res[0].listdlmper[i] + '" name="tandondlmperiksa[]" required />'+
+                                            '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" value="' + res[0].listdlmper[i] + '" name="tandondlmperiksa[]" required />'+
                                         '</div>'+
                                         '<div class="col">'+
-                                            '<input type="number" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" value="' + res[0].listdlmpos[i] + '" name="tandondlmpos[]" required />'+
+                                            '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" value="' + res[0].listdlmpos[i] + '" name="tandondlmpos[]" required />'+
                                         '</div>'+
                                     '</div>'+
                                 '</div>'+
@@ -1487,10 +1487,10 @@
                                     '</label>'+
                                     '<div class="row">'+
                                         '<div class="col">'+
-                                            '<input type="number" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" value="' + res[0].listluarper[i] + '" name="tandonluarperiksa[]" required />'+
+                                            '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" value="' + res[0].listluarper[i] + '" name="tandonluarperiksa[]" required />'+
                                         '</div>'+
                                         '<div class="col">'+
-                                            '<input type="number" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" value="' + res[0].listluarpos[i] + '" name="tandonluarpos[]" required />'+
+                                            '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" value="' + res[0].listluarpos[i] + '" name="tandonluarpos[]" required />'+
                                         '</div>'+
                                     '</div>'+
                                 '</div>'+
