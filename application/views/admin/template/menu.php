@@ -101,7 +101,7 @@
                     <span class="menu-bullet">
                         <span class="bullet bullet-dot"></span>
                     </span>
-                    <span class="menu-title">Laporan Harian</span>
+                    <span class="menu-title">Laporan per Umur dan JK</span>
                 </a>
             </div>
         </div>
