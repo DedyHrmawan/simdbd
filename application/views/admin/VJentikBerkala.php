@@ -104,7 +104,15 @@
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                             <span class="required">Kelurahan</span>
                         </label>
-                        <input type="text" class="form-control form-control-solid" placeholder="Masukan Kelurahan" name="nama_kelurahan" required />
+                        <select class="form-control form-control-solid" name="nama_kelurahan" id="" required>
+                            <option value="Ketawanggede">Pilih Kelurahan !</option>
+                            <option value="Ketawanggede">Ketawanggede</option>
+                            <option value="Dinoyo">Dinoyo</option>
+                            <option value="Tlogomas">Tlogomas</option>
+                            <option value="Sumbersari">Sumbersari</option>
+                            <option value="Tunggulwulung">Tunggulwulung</option>
+                            <option value="Merjosari">Merjosari</option>
+                        </select>
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
@@ -188,7 +196,14 @@
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                             <span class="required">Kelurahan</span>
                         </label>
-                        <input type="text" class="form-control form-control-solid" id="editKelurahan_pjb" name="nama_kelurahan" required />
+                        <select class="form-control form-control-solid" name="nama_kelurahan" id="editKelurahan_pjb" required>
+                            <option value="Ketawanggede">Ketawanggede</option>
+                            <option value="Dinoyo">Dinoyo</option>
+                            <option value="Tlogomas">Tlogomas</option>
+                            <option value="Sumbersari">Sumbersari</option>
+                            <option value="Tunggulwulung">Tunggulwulung</option>
+                            <option value="Merjosari">Merjosari</option>
+                        </select>
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
