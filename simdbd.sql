@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Jan 2023 pada 02.46
+-- Waktu pembuatan: 06 Jan 2023 pada 09.13
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -176,9 +176,10 @@ CREATE TABLE `penderita` (
 
 INSERT INTO `penderita` (`id_px`, `nik_px`, `nama_px`, `gender_px`, `dob_px`, `umur_px`, `namaortu_px`, `namapuskesmas_px`, `namarumkit_px`, `alamat_px`, `nama_kelurahan`, `latitude`, `longitude`, `tgl_sakit`, `tgl_masuk_rumkit`, `ket`) VALUES
 (3, '3582739101990003', 'Dedy Hermina', 'Laki-laki', '1997-12-04', 24, 'Hiens', 'Puskesmas Swasta', 'Rumkit Swasta', 'Jalan Kanan Kiri 12', 'Dinoyo', '10.1828371841', '1.285287282', '2022-12-01', '2022-12-05', 'Oke'),
-(4, '3574022947110002', 'Johanna Kellyn', 'Perempuan', '1997-12-10', 26, 'Hiens', 'Pus Swasta', 'Rum Swasta', 'Jalan Kanan Kiri 12', 'Dinoyo', '12.5238254', '-2.2349829', '2022-12-01', '2022-12-08', 'Fine'),
+(4, '3574022947110002', 'Johanna Kellyn', 'Perempuan', '1997-12-10', 26, 'Hiens', 'Pus Swasta', 'Rum Swasta', 'Jalan Kanan Kiri 12', 'Ketawanggede', '12.5238254', '-2.2349829', '2022-12-01', '2022-12-08', 'Fine'),
 (5, '2147483647', 'Brian', 'Laki-laki', '1998-01-06', 28, 'Hiens', 'Pus Swasta', 'Rum Swasta', 'Jalan Kanan Kiri 12', 'Dinoyo', '11111111', '4444444', '2023-01-04', '2023-01-04', 'Tes'),
-(6, '3232152213121', 'Data Tes', 'Laki-laki', '2023-01-05', 15, 'Hiens', 'Pus Swasta', 'Rum Swasta', 'Jalan Kanan Kiri 12', 'Sumbersari', '11111111', '1231231312', '2023-02-02', '2023-01-05', '');
+(6, '3232152213121', 'Data Tes', 'Laki-laki', '2023-01-05', 15, 'Hiens', 'Pus Swasta', 'Rum Swasta', 'Jalan Kanan Kiri 12', 'Sumbersari', '11111111', '1231231312', '2023-02-02', '2023-01-05', ''),
+(8, '2147483647', 'Dummy', 'Laki-laki', '1999-01-14', 24, 'Ortu', 'Oke', 'Oke', 'Oke', 'Ketawanggede', '11111111', '2222222', '2023-01-06', '2023-01-06', '');
 
 -- --------------------------------------------------------
 
@@ -227,8 +228,8 @@ CREATE TABLE `pjb` (
 --
 
 INSERT INTO `pjb` (`id_pjb`, `tgl_pjb`, `nama_kelurahan`, `jml_tandon_dlm_periksa`, `total_periksa`, `total_pos`, `jml_tandon_dlm_jentik`, `latitude`, `longitude`, `nama_kk`, `jml_tandon_luar_periksa`, `jml_tandon_luar_jentik`) VALUES
-(2, '2022-12-01', 'Lowokwaru', 10, 15, 2, 0, '11111111', '2222222', 'Geeree', 5, 2),
-(3, '2023-01-03', 'Lowokwaru', 10, 20, 10, 5, '11111111', '2222222', 'Dan Giri', 10, 5);
+(2, '2022-12-01', 'Ketawanggede', 10, 15, 2, 0, '11111111', '2222222', 'Geeree', 5, 2),
+(3, '2023-01-03', 'Ketawanggede', 10, 20, 10, 5, '11111111', '2222222', 'Dan Giri', 10, 5);
 
 --
 -- Indexes for dumped tables
@@ -320,7 +321,7 @@ ALTER TABLE `penanganan`
 -- AUTO_INCREMENT untuk tabel `penderita`
 --
 ALTER TABLE `penderita`
-  MODIFY `id_px` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_px` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengguna`
