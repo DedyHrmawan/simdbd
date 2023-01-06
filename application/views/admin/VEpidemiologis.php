@@ -25,31 +25,31 @@
                         </thead>
                         <tbody>
                             <?php
-                                $no = 1;
-                                foreach($list as $item){
-                                    $date=date_create($item->tgl_pe);
-                                    $tglpe = date_format($date,"d F Y");
-                                    $date=date_create($item->tgl_sakit);
-                                    $tgl_sakit = date_format($date,"d F Y");
-                                    $periksa = explode(";",$item->total_periksa);
-                                    $pos = explode(";",$item->total_pos);
-                                    echo '
+                            $no = 1;
+                            foreach ($list as $item) {
+                                $date = date_create($item->tgl_pe);
+                                $tglpe = date_format($date, "d F Y");
+                                $date = date_create($item->tgl_sakit);
+                                $tgl_sakit = date_format($date, "d F Y");
+                                $periksa = explode(";", $item->total_periksa);
+                                $pos = explode(";", $item->total_pos);
+                                echo '
                                     <tr>
-                                        <td class="text-dark fw-bolder">'.$no.'</td>
-                                        <td class="text-dark fw-bolder">'.$item->nik_px.'</td>
-                                        <td class="text-dark fw-bolder">'.$item->nama_px.'</td>
-                                        <td class="text-dark fw-bolder">'.$item->nama_kelurahan.'</td>
-                                        <td class="text-dark fw-bolder">'.$tglpe.'</td>
-                                        <td class="text-dark fw-bolder">'.$tgl_sakit.'</td>
+                                        <td class="text-dark fw-bolder">' . $no . '</td>
+                                        <td class="text-dark fw-bolder">' . $item->nik_px . '</td>
+                                        <td class="text-dark fw-bolder">' . $item->nama_px . '</td>
+                                        <td class="text-dark fw-bolder">' . $item->nama_kelurahan . '</td>
+                                        <td class="text-dark fw-bolder">' . $tglpe . '</td>
+                                        <td class="text-dark fw-bolder">' . $tgl_sakit . '</td>
                                         <td class="">
-                                            <a href="" title="Detail PE" data-bs-toggle="modal" data-bs-target="#mdl_detPE" data-id="'.$item->id_pe.'" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm mdl_detPE me-1">
+                                            <a href="" title="Detail PE" data-bs-toggle="modal" data-bs-target="#mdl_detPE" data-id="' . $item->id_pe . '" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm mdl_detPE me-1">
                                                 <span class="svg-icon svg-icon-muted svg-icon-2hx"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                         <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor" />
                                                         <rect x="11" y="17" width="7" height="2" rx="1" transform="rotate(-90 11 17)" fill="currentColor" />
                                                         <rect x="11" y="9" width="2" height="2" rx="1" transform="rotate(-90 11 9)" fill="currentColor" />
                                                     </svg></span>
                                             </a>
-                                            <a href="" title="Edit PE" data-bs-toggle="modal" data-bs-target="#mdl_editPE" data-id="'.$item->id_pe.'" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm mdl_editPE m-1">
+                                            <a href="" title="Edit PE" data-bs-toggle="modal" data-bs-target="#mdl_editPE" data-id="' . $item->id_pe . '" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm mdl_editPE m-1">
                                                 <span class="svg-icon svg-icon-3">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                         <path opacity="0.3" d="M21.4 8.35303L19.241 10.511L13.485 4.755L15.643 2.59595C16.0248 2.21423 16.5426 1.99988 17.0825 1.99988C17.6224 1.99988 18.1402 2.21423 18.522 2.59595L21.4 5.474C21.7817 5.85581 21.9962 6.37355 21.9962 6.91345C21.9962 7.45335 21.7817 7.97122 21.4 8.35303ZM3.68699 21.932L9.88699 19.865L4.13099 14.109L2.06399 20.309C1.98815 20.5354 1.97703 20.7787 2.03189 21.0111C2.08674 21.2436 2.2054 21.4561 2.37449 21.6248C2.54359 21.7934 2.75641 21.9115 2.989 21.9658C3.22158 22.0201 3.4647 22.0084 3.69099 21.932H3.68699Z" fill="currentColor" />
@@ -57,7 +57,7 @@
                                                     </svg>
                                                 </span>
                                             </a>
-                                            <a href="#" title="Hapus PE" data-bs-toggle="modal" data-bs-target="#mdl_delPE" data-id="'.$item->id_pe.'" class="btn btn-icon btn-bg-light btn-active-color-primary mdl_delPE btn-sm m-1">
+                                            <a href="#" title="Hapus PE" data-bs-toggle="modal" data-bs-target="#mdl_delPE" data-id="' . $item->id_pe . '" class="btn btn-icon btn-bg-light btn-active-color-primary mdl_delPE btn-sm m-1">
                                                 <span class="svg-icon svg-icon-3">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                         <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor" />
@@ -69,9 +69,9 @@
                                         </td>
                                     </tr>
                                     ';
-                                    $no++;
-                                }
-                            ?>                            
+                                $no++;
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -94,7 +94,7 @@
                         </svg></span>
                 </div>
             </div>
-
+            <a href="#" class="fw-bolder link-primary"></a>
             <div class="modal-body">
                 <form action="<?= site_url('epidemiologis/tambah') ?>" method="post">
                     <div class="row">
@@ -103,7 +103,7 @@
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                     <span class="required">Tanggal PE</span>
                                 </label>
-                                <input class="form-control form-control-solid" placeholder="Pilih Tanggal Pemeriksaan" id="add_tglPE" name="tgl_pe" required />
+                                <input class="form-control form-control-solid" placeholder="Pilih Tanggal Pemeriksaan" id="add_tglPE" name="tgl_pe" required autocomplete="off" />
                             </div>
                         </div>
                         <div class="col">
@@ -111,12 +111,12 @@
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                     <span class="required">NIK / ID Penderita</span>
                                 </label>
-                                <select class="form-select form-select-solid" data-control="select2" id="mdlAdd_select" data-dropdown-parent="#mdl_addPE" name="id_px" data-placeholder="Pilih NIK" data-allow-clear="true">
+                                <select class="form-select form-select-solid" data-control="select2" id="mdlAdd_select" data-dropdown-parent="#mdl_addPE" name="id_px" data-placeholder="Pilih NIK" data-allow-clear="true" required>
                                     <option></option>
                                     <?php
-                                        foreach($nik as $item){
-                                            echo '<option value="'.$item->id_px.'">'.$item->nik_px.'</option>';
-                                        }
+                                    foreach ($nik as $item) {
+                                        echo '<option value="' . $item->id_px . '">' . $item->nik_px . '</option>';
+                                    }
                                     ?>
                                 </select>
                             </div>
@@ -245,7 +245,7 @@
                     <div class="row">
                         <div class="col-sm-2">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="bepergian" id="ya_berpergian" value="Ya" checked>
+                                <input class="form-check-input" type="radio" name="bepergian" id="ya_berpergian" value="Ya" onclick="radius_show();" checked>
                                 <label class="form-check-label" for="ya_berpergian">
                                     Ya
                                 </label>
@@ -253,13 +253,13 @@
                         </div>
                         <div class="col-sm-2">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="bepergian" id="tidak_berpergian" value="Tidak">
+                                <input class="form-check-input" type="radio" name="bepergian" id="tidak_berpergian" value="Tidak" onclick="radius_hide();">
                                 <label class="form-check-label" for="tidak_berpergian">
                                     Tidak
                                 </label>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="pergi_hide_add col-sm-4">
                             <div class="d-flex flex-column mb-8 fv-row">
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                     <span class="required">Sebutkan Pergi ke Mana</span>
@@ -267,12 +267,12 @@
                                 <input type="text" class="form-control form-control-solid" placeholder="Masukan Wilayah" name="riw_perjalanan" required />
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="tgl_hide_add col-sm-4">
                             <div class="d-flex flex-column mb-8 fv-row">
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                     <span class="required">Pada Tanggal</span>
                                 </label>
-                                <input type="text" class="form-control form-control-solid" placeholder="Masukan Tanggal" id="add_tglWilayah" name="tgl_perjalanan" required />
+                                <input class="form-control form-control-solid" placeholder="Masukan Tanggal" id="add_tglWilayah" name="tgl_perjalanan" required autocomplete="off" />
                             </div>
                         </div>
                     </div>
@@ -316,16 +316,16 @@
                             </div>
                         </div>
                         <p class="fw-bolder mt-6">Sebutkan ID Penderita / Suspek Lain tersebut :</p>
-                        <div class="section row fieldGroup">  
+                        <div class="section row fieldGroup">
                         </div>
                         <div class="form-group mt-4 text-center">
                             <a href="javascript:void(0)" class="btn btn-light-primary addMore">
                                 <i class="la la-plus"></i>Tambah Penderita / Suspek Lain
                             </a>
-                        </div>                        
+                        </div>
                         <h6 class="mt-6">Pemeriksaan Jentik KK</h6>
-                        <div class="section row fieldGroup2">  
-                        </div>                        
+                        <div class="section row fieldGroup2">
+                        </div>
                         <div class="form-group mt-4 text-center">
                             <a href="javascript:void(0)" data-repeater-create class="btn btn-light-primary addMore2">
                                 <i class="la la-plus"></i>Tambah Kepala Keluarga
@@ -357,7 +357,7 @@
                         </svg></span>
                 </div>
             </div>
-
+            <a href="#" class="fw-bolder link-primary"></a>
             <div class="modal-body">
                 <form action="<?= site_url('epidemiologis/edit') ?>" method="post">
                     <div class="row">
@@ -374,7 +374,7 @@
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                     <span class="required">NIK / ID Penderita</span>
                                 </label>
-                                <input class="form-control form-control-solid" placeholder="Pilih NIK" id="editNik" required disabled/>
+                                <input class="form-control form-control-solid" placeholder="Pilih NIK" id="editNik" required disabled />
                                 <input type="hidden" id="editIdPasien" name="id_px">
                             </div>
                         </div>
@@ -573,16 +573,16 @@
                             </div>
                         </div>
                         <p class="fw-bolder mt-6">Sebutkan ID Penderita / Suspek Lain tersebut :</p>
-                        <div class="section row fieldGroup3"> 
-                        </div> 
+                        <div class="section row fieldGroup3">
+                        </div>
                         <div class="form-group mt-4 text-center">
                             <a href="javascript:void(0)" class="btn btn-light-primary addMore3">
                                 <i class="la la-plus"></i>Tambah Penderita / Suspek Lain
                             </a>
-                        </div>   
+                        </div>
                         <h6 class="mt-6">Pemeriksaan Jentik KK</h6>
-                        <div class="section row fieldGroup4"> 
-                        </div> 
+                        <div class="section row fieldGroup4">
+                        </div>
                         <div class="form-group mt-4 text-center">
                             <a href="javascript:void(0)" data-repeater-create class="btn btn-light-primary addMore4">
                                 <i class="la la-plus"></i>Tambah Kepala Keluarga
@@ -622,7 +622,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <input type="hidden" id="hapusId" name="id_pe"/>
+                    <input type="hidden" id="hapusId" name="id_pe" />
                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
                     <button type="submit" class="btn btn-primary">Hapus</button>
                 </div>
@@ -970,20 +970,46 @@
     });
 
     $("#add_tglWilayah").flatpickr({
+        allowInput: true,
+        onOpen: function(selectedDates, dateStr, instance) {
+            $(instance.altInput).prop('readonly', true);
+        },
+        onClose: function(selectedDates, dateStr, instance) {
+            $(instance.altInput).prop('readonly', false);
+            $(instance.altInput).blur();
+        },
         dateFormat: "Y-m-d",
     });
 
     $("#edit_tglWilayah").flatpickr({
         dateFormat: "Y-m-d",
-    });    
+    });
 
     $("#add_tglPE").flatpickr({
+        allowInput: true,
+        onOpen: function(selectedDates, dateStr, instance) {
+            $(instance.altInput).prop('readonly', true);
+        },
+        onClose: function(selectedDates, dateStr, instance) {
+            $(instance.altInput).prop('readonly', false);
+            $(instance.altInput).blur();
+        },
         dateFormat: "Y-m-d",
     });
 
     $("#edit_tglPE").flatpickr({
         dateFormat: "Y-m-d",
     });
+
+    function radius_hide() {
+        document.getElementsByClassName('pergi_hide_add')[0].style.visibility = 'hidden';
+        document.getElementsByClassName('tgl_hide_add')[0].style.visibility = 'hidden';
+    }
+
+    function radius_show() {
+        document.getElementsByClassName('pergi_hide_add')[0].style.visibility = 'visible';
+        document.getElementsByClassName('tgl_hide_add')[0].style.visibility = 'visible';
+    }
 
     $('#add_suspek_repeater').repeater({
         initEmpty: true,
@@ -1046,42 +1072,42 @@
 
     $(".addMore").click(function() {
         if ($('body').find('.fieldGroup').length < 4) {
-            var fieldHTML = 
-            '<div class="section row fieldGroup" id="spy1">'+
-                '<div class="col-5">'+
-                    '<div class="d-flex flex-column mb-8 fv-row">'+
-                        '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
-                            '<span class="required">Nama</span>'+
-                    ' </label>'+
-                        '<input type="text" class="form-control form-control-solid" name="nama_suspek[]" required />'+
-                    '</div>'+
-                '</div>'+
-                '<div class="col-3">'+
-                    '<div class="d-flex flex-column mb-8 fv-row">'+
-                        '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
-                            '<span class="required">L/P</span>'+
-                        '</label>'+
-                        '<select class="form-control form-control-solid" name="gender_suspek[]" required>'+
-                            '<option></option>'+
-                            '<option value="Laki-laki">Laki-laki</option>'+
-                           ' <option value="Perempuan">Perempuan</option>'+
-                        '</select>'+
-                   ' </div>'+
-                '</div>'+
-                '<div class="col-2">'+
-                    '<div class="d-flex flex-column mb-8 fv-row">'+
-                        '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
-                            '<span class="required">Umur</span>'+
-                        '</label>'+
-                        '<input type="number" min="0" class="form-control form-control-solid" name="umur_suspek[]" required />'+
-                    '</div>'+
-                '</div>'+
-                '<div class="col-2">'+
-                    '<a href="javascript:void(0)" class="btn btn-light-danger mt-3 mt-md-8 remove">'+
-                    '<i class="la la-trash-o"></i>Hapus'+
-                    '</a>'+
-                '</div>'+
-            '</div>';
+            var fieldHTML =
+                '<div class="section row fieldGroup" id="spy1">' +
+                '<div class="col-5">' +
+                '<div class="d-flex flex-column mb-8 fv-row">' +
+                '<label class="d-flex align-items-center fs-6 fw-bold mb-2">' +
+                '<span class="required">Nama</span>' +
+                ' </label>' +
+                '<input type="text" class="form-control form-control-solid" name="nama_suspek[]" required />' +
+                '</div>' +
+                '</div>' +
+                '<div class="col-3">' +
+                '<div class="d-flex flex-column mb-8 fv-row">' +
+                '<label class="d-flex align-items-center fs-6 fw-bold mb-2">' +
+                '<span class="required">L/P</span>' +
+                '</label>' +
+                '<select class="form-control form-control-solid" name="gender_suspek[]" required>' +
+                '<option></option>' +
+                '<option value="Laki-laki">Laki-laki</option>' +
+                ' <option value="Perempuan">Perempuan</option>' +
+                '</select>' +
+                ' </div>' +
+                '</div>' +
+                '<div class="col-2">' +
+                '<div class="d-flex flex-column mb-8 fv-row">' +
+                '<label class="d-flex align-items-center fs-6 fw-bold mb-2">' +
+                '<span class="required">Umur</span>' +
+                '</label>' +
+                '<input type="number" min="0" class="form-control form-control-solid" name="umur_suspek[]" required />' +
+                '</div>' +
+                '</div>' +
+                '<div class="col-2">' +
+                '<a href="javascript:void(0)" class="btn btn-light-danger mt-3 mt-md-8 remove">' +
+                '<i class="la la-trash-o"></i>Hapus' +
+                '</a>' +
+                '</div>' +
+                '</div>';
             $('body').find('.fieldGroup:last').after(fieldHTML);
         } else {
             alert('Hanya dapat menambahkan maksimal 3 suspek!');
@@ -1094,71 +1120,70 @@
 
     $(".addMore2").click(function() {
         if ($('body').find('.fieldGroup2').length < 4) {
-            var fieldHTML = 
-            '<div class="section row fieldGroup2">'+
-                '<div class="row">'+
-                    '<div class="col">'+
-                        '<div class="d-flex flex-column mb-8 fv-row">'+
-                            '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
-                               ' <span class="required">Nama KK</span>'+
-                            '</label>'+
-                            '<input type="text" class="form-control form-control-solid" placeholder="Masukan Nama KK" name="namakk[]" required />'+
-                        '</div>'+
-                   ' </div>'+
-                    '<div class="col">'+
-                        '<div class="d-flex flex-column mb-8 fv-row">'+
-                            '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
-                               ' <span class="required">Latitude</span>'+
-                           ' </label>'+
-                           ' <input type="text" class="form-control form-control-solid" placeholder="Masukan Latitude" name="latitude[]" required />'+
-                        '</div>'+
-                    '</div>'+
-                    '<div class="col">'+
-                       ' <div class="d-flex flex-column mb-8 fv-row">'+
-                            '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
-                               ' <span class="required">Longitude</span>'+
-                            '</label>'+
-                            '<input type="text" class="form-control form-control-solid" placeholder="Masukan Longitude" name="longitude[]" required />'+
-                        '</div>'+
-                    '</div>'+
-                '</div>'+
-                '<div class="row">'+
-                    '<div class="d-flex flex-column mb-8 fv-row">'+
-                        '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
-                            '<span class="required">Pemeriksaan Tandon Air Dalam Rumah</span>'+
-                        '</label>'+
-                        '<div class="row">'+
-                            '<div class="col">'+
-                                '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" name="tandondlmperiksa[]" required />'+
-                            '</div>'+
-                            '<div class="col">'+
-                                '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" name="tandondlmpos[]" required />'+
-                            '</div>'+
-                        '</div>'+
-                    '</div>'+
-                '</div>'+
-                '<div class="row">'+
-                    '<div class="d-flex flex-column mb-8 fv-row">'+
-                        '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
-                            '<span class="required">Pemeriksaan Tandon Air Luar Rumah</span>'+
-                        '</label>'+
-                        '<div class="row">'+
-                            '<div class="col">'+
-                                '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" name="tandonluarperiksa[]" required />'+
-                            '</div>'+
-                            '<div class="col">'+
-                                '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" name="tandonluarpos[]" required />'+
-                            '</div>'+
-                        '</div>'+
-                    '</div>'+
-                    '<div class="text-end">'+
-                        '<a href="javascript:void(0)" data-repeater-delete class="btn btn-light-danger mt-3 mt-md-8 remove2">'+
-                            '<i class="la la-trash-o"></i>Hapus'+
-                        '</a>'+
-                    '</div>'+
-                '</div>'+
-            '</div>'
-            ;
+            var fieldHTML =
+                '<div class="section row fieldGroup2">' +
+                '<div class="row">' +
+                '<div class="col">' +
+                '<div class="d-flex flex-column mb-8 fv-row">' +
+                '<label class="d-flex align-items-center fs-6 fw-bold mb-2">' +
+                ' <span class="required">Nama KK</span>' +
+                '</label>' +
+                '<input type="text" class="form-control form-control-solid" placeholder="Masukan Nama KK" name="namakk[]" required />' +
+                '</div>' +
+                ' </div>' +
+                '<div class="col">' +
+                '<div class="d-flex flex-column mb-8 fv-row">' +
+                '<label class="d-flex align-items-center fs-6 fw-bold mb-2">' +
+                ' <span class="required">Latitude</span>' +
+                ' </label>' +
+                ' <input type="text" class="form-control form-control-solid" placeholder="Masukan Latitude" name="latitude[]" required />' +
+                '</div>' +
+                '</div>' +
+                '<div class="col">' +
+                ' <div class="d-flex flex-column mb-8 fv-row">' +
+                '<label class="d-flex align-items-center fs-6 fw-bold mb-2">' +
+                ' <span class="required">Longitude</span>' +
+                '</label>' +
+                '<input type="text" class="form-control form-control-solid" placeholder="Masukan Longitude" name="longitude[]" required />' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<div class="row">' +
+                '<div class="d-flex flex-column mb-8 fv-row">' +
+                '<label class="d-flex align-items-center fs-6 fw-bold mb-2">' +
+                '<span class="required">Pemeriksaan Tandon Air Dalam Rumah</span>' +
+                '</label>' +
+                '<div class="row">' +
+                '<div class="col">' +
+                '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" name="tandondlmperiksa[]" required />' +
+                '</div>' +
+                '<div class="col">' +
+                '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" name="tandondlmpos[]" required />' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<div class="row">' +
+                '<div class="d-flex flex-column mb-8 fv-row">' +
+                '<label class="d-flex align-items-center fs-6 fw-bold mb-2">' +
+                '<span class="required">Pemeriksaan Tandon Air Luar Rumah</span>' +
+                '</label>' +
+                '<div class="row">' +
+                '<div class="col">' +
+                '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" name="tandonluarperiksa[]" required />' +
+                '</div>' +
+                '<div class="col">' +
+                '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" name="tandonluarpos[]" required />' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<div class="text-end">' +
+                '<a href="javascript:void(0)" data-repeater-delete class="btn btn-light-danger mt-3 mt-md-8 remove2">' +
+                '<i class="la la-trash-o"></i>Hapus' +
+                '</a>' +
+                '</div>' +
+                '</div>' +
+                '</div>';
             $('body').find('.fieldGroup2:last').after(fieldHTML);
         } else {
             alert('Hanya dapat menambahkan maksimal 3!');
@@ -1171,42 +1196,42 @@
 
     $(".addMore3").click(function() {
         if ($('body').find('.fieldGroup3').length < 4) {
-            var fieldHTML = 
-            '<div class="section row fieldGroup3">'+
-                '<div class="col-5">'+
-                    '<div class="d-flex flex-column mb-8 fv-row">'+
-                        '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
-                            '<span class="required">Nama</span>'+
-                    ' </label>'+
-                        '<input type="text" class="form-control form-control-solid" name="nama_suspek[]" required />'+
-                    '</div>'+
-                '</div>'+
-                '<div class="col-3">'+
-                    '<div class="d-flex flex-column mb-8 fv-row">'+
-                        '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
-                            '<span class="required">L/P</span>'+
-                        '</label>'+
-                        '<select class="form-control form-control-solid" name="gender_suspek[]" required>'+
-                            '<option></option>'+
-                            '<option value="Laki-laki">Laki-laki</option>'+
-                           ' <option value="Perempuan">Perempuan</option>'+
-                        '</select>'+
-                   ' </div>'+
-                '</div>'+
-                '<div class="col-2">'+
-                    '<div class="d-flex flex-column mb-8 fv-row">'+
-                        '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
-                            '<span class="required">Umur</span>'+
-                        '</label>'+
-                        '<input type="number" min="0" class="form-control form-control-solid" name="umur_suspek[]" required />'+
-                    '</div>'+
-                '</div>'+
-                '<div class="col-2">'+
-                    '<a href="javascript:void(0)" class="btn btn-light-danger mt-3 mt-md-8 remove3">'+
-                    '<i class="la la-trash-o"></i>Hapus'+
-                    '</a>'+
-                '</div>'+
-            '</div>';
+            var fieldHTML =
+                '<div class="section row fieldGroup3">' +
+                '<div class="col-5">' +
+                '<div class="d-flex flex-column mb-8 fv-row">' +
+                '<label class="d-flex align-items-center fs-6 fw-bold mb-2">' +
+                '<span class="required">Nama</span>' +
+                ' </label>' +
+                '<input type="text" class="form-control form-control-solid" name="nama_suspek[]" required />' +
+                '</div>' +
+                '</div>' +
+                '<div class="col-3">' +
+                '<div class="d-flex flex-column mb-8 fv-row">' +
+                '<label class="d-flex align-items-center fs-6 fw-bold mb-2">' +
+                '<span class="required">L/P</span>' +
+                '</label>' +
+                '<select class="form-control form-control-solid" name="gender_suspek[]" required>' +
+                '<option></option>' +
+                '<option value="Laki-laki">Laki-laki</option>' +
+                ' <option value="Perempuan">Perempuan</option>' +
+                '</select>' +
+                ' </div>' +
+                '</div>' +
+                '<div class="col-2">' +
+                '<div class="d-flex flex-column mb-8 fv-row">' +
+                '<label class="d-flex align-items-center fs-6 fw-bold mb-2">' +
+                '<span class="required">Umur</span>' +
+                '</label>' +
+                '<input type="number" min="0" class="form-control form-control-solid" name="umur_suspek[]" required />' +
+                '</div>' +
+                '</div>' +
+                '<div class="col-2">' +
+                '<a href="javascript:void(0)" class="btn btn-light-danger mt-3 mt-md-8 remove3">' +
+                '<i class="la la-trash-o"></i>Hapus' +
+                '</a>' +
+                '</div>' +
+                '</div>';
             $('body').find('.fieldGroup3:last').after(fieldHTML);
         } else {
             alert('Hanya dapat menambahkan maksimal 3 suspek!');
@@ -1219,71 +1244,70 @@
 
     $(".addMore4").click(function() {
         if ($('body').find('.fieldGroup4').length < 4) {
-            var fieldHTML = 
-            '<div class="section row fieldGroup4">'+
-                '<div class="row">'+
-                    '<div class="col">'+
-                        '<div class="d-flex flex-column mb-8 fv-row">'+
-                            '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
-                               ' <span class="required">Nama KK</span>'+
-                            '</label>'+
-                            '<input type="text" class="form-control form-control-solid" placeholder="Masukan Nama KK" name="namakk[]" required />'+
-                        '</div>'+
-                   ' </div>'+
-                    '<div class="col">'+
-                        '<div class="d-flex flex-column mb-8 fv-row">'+
-                            '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
-                               ' <span class="required">Latitude</span>'+
-                           ' </label>'+
-                           ' <input type="text" class="form-control form-control-solid" placeholder="Masukan Latitude" name="latitude[]" required />'+
-                        '</div>'+
-                    '</div>'+
-                    '<div class="col">'+
-                       ' <div class="d-flex flex-column mb-8 fv-row">'+
-                            '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
-                               ' <span class="required">Longitude</span>'+
-                            '</label>'+
-                            '<input type="text" class="form-control form-control-solid" placeholder="Masukan Longitude" name="longitude[]" required />'+
-                        '</div>'+
-                    '</div>'+
-                '</div>'+
-                '<div class="row">'+
-                    '<div class="d-flex flex-column mb-8 fv-row">'+
-                        '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
-                            '<span class="required">Pemeriksaan Tandon Air Dalam Rumah</span>'+
-                        '</label>'+
-                        '<div class="row">'+
-                            '<div class="col">'+
-                                '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" name="tandondlmperiksa[]" required />'+
-                            '</div>'+
-                            '<div class="col">'+
-                                '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" name="tandondlmpos[]" required />'+
-                            '</div>'+
-                        '</div>'+
-                    '</div>'+
-                '</div>'+
-                '<div class="row">'+
-                    '<div class="d-flex flex-column mb-8 fv-row">'+
-                        '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
-                            '<span class="required">Pemeriksaan Tandon Air Luar Rumah</span>'+
-                        '</label>'+
-                        '<div class="row">'+
-                            '<div class="col">'+
-                                '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" name="tandonluarperiksa[]" required />'+
-                            '</div>'+
-                            '<div class="col">'+
-                                '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" name="tandonluarpos[]" required />'+
-                            '</div>'+
-                        '</div>'+
-                    '</div>'+
-                    '<div class="text-end">'+
-                        '<a href="javascript:void(0)" data-repeater-delete class="btn btn-light-danger mt-3 mt-md-8 remove4">'+
-                            '<i class="la la-trash-o"></i>Hapus'+
-                        '</a>'+
-                    '</div>'+
-                '</div>'+
-            '</div>'
-            ;
+            var fieldHTML =
+                '<div class="section row fieldGroup4">' +
+                '<div class="row">' +
+                '<div class="col">' +
+                '<div class="d-flex flex-column mb-8 fv-row">' +
+                '<label class="d-flex align-items-center fs-6 fw-bold mb-2">' +
+                ' <span class="required">Nama KK</span>' +
+                '</label>' +
+                '<input type="text" class="form-control form-control-solid" placeholder="Masukan Nama KK" name="namakk[]" required />' +
+                '</div>' +
+                ' </div>' +
+                '<div class="col">' +
+                '<div class="d-flex flex-column mb-8 fv-row">' +
+                '<label class="d-flex align-items-center fs-6 fw-bold mb-2">' +
+                ' <span class="required">Latitude</span>' +
+                ' </label>' +
+                ' <input type="text" class="form-control form-control-solid" placeholder="Masukan Latitude" name="latitude[]" required />' +
+                '</div>' +
+                '</div>' +
+                '<div class="col">' +
+                ' <div class="d-flex flex-column mb-8 fv-row">' +
+                '<label class="d-flex align-items-center fs-6 fw-bold mb-2">' +
+                ' <span class="required">Longitude</span>' +
+                '</label>' +
+                '<input type="text" class="form-control form-control-solid" placeholder="Masukan Longitude" name="longitude[]" required />' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<div class="row">' +
+                '<div class="d-flex flex-column mb-8 fv-row">' +
+                '<label class="d-flex align-items-center fs-6 fw-bold mb-2">' +
+                '<span class="required">Pemeriksaan Tandon Air Dalam Rumah</span>' +
+                '</label>' +
+                '<div class="row">' +
+                '<div class="col">' +
+                '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" name="tandondlmperiksa[]" required />' +
+                '</div>' +
+                '<div class="col">' +
+                '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" name="tandondlmpos[]" required />' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<div class="row">' +
+                '<div class="d-flex flex-column mb-8 fv-row">' +
+                '<label class="d-flex align-items-center fs-6 fw-bold mb-2">' +
+                '<span class="required">Pemeriksaan Tandon Air Luar Rumah</span>' +
+                '</label>' +
+                '<div class="row">' +
+                '<div class="col">' +
+                '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" name="tandonluarperiksa[]" required />' +
+                '</div>' +
+                '<div class="col">' +
+                '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" name="tandonluarpos[]" required />' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<div class="text-end">' +
+                '<a href="javascript:void(0)" data-repeater-delete class="btn btn-light-danger mt-3 mt-md-8 remove4">' +
+                '<i class="la la-trash-o"></i>Hapus' +
+                '</a>' +
+                '</div>' +
+                '</div>' +
+                '</div>';
             $('body').find('.fieldGroup4:last').after(fieldHTML);
         } else {
             alert('Hanya dapat menambahkan maksimal 3!');
@@ -1388,7 +1412,7 @@
                 $('#editKemana').val(res[0].riw_perjalanan)
                 $('#edit_tglWilayah').val(res[0].tgl_perjalanan)
                 $('#editId').val(res[0].id_pe)
-                
+
                 var reset = $('body').find('.fieldGroup3');
                 for (var i = 1; i < reset.length; i++) {
                     reset[i].remove();
@@ -1396,46 +1420,46 @@
 
                 if (res[0].listnama.length > 0 && res[0].listnama != null) {
                     for (var i = 0; i < res[0].listnama.length; i++) {
-                        var c = i+1;
-                        var fieldHTML = 
-                        '<div class="section row fieldGroup3">'+
-                            '<div class="col-5">'+
-                                '<div class="d-flex flex-column mb-8 fv-row">'+
-                                    '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
-                                        '<span class="required">Nama</span>'+
-                                ' </label>'+
-                                    '<input type="text" class="form-control form-control-solid" name="nama_suspek[]" value="' + res[0].listnama[i] + '" required />'+
-                                '</div>'+
-                            '</div>'+
-                            '<div class="col-3">'+
-                                '<div class="d-flex flex-column mb-8 fv-row">'+
-                                    '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
-                                        '<span class="required">L/P</span>'+
-                                    '</label>'+
-                                    '<select class="form-control form-control-solid" id="editGender'+c+'" name="gender_suspek[]" required>'+
-                                        '<option></option>'+
-                                        '<option value="Laki-laki">Laki-laki</option>'+
-                                        '<option value="Perempuan">Perempuan</option>'+
-                                    '</select>'+
-                            ' </div>'+
-                            '</div>'+
-                            '<div class="col-2">'+
-                                '<div class="d-flex flex-column mb-8 fv-row">'+
-                                    '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
-                                        '<span class="required">Umur</span>'+
-                                    '</label>'+
-                                    '<input type="number" min="0" class="form-control form-control-solid" value="' + res[0].listumur[i] + '" name="umur_suspek[]" required />'+
-                                '</div>'+
-                            '</div>'+
-                            '<div class="col-2">'+
-                                '<a href="javascript:void(0)" class="btn btn-light-danger mt-3 mt-md-8 remove3">'+
-                                '<i class="la la-trash-o"></i>Hapus'+
-                                '</a>'+
-                            '</div>'+
-                        '</div>';
+                        var c = i + 1;
+                        var fieldHTML =
+                            '<div class="section row fieldGroup3">' +
+                            '<div class="col-5">' +
+                            '<div class="d-flex flex-column mb-8 fv-row">' +
+                            '<label class="d-flex align-items-center fs-6 fw-bold mb-2">' +
+                            '<span class="required">Nama</span>' +
+                            ' </label>' +
+                            '<input type="text" class="form-control form-control-solid" name="nama_suspek[]" value="' + res[0].listnama[i] + '" required />' +
+                            '</div>' +
+                            '</div>' +
+                            '<div class="col-3">' +
+                            '<div class="d-flex flex-column mb-8 fv-row">' +
+                            '<label class="d-flex align-items-center fs-6 fw-bold mb-2">' +
+                            '<span class="required">L/P</span>' +
+                            '</label>' +
+                            '<select class="form-control form-control-solid" id="editGender' + c + '" name="gender_suspek[]" required>' +
+                            '<option></option>' +
+                            '<option value="Laki-laki">Laki-laki</option>' +
+                            '<option value="Perempuan">Perempuan</option>' +
+                            '</select>' +
+                            ' </div>' +
+                            '</div>' +
+                            '<div class="col-2">' +
+                            '<div class="d-flex flex-column mb-8 fv-row">' +
+                            '<label class="d-flex align-items-center fs-6 fw-bold mb-2">' +
+                            '<span class="required">Umur</span>' +
+                            '</label>' +
+                            '<input type="number" min="0" class="form-control form-control-solid" value="' + res[0].listumur[i] + '" name="umur_suspek[]" required />' +
+                            '</div>' +
+                            '</div>' +
+                            '<div class="col-2">' +
+                            '<a href="javascript:void(0)" class="btn btn-light-danger mt-3 mt-md-8 remove3">' +
+                            '<i class="la la-trash-o"></i>Hapus' +
+                            '</a>' +
+                            '</div>' +
+                            '</div>';
                         $('body').find('.fieldGroup3:last').after(fieldHTML);
-                        
-                        $('#editGender'+c).val(res[0].listgender[i])
+
+                        $('#editGender' + c).val(res[0].listgender[i])
                     }
                 }
 
@@ -1446,71 +1470,71 @@
 
                 if (res[0].listkk.length > 0 && res[0].listkk != null) {
                     for (var i = 0; i < res[0].listkk.length; i++) {
-                        var c = i+1;
-                        var fieldHTML = 
-                        '<div class="section row fieldGroup4">'+
-                            '<div class="row">'+
-                                '<div class="col">'+
-                                    '<div class="d-flex flex-column mb-8 fv-row">'+
-                                        '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
-                                        ' <span class="required">Nama KK</span>'+
-                                        '</label>'+
-                                        '<input type="text" class="form-control form-control-solid" placeholder="Masukan Nama KK" value="' + res[0].listkk[i] + '" name="namakk[]" required />'+
-                                    '</div>'+
-                            ' </div>'+
-                                '<div class="col">'+
-                                    '<div class="d-flex flex-column mb-8 fv-row">'+
-                                        '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
-                                        ' <span class="required">Latitude</span>'+
-                                    ' </label>'+
-                                    ' <input type="text" class="form-control form-control-solid" placeholder="Masukan Latitude" name="latitude[]" value="' + res[0].listlat[i] + '" required />'+
-                                    '</div>'+
-                                '</div>'+
-                                '<div class="col">'+
-                                ' <div class="d-flex flex-column mb-8 fv-row">'+
-                                        '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
-                                        ' <span class="required">Longitude</span>'+
-                                        '</label>'+
-                                        '<input type="text" class="form-control form-control-solid" placeholder="Masukan Longitude" name="longitude[]" value="' + res[0].listlong[i] + '" required />'+
-                                    '</div>'+
-                                '</div>'+
-                            '</div>'+
-                            '<div class="row">'+
-                                '<div class="d-flex flex-column mb-8 fv-row">'+
-                                    '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
-                                        '<span class="required">Pemeriksaan Tandon Air Dalam Rumah</span>'+
-                                    '</label>'+
-                                    '<div class="row">'+
-                                        '<div class="col">'+
-                                            '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" value="' + res[0].listdlmper[i] + '" name="tandondlmperiksa[]" required />'+
-                                        '</div>'+
-                                        '<div class="col">'+
-                                            '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" value="' + res[0].listdlmpos[i] + '" name="tandondlmpos[]" required />'+
-                                        '</div>'+
-                                    '</div>'+
-                                '</div>'+
-                            '</div>'+
-                            '<div class="row">'+
-                                '<div class="d-flex flex-column mb-8 fv-row">'+
-                                    '<label class="d-flex align-items-center fs-6 fw-bold mb-2">'+
-                                        '<span class="required">Pemeriksaan Tandon Air Luar Rumah</span>'+
-                                    '</label>'+
-                                    '<div class="row">'+
-                                        '<div class="col">'+
-                                            '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" value="' + res[0].listluarper[i] + '" name="tandonluarperiksa[]" required />'+
-                                        '</div>'+
-                                        '<div class="col">'+
-                                            '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" value="' + res[0].listluarpos[i] + '" name="tandonluarpos[]" required />'+
-                                        '</div>'+
-                                    '</div>'+
-                                '</div>'+
-                                '<div class="text-end">'+
-                                    '<a href="javascript:void(0)" data-repeater-delete class="btn btn-light-danger mt-3 mt-md-8 remove4">'+
-                                        '<i class="la la-trash-o"></i>Hapus'+
-                                    '</a>'+
-                                '</div>'+
-                            '</div>'+
-                        '</div>';
+                        var c = i + 1;
+                        var fieldHTML =
+                            '<div class="section row fieldGroup4">' +
+                            '<div class="row">' +
+                            '<div class="col">' +
+                            '<div class="d-flex flex-column mb-8 fv-row">' +
+                            '<label class="d-flex align-items-center fs-6 fw-bold mb-2">' +
+                            ' <span class="required">Nama KK</span>' +
+                            '</label>' +
+                            '<input type="text" class="form-control form-control-solid" placeholder="Masukan Nama KK" value="' + res[0].listkk[i] + '" name="namakk[]" required />' +
+                            '</div>' +
+                            ' </div>' +
+                            '<div class="col">' +
+                            '<div class="d-flex flex-column mb-8 fv-row">' +
+                            '<label class="d-flex align-items-center fs-6 fw-bold mb-2">' +
+                            ' <span class="required">Latitude</span>' +
+                            ' </label>' +
+                            ' <input type="text" class="form-control form-control-solid" placeholder="Masukan Latitude" name="latitude[]" value="' + res[0].listlat[i] + '" required />' +
+                            '</div>' +
+                            '</div>' +
+                            '<div class="col">' +
+                            ' <div class="d-flex flex-column mb-8 fv-row">' +
+                            '<label class="d-flex align-items-center fs-6 fw-bold mb-2">' +
+                            ' <span class="required">Longitude</span>' +
+                            '</label>' +
+                            '<input type="text" class="form-control form-control-solid" placeholder="Masukan Longitude" name="longitude[]" value="' + res[0].listlong[i] + '" required />' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>' +
+                            '<div class="row">' +
+                            '<div class="d-flex flex-column mb-8 fv-row">' +
+                            '<label class="d-flex align-items-center fs-6 fw-bold mb-2">' +
+                            '<span class="required">Pemeriksaan Tandon Air Dalam Rumah</span>' +
+                            '</label>' +
+                            '<div class="row">' +
+                            '<div class="col">' +
+                            '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" value="' + res[0].listdlmper[i] + '" name="tandondlmperiksa[]" required />' +
+                            '</div>' +
+                            '<div class="col">' +
+                            '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" value="' + res[0].listdlmpos[i] + '" name="tandondlmpos[]" required />' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>' +
+                            '<div class="row">' +
+                            '<div class="d-flex flex-column mb-8 fv-row">' +
+                            '<label class="d-flex align-items-center fs-6 fw-bold mb-2">' +
+                            '<span class="required">Pemeriksaan Tandon Air Luar Rumah</span>' +
+                            '</label>' +
+                            '<div class="row">' +
+                            '<div class="col">' +
+                            '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Tandon Periksa" value="' + res[0].listluarper[i] + '" name="tandonluarperiksa[]" required />' +
+                            '</div>' +
+                            '<div class="col">' +
+                            '<input type="number" min="0" class="form-control form-control-solid" placeholder="Jumlah Positif Jentik" value="' + res[0].listluarpos[i] + '" name="tandonluarpos[]" required />' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>' +
+                            '<div class="text-end">' +
+                            '<a href="javascript:void(0)" data-repeater-delete class="btn btn-light-danger mt-3 mt-md-8 remove4">' +
+                            '<i class="la la-trash-o"></i>Hapus' +
+                            '</a>' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>';
                         $('body').find('.fieldGroup4:last').after(fieldHTML);
                     }
                 }
