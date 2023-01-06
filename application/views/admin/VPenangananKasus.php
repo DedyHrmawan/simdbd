@@ -16,7 +16,7 @@
                             <tr class="fw-bolder text-muted">
                                 <th>No</th>
                                 <th>ID PE</th>
-                                <th>Tanggal PE</th>
+                                <th>Tanggal Penanganan Kasus</th>
                                 <th>Kelurahan</th>
                                 <th>Penularan Kasus</th>
                                 <th>Radius Penularan</th>
@@ -28,13 +28,13 @@
                             $no = 1;
                             foreach ($list as $item) {
 
-                                $date = date_create($item->tgl_pe);
-                                $tgl_pe = date_format($date, "d F Y");
+                                $date = date_create($item->tgl_penanganan);
+                                $tgl_penanganan = date_format($date, "d F Y");
                                 echo '
                                     <tr>
                                         <td class="text-dark fw-bolder">' . $no . '</td>
                                         <td class="text-dark fw-bolder">PE0' . $item->id_pe . '</td>
-                                        <td class="text-dark fw-bolder">' . $tgl_pe . '</td>
+                                        <td class="text-dark fw-bolder">' . $tgl_penanganan . '</td>
                                         <td class="text-dark fw-bolder">' . $item->kelurahan . '</td>
                                         <td><span class="badge badge-warning">' . $item->penularan . '</span></td>
                                         <td><span class="badge badge-warning">' . $item->radius . '</span></td>
