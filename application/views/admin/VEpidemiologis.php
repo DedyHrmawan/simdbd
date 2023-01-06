@@ -649,10 +649,18 @@
                 <div class="card-body">
                     <div class="row justify-content-start">
                         <div class="col-6">
+                            <label class="fw-bold ">Tanggal PE</label>
+                        </div>
+                        <div class="col">
+                            <p id="detTglPE">3505120810990001</p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-start">
+                        <div class="col-6">
                             <label class="fw-bold ">NIK</label>
                         </div>
                         <div class="col">
-                            <p id="detNik">3505120810990001</p>
+                            <p id="detNik"></p>
                         </div>
                     </div>
                     <div class="row justify-content-start">
@@ -1323,6 +1331,7 @@
                 id_pe: id
             },
             success: res => {
+                $('#detTglPE').html(res[0].tgl_pe)
                 $('#detNik').html(res[0].nik_px)
                 $('#detNama').html(res[0].nama_px)
                 $('#detGender').html(res[0].gender_px)
