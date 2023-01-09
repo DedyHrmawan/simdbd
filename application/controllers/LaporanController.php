@@ -131,10 +131,19 @@ class LaporanController extends CI_Controller
             $sakit = date_format($date, "d F Y");
             $date = date_create($item->tgl_masuk_rumkit);
             $rumkit = date_format($date, "d F Y");
-            $petgl = '';
+            $petgl = '';$fogging = '';$psn = '';
             if(!empty($item->tgl_pe)){
                 $date = date_create($item->tgl_pe);
                 $petgl = date_format($date, "d F Y");
+            }
+            if(!empty($item->penularan)){
+                if($item->penularan == 'Ya'){
+                    $date = date_create($item->tgl_penanganan);
+                    $fogging = date_format($date, "d F Y");
+                }else if($item->penularan == 'Tidak'){
+                    $date = date_create($item->tgl_penanganan);
+                    $psn = date_format($date, "d F Y");
+                }                                    
             }
             if ($item->gender_px == 'Laki-laki') {
                 $L = $item->umur_px;
@@ -153,6 +162,8 @@ class LaporanController extends CI_Controller
                 <td>$sakit</td>
                 <td>$rumkit</td>
                 <td>$petgl</td>
+                <td>$fogging</td>
+                <td>$psn</td>
                 <td>$item->ket</td>
             </tr>";            
             $no++;
@@ -178,18 +189,18 @@ class LaporanController extends CI_Controller
                     <th rowspan="2">No</th>
                     <th rowspan="2">Nama Penderita</th>
                     <th colspan="2">Umur</th>
-                    <th>Alamat</th>
-                    <th colspan="2">Tanggal</th>
-                    <th>Tanggal</th>
+                    <th rowspan="2">Kelurahan</th>
+                    <th colspan="5">Tanggal</th>
                     <th rowspan="2">Ket</th>
                 </tr>
                 <tr class="fw-bolder align-middle text-center">
                     <th>L</th>
                     <th>P</th>
-                    <th>Kelurahan</th>
                     <th>Mulai Sakit</th>
                     <th>Masuk RS</th>
                     <th>PE</th>
+                    <th>Fogging</th>
+                    <th>PSN</th>
                 </tr>
                 $dataString
             </table>

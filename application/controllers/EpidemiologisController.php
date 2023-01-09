@@ -26,81 +26,104 @@ class EpidemiologisController extends CI_Controller
     {
         $param = $_POST;
 
-        $arr = array();
-        for ($i = 0; $i < count($param['nama_suspek']); $i++) {
-            array_push($arr, $param['nama_suspek'][$i]);
+        if(!empty($param['nama_suspek'])){            
+            $arr = array();
+            for ($i = 0; $i < count($param['nama_suspek']); $i++) {
+                array_push($arr, $param['nama_suspek'][$i]);
+            }
+            unset($param['nama_suspek']);
+            $param['nama_suspek'] = implode(';', $arr);
         }
-        unset($param['nama_suspek']);
-        $param['nama_suspek'] = implode(';', $arr);
 
-        $arr = array();
-        for ($i = 0; $i < count($param['gender_suspek']); $i++) {
-            array_push($arr, $param['gender_suspek'][$i]);
+        if(!empty($param['gender_suspek'])){
+            for ($i = 0; $i < count($param['gender_suspek']); $i++) {
+                array_push($arr, $param['gender_suspek'][$i]);
+            }
+            unset($param['gender_suspek']);
+            $param['gender_suspek'] = implode(';', $arr);
         }
-        unset($param['gender_suspek']);
-        $param['gender_suspek'] = implode(';', $arr);
+        $arr = array();
 
-        $arr = array();
-        for ($i = 0; $i < count($param['umur_suspek']); $i++) {
-            array_push($arr, $param['umur_suspek'][$i]);
+        if(!empty($param['umur_suspek'])){            
+            $arr = array();
+            for ($i = 0; $i < count($param['umur_suspek']); $i++) {
+                array_push($arr, $param['umur_suspek'][$i]);
+            }
+            unset($param['umur_suspek']);
+            $param['umur_suspek'] = implode(';', $arr);
         }
-        unset($param['umur_suspek']);
-        $param['umur_suspek'] = implode(';', $arr);
 
-        $arr = array();
-        for ($i = 0; $i < count($param['namakk']); $i++) {
-            array_push($arr, $param['namakk'][$i]);
+        if(!empty($param['namakk'])){            
+            $arr = array();
+            for ($i = 0; $i < count($param['namakk']); $i++) {
+                array_push($arr, $param['namakk'][$i]);
+            }
+            unset($param['namakk']);
+            $param['nama_kk'] = implode(';', $arr);
         }
-        unset($param['namakk']);
-        $param['nama_kk'] = implode(';', $arr);
-       
-        $arr = array();
-        for ($i = 0; $i < count($param['latitude']); $i++) {
-            array_push($arr, $param['latitude'][$i]);
-        }
-        unset($param['latitude']);
-        $param['latitude'] = implode(';', $arr);
+      
+        if(!empty($param['latitude'])){$arr = array();
+            for ($i = 0; $i < count($param['latitude']); $i++) {
+                array_push($arr, $param['latitude'][$i]);
+            }
+            unset($param['latitude']);
+            $param['latitude'] = implode(';', $arr);
+        }        
 
-        $arr = array();
-        for ($i = 0; $i < count($param['longitude']); $i++) {
-            array_push($arr, $param['longitude'][$i]);
+        if(!empty($param['longitude'])){
+            $arr = array();
+            for ($i = 0; $i < count($param['longitude']); $i++) {
+                array_push($arr, $param['longitude'][$i]);
+            }
+            unset($param['longitude']);
+            $param['longitude'] = implode(';', $arr);
         }
-        unset($param['longitude']);
-        $param['longitude'] = implode(';', $arr);
+        
 
         $totalperiksa = array();
         $totalpos = array();
 
-        $arr = array();
-        for ($i = 0; $i < count($param['tandondlmperiksa']); $i++) {
-            array_push($arr, $param['tandondlmperiksa'][$i]);
-            array_push($totalperiksa, $param['tandondlmperiksa'][$i]);
+        if(!empty($param['tandondlmperiksa'])){
+            $arr = array();
+            for ($i = 0; $i < count($param['tandondlmperiksa']); $i++) {
+                array_push($arr, $param['tandondlmperiksa'][$i]);
+                array_push($totalperiksa, $param['tandondlmperiksa'][$i]);
+            }
+            unset($param['tandondlmperiksa']);
+            $param['tandon_dlm_periksa'] = implode(';', $arr);
         }
-        unset($param['tandondlmperiksa']);
-        $param['tandon_dlm_periksa'] = implode(';', $arr);
+        
 
-        $arr = array();
-        for ($i = 0; $i < count($param['tandondlmpos']); $i++) {
-            array_push($arr, $param['tandondlmpos'][$i]);
-            array_push($totalpos, $param['tandondlmpos'][$i]);
+        if(!empty($param['tandondlmpos'])){
+            $arr = array();
+            for ($i = 0; $i < count($param['tandondlmpos']); $i++) {
+                array_push($arr, $param['tandondlmpos'][$i]);
+                array_push($totalpos, $param['tandondlmpos'][$i]);
+            }
+            unset($param['tandondlmpos']);
+            $param['tandon_dlm_pos'] = implode(';', $arr);
         }
-        unset($param['tandondlmpos']);
-        $param['tandon_dlm_pos'] = implode(';', $arr);
+        
 
-        $arr = array();
-        for ($i = 0; $i < count($param['tandonluarperiksa']); $i++) {
-            array_push($arr, $param['tandonluarperiksa'][$i]);
-            $totalperiksa[$i] += $param['tandonluarperiksa'][$i];
-        }
-        unset($param['tandonluarperiksa']);
-        $param['tandon_luar_periksa'] = implode(';', $arr);
+        if(!empty($param['tandonluarperiksa'])){
+            $arr = array();
+            for ($i = 0; $i < count($param['tandonluarperiksa']); $i++) {
+                array_push($arr, $param['tandonluarperiksa'][$i]);
+                $totalperiksa[$i] += $param['tandonluarperiksa'][$i];
+            }
+            unset($param['tandonluarperiksa']);
+            $param['tandon_luar_periksa'] = implode(';', $arr);
+        }        
 
-        $arr = array();
-        for ($i = 0; $i < count($param['tandonluarpos']); $i++) {
-            array_push($arr, $param['tandonluarpos'][$i]);
-            $totalpos[$i] += $param['tandonluarpos'][$i];
-        }
-        unset($param['tandonluarpos']);
+        if(!empty($param['tandonluarpos'])){
+            $arr = array();
+            for ($i = 0; $i < count($param['tandonluarpos']); $i++) {
+                array_push($arr, $param['tandonluarpos'][$i]);
+                $totalpos[$i] += $param['tandonluarpos'][$i];
+            }
+            unset($param['tandonluarpos']);
+        }        
+
         $param['tandon_luar_pos'] = implode(';', $arr);
         $param['total_periksa'] = implode(';', $totalperiksa);
         $param['total_pos'] = implode(';', $totalpos);
@@ -166,81 +189,102 @@ class EpidemiologisController extends CI_Controller
     public function edit(){
         $param = $_POST;
 
-        $arr = array();
-        for ($i = 0; $i < count($param['nama_suspek']); $i++) {
-            array_push($arr, $param['nama_suspek'][$i]);
+        if(!empty($param['nama_suspek'])){            
+            $arr = array();
+            for ($i = 0; $i < count($param['nama_suspek']); $i++) {
+                array_push($arr, $param['nama_suspek'][$i]);
+            }
+            unset($param['nama_suspek']);
+            $param['nama_suspek'] = implode(';', $arr);
         }
-        unset($param['nama_suspek']);
-        $param['nama_suspek'] = implode(';', $arr);
 
-        $arr = array();
-        for ($i = 0; $i < count($param['gender_suspek']); $i++) {
-            array_push($arr, $param['gender_suspek'][$i]);
+        if(!empty($param['gender_suspek'])){
+            for ($i = 0; $i < count($param['gender_suspek']); $i++) {
+                array_push($arr, $param['gender_suspek'][$i]);
+            }
+            unset($param['gender_suspek']);
+            $param['gender_suspek'] = implode(';', $arr);
         }
-        unset($param['gender_suspek']);
-        $param['gender_suspek'] = implode(';', $arr);
+        $arr = array();
 
-        $arr = array();
-        for ($i = 0; $i < count($param['umur_suspek']); $i++) {
-            array_push($arr, $param['umur_suspek'][$i]);
+        if(!empty($param['umur_suspek'])){            
+            $arr = array();
+            for ($i = 0; $i < count($param['umur_suspek']); $i++) {
+                array_push($arr, $param['umur_suspek'][$i]);
+            }
+            unset($param['umur_suspek']);
+            $param['umur_suspek'] = implode(';', $arr);
         }
-        unset($param['umur_suspek']);
-        $param['umur_suspek'] = implode(';', $arr);
 
-        $arr = array();
-        for ($i = 0; $i < count($param['namakk']); $i++) {
-            array_push($arr, $param['namakk'][$i]);
+        if(!empty($param['namakk'])){            
+            $arr = array();
+            for ($i = 0; $i < count($param['namakk']); $i++) {
+                array_push($arr, $param['namakk'][$i]);
+            }
+            unset($param['namakk']);
+            $param['nama_kk'] = implode(';', $arr);
         }
-        unset($param['namakk']);
-        $param['nama_kk'] = implode(';', $arr);
-       
-        $arr = array();
-        for ($i = 0; $i < count($param['latitude']); $i++) {
-            array_push($arr, $param['latitude'][$i]);
-        }
-        unset($param['latitude']);
-        $param['latitude'] = implode(';', $arr);
+      
+        if(!empty($param['latitude'])){$arr = array();
+            for ($i = 0; $i < count($param['latitude']); $i++) {
+                array_push($arr, $param['latitude'][$i]);
+            }
+            unset($param['latitude']);
+            $param['latitude'] = implode(';', $arr);
+        }        
 
-        $arr = array();
-        for ($i = 0; $i < count($param['longitude']); $i++) {
-            array_push($arr, $param['longitude'][$i]);
+        if(!empty($param['longitude'])){
+            $arr = array();
+            for ($i = 0; $i < count($param['longitude']); $i++) {
+                array_push($arr, $param['longitude'][$i]);
+            }
+            unset($param['longitude']);
+            $param['longitude'] = implode(';', $arr);
         }
-        unset($param['longitude']);
-        $param['longitude'] = implode(';', $arr);
 
         $totalperiksa = array();
         $totalpos = array();
 
-        $arr = array();
-        for ($i = 0; $i < count($param['tandondlmperiksa']); $i++) {
-            array_push($arr, $param['tandondlmperiksa'][$i]);
-            array_push($totalperiksa, $param['tandondlmperiksa'][$i]);
+        if(!empty($param['tandondlmperiksa'])){
+            $arr = array();
+            for ($i = 0; $i < count($param['tandondlmperiksa']); $i++) {
+                array_push($arr, $param['tandondlmperiksa'][$i]);
+                array_push($totalperiksa, $param['tandondlmperiksa'][$i]);
+            }
+            unset($param['tandondlmperiksa']);
+            $param['tandon_dlm_periksa'] = implode(';', $arr);
         }
-        unset($param['tandondlmperiksa']);
-        $param['tandon_dlm_periksa'] = implode(';', $arr);
+        
 
-        $arr = array();
-        for ($i = 0; $i < count($param['tandondlmpos']); $i++) {
-            array_push($arr, $param['tandondlmpos'][$i]);
-            array_push($totalpos, $param['tandondlmpos'][$i]);
+        if(!empty($param['tandondlmpos'])){
+            $arr = array();
+            for ($i = 0; $i < count($param['tandondlmpos']); $i++) {
+                array_push($arr, $param['tandondlmpos'][$i]);
+                array_push($totalpos, $param['tandondlmpos'][$i]);
+            }
+            unset($param['tandondlmpos']);
+            $param['tandon_dlm_pos'] = implode(';', $arr);
         }
-        unset($param['tandondlmpos']);
-        $param['tandon_dlm_pos'] = implode(';', $arr);
+        
 
-        $arr = array();
-        for ($i = 0; $i < count($param['tandonluarperiksa']); $i++) {
-            array_push($arr, $param['tandonluarperiksa'][$i]);
-            $totalperiksa[$i] += $param['tandonluarperiksa'][$i];
-        }
-        unset($param['tandonluarperiksa']);
-        $param['tandon_luar_periksa'] = implode(';', $arr);
+        if(!empty($param['tandonluarperiksa'])){
+            $arr = array();
+            for ($i = 0; $i < count($param['tandonluarperiksa']); $i++) {
+                array_push($arr, $param['tandonluarperiksa'][$i]);
+                $totalperiksa[$i] += $param['tandonluarperiksa'][$i];
+            }
+            unset($param['tandonluarperiksa']);
+            $param['tandon_luar_periksa'] = implode(';', $arr);
+        }        
 
-        $arr = array();
-        for ($i = 0; $i < count($param['tandonluarpos']); $i++) {
-            array_push($arr, $param['tandonluarpos'][$i]);
-            $totalpos[$i] += $param['tandonluarpos'][$i];
-        }
-        unset($param['tandonluarpos']);
+        if(!empty($param['tandonluarpos'])){
+            $arr = array();
+            for ($i = 0; $i < count($param['tandonluarpos']); $i++) {
+                array_push($arr, $param['tandonluarpos'][$i]);
+                $totalpos[$i] += $param['tandonluarpos'][$i];
+            }
+            unset($param['tandonluarpos']);
+        }        
         $param['tandon_luar_pos'] = implode(';', $arr);
         $param['total_periksa'] = implode(';', $totalperiksa);
         $param['total_pos'] = implode(';', $totalpos);
