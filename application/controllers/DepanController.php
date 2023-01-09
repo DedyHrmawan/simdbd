@@ -12,7 +12,7 @@ class DepanController extends CI_Controller
         $carousel = $this->Depan->getCarousel();
         $informasi = $this->Depan->getInformasi();
         $chart = $this->Depan->getChart();
-        $mapsdata = $this->Depan->getMapsData();
+        $mapsdata = $this->Depan->getMapsData(date("m"),date("Y"));
         $dataChart = array();
         $dataStr = '';
 

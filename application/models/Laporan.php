@@ -19,7 +19,7 @@ class Laporan extends CI_Model{
     }
 
     public function getPenderita($month,$year){
-        $sql = "SELECT p.*,e.tgl_pe FROM penderita p LEFT JOIN epidemiologi e ON p.id_px = e.id_px WHERE MONTH(tgl_sakit) = '$month' AND YEAR(tgl_sakit) = '$year' ORDER BY e.tgl_pe";
+        $sql = "SELECT p.*,e.tgl_pe,e.id_pe, a.penularan,a.tgl_penanganan FROM penderita p LEFT JOIN epidemiologi e ON p.id_px = e.id_px LEFT JOIN penanganan a ON e.id_pe = a.id_pe WHERE MONTH(tgl_sakit) = '$month' AND YEAR(tgl_sakit) = '$year' ORDER BY e.tgl_pe";
         $res = $this->db->query($sql)->result();
         return $res;
     }

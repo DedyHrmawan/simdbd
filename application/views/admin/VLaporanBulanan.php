@@ -98,10 +98,19 @@
                                 $sakit = date_format($date, "d F Y");
                                 $date = date_create($item->tgl_masuk_rumkit);
                                 $rumkit = date_format($date, "d F Y");
-                                $petgl = '';
+                                $petgl = '';$fogging = '';$psn = '';
                                 if(!empty($item->tgl_pe)){
                                     $date = date_create($item->tgl_pe);
                                     $petgl = date_format($date, "d F Y");
+                                }
+                                if(!empty($item->penularan)){
+                                    if($item->penularan == 'Ya'){
+                                        $date = date_create($item->tgl_penanganan);
+                                        $fogging = date_format($date, "d F Y");
+                                    }else if($item->penularan == 'Tidak'){
+                                        $date = date_create($item->tgl_penanganan);
+                                        $psn = date_format($date, "d F Y");
+                                    }                                    
                                 }
                                 if ($item->gender_px == 'Laki-laki') {
                                     $L = $item->umur_px;
@@ -119,8 +128,8 @@
                                         <td >' . $sakit . '</td>
                                         <td >' . $rumkit . '</td>
                                         <td>' . $petgl . '</td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>'.$fogging.'</td>
+                                        <td>'.$psn.'</td>
                                         <td>'.$item->ket.'</td>
                                         <td>  
                                             <a href="" title="Edit Keterangan" data-bs-toggle="modal" data-bs-target="#mdl_editKet" data-id="'.$item->id_px.'" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm mdl_editKet m-1">

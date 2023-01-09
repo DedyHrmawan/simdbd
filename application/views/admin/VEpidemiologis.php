@@ -264,7 +264,7 @@
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                     <span class="required">Sebutkan Pergi ke Mana</span>
                                 </label>
-                                <input type="text" class="form-control form-control-solid" placeholder="Masukan Wilayah" name="riw_perjalanan" required />
+                                <input type="text" class="form-control form-control-solid" placeholder="Masukan Wilayah" name="riw_perjalanan"/>
                             </div>
                         </div>
                         <div class="tgl_hide_add col-sm-4">
@@ -272,7 +272,7 @@
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                     <span class="required">Pada Tanggal</span>
                                 </label>
-                                <input class="form-control form-control-solid" placeholder="Masukan Tanggal" id="add_tglWilayah" name="tgl_perjalanan" required autocomplete="off" />
+                                <input class="form-control form-control-solid" placeholder="Masukan Tanggal" id="add_tglWilayah" name="tgl_perjalanan" autocomplete="off" />
                             </div>
                         </div>
                     </div>
@@ -502,7 +502,7 @@
                     <div class="row">
                         <div class="col-sm-2">
                             <div class="form-check">
-                                <input class="form-check-input editBepergian" type="radio" name="bepergian" id="ya_berpergian" value="Ya" checked>
+                                <input class="form-check-input editBepergian" type="radio" name="bepergian" id="ya_berpergian" value="Ya" onclick="edit_show();" checked>
                                 <label class="form-check-label" for="ya_berpergian">
                                     Ya
                                 </label>
@@ -510,26 +510,26 @@
                         </div>
                         <div class="col-sm-2">
                             <div class="form-check">
-                                <input class="form-check-input editBepergian" type="radio" name="bepergian" id="tidak_berpergian" value="Tidak">
+                                <input class="form-check-input editBepergian" type="radio" name="bepergian" id="tidak_berpergian" onclick="edit_hide();" value="Tidak">
                                 <label class="form-check-label" for="tidak_berpergian">
                                     Tidak
                                 </label>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="pergi_hide_edit col-sm-4">
                             <div class="d-flex flex-column mb-8 fv-row">
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                     <span class="required">Sebutkan Pergi ke Mana</span>
                                 </label>
-                                <input type="text" class="form-control form-control-solid" placeholder="Masukan Wilayah" id="editKemana" name="riw_perjalanan" required />
+                                <input type="text" class="form-control form-control-solid" placeholder="Masukan Wilayah" id="editKemana" name="riw_perjalanan" />
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="tgl_hide_edit col-sm-4">
                             <div class="d-flex flex-column mb-8 fv-row">
                                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                     <span class="required">Pada Tanggal</span>
                                 </label>
-                                <input type="text" class="form-control form-control-solid" placeholder="Masukan Tanggal" id="edit_tglWilayah" name="tgl_perjalanan" required />
+                                <input type="text" class="form-control form-control-solid" placeholder="Masukan Tanggal" id="edit_tglWilayah" name="tgl_perjalanan"/>
                             </div>
                         </div>
                     </div>
@@ -653,7 +653,7 @@
                             <label class="fw-bold ">Tanggal PE</label>
                         </div>
                         <div class="col">
-                            <p id="detTglPE">3505120810990001</p>
+                            <p id="detTglPE"></p>
                         </div>
                     </div>
                     <div class="row justify-content-start">
@@ -1009,6 +1009,16 @@
     function radius_show() {
         document.getElementsByClassName('pergi_hide_add')[0].style.visibility = 'visible';
         document.getElementsByClassName('tgl_hide_add')[0].style.visibility = 'visible';
+    }
+
+    function edit_hide() {
+        document.getElementsByClassName('pergi_hide_edit')[0].style.visibility = 'hidden';
+        document.getElementsByClassName('tgl_hide_edit')[0].style.visibility = 'hidden';
+    }
+
+    function edit_show() {
+        document.getElementsByClassName('pergi_hide_edit')[0].style.visibility = 'visible';
+        document.getElementsByClassName('tgl_hide_edit')[0].style.visibility = 'visible';
     }
 
     $('#add_suspek_repeater').repeater({
@@ -1372,10 +1382,13 @@
                 $('#detSakit').html(res[0].tgl_sakit)
                 $('#detMasuk').html(res[0].tgl_masuk_rumkit)
                 $('#detBepergian').html(res[0].bepergian)
-                $('#detKemana').html(res[0].riw_perjalanan)
-                $('#detKapan').html(res[0].tgl_perjalanan)
                 $('#detTamu').html(res[0].riw_tamu)
                 $('#detTetangga').html(res[0].tetangga)
+
+                if (res[0].bepergian == "Ya") {                     
+                    $('#detKemana').html(res[0].riw_perjalanan)
+                    $('#detKapan').html(res[0].tgl_perjalanan)                   
+                }
             }
         })
     })
@@ -1412,6 +1425,14 @@
                 $('#editKemana').val(res[0].riw_perjalanan)
                 $('#edit_tglWilayah').val(res[0].tgl_perjalanan)
                 $('#editId').val(res[0].id_pe)
+
+                if (res[0].bepergian == "Tidak") {                    
+                    document.getElementsByClassName('pergi_hide_edit')[0].style.visibility = 'hidden';
+                    document.getElementsByClassName('tgl_hide_edit')[0].style.visibility = 'hidden';
+                }else if(res[0].bepergian == "Ya"){                    
+                    document.getElementsByClassName('pergi_hide_edit')[0].style.visibility = 'visible';
+                    document.getElementsByClassName('tgl_hide_edit')[0].style.visibility = 'visible';
+                }
 
                 var reset = $('body').find('.fieldGroup3');
                 for (var i = 1; i < reset.length; i++) {

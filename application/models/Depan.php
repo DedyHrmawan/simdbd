@@ -26,8 +26,8 @@ class Depan extends CI_Model{
         $res = $this->db->query($sql)->result();
         return $res;
     }
-    public function getMapsData(){
-        $sql = "SELECT nama_kelurahan,COUNT(id_px) as total FROM penderita GROUP BY nama_kelurahan";
+    public function getMapsData($m, $y){
+        $sql = "SELECT nama_kelurahan,COUNT(id_px) as total FROM penderita WHERE MONTH(tgl_sakit)='$m' AND YEAR(tgl_sakit)='$y' GROUP BY nama_kelurahan";
         $res = $this->db->query($sql)->result();
         return $res;
     }
