@@ -216,6 +216,6 @@ class LaporanController extends CI_Controller
 		$pdf->lastPage();
 
 		//Close and output PDF document
-		$pdf->Output('laporan_bulanan'.md5(time()) . '.pdf', 'D');
+		$pdf->Output('laporan_bulanan'.md5(time()) . '.pdf', 'I');
     }
 }

@@ -265,6 +265,6 @@ class LaporanHarianController extends CI_Controller
 
 		//Close and output PDF document
         ob_end_clean();
-		$pdf->Output('laporan_bulanan'.md5(time()) . '.pdf', 'D');
+		$pdf->Output('laporan_bulanan'.md5(time()) . '.pdf', 'I');
     }
 }

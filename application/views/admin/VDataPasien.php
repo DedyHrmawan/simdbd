@@ -9,6 +9,21 @@
                     <a href="#" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#mdl_addPasien">Tambah Pasien</a>
                 </div>
             </div>
+            <?php
+                if ($this->session->flashdata('failed_store')) {
+                    echo '   
+                    <div class="card">
+                        <div class="card-body card-rounded py-3">
+                            <div class="alert alert-danger d-flex align-items-center p-5">
+                                <div class="d-flex flex-column">
+                                    <span>' . $this->session->flashdata('failed_store') . '</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    ';
+                }
+            ?>
             <div class="card-body py-3">
                 <div class="">
                     <table class="table table-rounded table-row-bordered table-row-gray-300 align-middle gs-0 gy-3" id="tabelPasien">
@@ -51,7 +66,7 @@
                                                     </svg>
                                                 </span>
                                             </a>
-                                            <a href="#" title="Hapus Pasien" data-bs-toggle="modal" data-bs-target="#mdl_delPasien" data-id="'.$item->id_px.'" class="btn btn-icon btn-bg-light btn-active-color-primary mdl_delPasien btn-sm m-1">
+                                            <a href="#" title="Hapus Pasien" data-bs-toggle="modal" data-bs-target="#mdl_delPasien" data-id="'.$item->id_px.'" data-nama="'.$item->nama_px.'" class="btn btn-icon btn-bg-light btn-active-color-primary mdl_delPasien btn-sm m-1">
                                                 <span class="svg-icon svg-icon-3">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                         <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor" />
@@ -337,7 +352,7 @@
             </div>
             <form action="<?= site_url('datapasien/hapus') ?>" method="post">
                 <div class="modal-body">
-                    <p>Apakah anda yakin ingin menghapus Pasien dengan Nama <b>Dedy Hermawan</b> ?</p>
+                    <p>Apakah anda yakin ingin menghapus Pasien dengan Nama <b><span id="hapusNama"></b> ?</p>
                 </div>
 
                 <div class="modal-footer">
@@ -597,6 +612,8 @@
 
     $('#tabelPasien tbody').on('click', '.mdl_delPasien', function() {
         const id = $(this).data("id")
+        const nama = $(this).data("nama")
         $('#hapusPasien').val(id)
+        $('#hapusNama').html(nama)
     })
 </script>

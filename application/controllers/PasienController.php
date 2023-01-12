@@ -23,6 +23,13 @@ class PasienController extends CI_Controller
     public function store()
     {
         $param = $_POST;
+
+        $pasien = $this->Pasien->get(['filter' => ['nik_px' => $param['nik_px']]]);
+        if($pasien != NULL){
+            $this->session->set_flashdata('failed_store','NIK telah terdaftar!');
+            redirect('datapasien');
+        }
+
         $date=date_create($param['dob_px']);
         $param['dob_px'] = date_format($date,"Y-m-d");
         
