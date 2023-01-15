@@ -150,14 +150,19 @@
 										<br />
 										<div class="row">
 											<div class="col-sm-4">
-												<select class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option" id="selKel" data-allow-clear="true">
-													<option></option>
+												<select class="form-select form-select-solid" data-control="select2" data-placeholder="Pilih Kelurahan !" id="selKel">
 													<option value="Dinoyo">Dinoyo</option>
 													<option value="Ketawanggede">Ketawanggede</option>
 													<option value="Tlogomas">Tlogomas</option>
 													<option value="Sumbersari">Sumbersari</option>
 													<option value="Tunggulwulung">Tunggulwulung</option>
 													<option value="Merjosari">Merjosari</option>
+												</select>
+											</div>
+											<div class="col-sm-2">
+												<select class="form-select form-select-solid" data-control="select2" id="">
+													<option value="">2022</option>
+													<option value="">2023</option>
 												</select>
 											</div>
 										</div>
@@ -2277,7 +2282,7 @@
 			grades = [0, 5, 10, 20],
 			labels = [];
 			
-		kondisi = ['Rendah', 'Sedang', 'Tinggi', 'Sangat Tinggi'];
+		kondisi = ['0-4 Rendah', '5-9 Sedang', '10-19 Tinggi', '≥ 20 Sangat Tinggi'];
 
 		// loop through our density intervals and generate a label with a colored square for each interval
 		for (var i = 0; i < grades.length; i++) {

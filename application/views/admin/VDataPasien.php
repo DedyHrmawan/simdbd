@@ -10,8 +10,8 @@
                 </div>
             </div>
             <?php
-                if ($this->session->flashdata('failed_store')) {
-                    echo '   
+            if ($this->session->flashdata('failed_store')) {
+                echo '   
                     <div class="card">
                         <div class="card-body card-rounded py-3">
                             <div class="alert alert-danger d-flex align-items-center p-5">
@@ -22,7 +22,7 @@
                         </div>
                     </div>
                     ';
-                }
+            }
             ?>
             <div class="card-body py-3">
                 <div class="">
@@ -40,25 +40,25 @@
                         </thead>
                         <tbody>
                             <?php
-                                $no = 1;
-                                foreach($list as $item){
-                                    echo '
+                            $no = 1;
+                            foreach ($list as $item) {
+                                echo '
                                     <tr>
-                                        <td class="text-dark fw-bolder">'.$no.'</td>
-                                        <td class="text-dark fw-bolder">'.$item->nik_px.'</td>
-                                        <td class="text-dark fw-bolder">'.$item->nama_px.'</td>
-                                        <td class="text-dark fw-bolder">'.$item->gender_px.'</td>
-                                        <td class="text-dark fw-bolder">'.$item->umur_px.'</td>
-                                        <td class="text-dark fw-bolder">'.$item->nama_kelurahan.'</td>
+                                        <td class="text-dark fw-bolder">' . $no . '</td>
+                                        <td class="text-dark fw-bolder">' . $item->nik_px . '</td>
+                                        <td class="text-dark fw-bolder">' . $item->nama_px . '</td>
+                                        <td class="text-dark fw-bolder">' . $item->gender_px . '</td>
+                                        <td class="text-dark fw-bolder">' . $item->umur_px . '</td>
+                                        <td class="text-dark fw-bolder">' . $item->nama_kelurahan . '</td>
                                         <td class="">
-                                            <a href="" title="Detail Penyakit" data-bs-toggle="modal" data-bs-target="#mdl_detPasien" data-id="'.$item->id_px.'" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm mdl_detPasien me-1">
+                                            <a href="" title="Detail Penyakit" data-bs-toggle="modal" data-bs-target="#mdl_detPasien" data-id="' . $item->id_px . '" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm mdl_detPasien me-1">
                                                 <span class="svg-icon svg-icon-muted svg-icon-2hx"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                         <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor" />
                                                         <rect x="11" y="17" width="7" height="2" rx="1" transform="rotate(-90 11 17)" fill="currentColor" />
                                                         <rect x="11" y="9" width="2" height="2" rx="1" transform="rotate(-90 11 9)" fill="currentColor" />
                                                     </svg></span>
                                             </a>
-                                            <a href="" title="Edit Penyakit" data-bs-toggle="modal" data-bs-target="#mdl_editPasien" data-id="'.$item->id_px.'" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm mdl_editPasien m-1">
+                                            <a href="" title="Edit Penyakit" data-bs-toggle="modal" data-bs-target="#mdl_editPasien" data-id="' . $item->id_px . '" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm mdl_editPasien m-1">
                                                 <span class="svg-icon svg-icon-3">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                         <path opacity="0.3" d="M21.4 8.35303L19.241 10.511L13.485 4.755L15.643 2.59595C16.0248 2.21423 16.5426 1.99988 17.0825 1.99988C17.6224 1.99988 18.1402 2.21423 18.522 2.59595L21.4 5.474C21.7817 5.85581 21.9962 6.37355 21.9962 6.91345C21.9962 7.45335 21.7817 7.97122 21.4 8.35303ZM3.68699 21.932L9.88699 19.865L4.13099 14.109L2.06399 20.309C1.98815 20.5354 1.97703 20.7787 2.03189 21.0111C2.08674 21.2436 2.2054 21.4561 2.37449 21.6248C2.54359 21.7934 2.75641 21.9115 2.989 21.9658C3.22158 22.0201 3.4647 22.0084 3.69099 21.932H3.68699Z" fill="currentColor" />
@@ -66,7 +66,7 @@
                                                     </svg>
                                                 </span>
                                             </a>
-                                            <a href="#" title="Hapus Pasien" data-bs-toggle="modal" data-bs-target="#mdl_delPasien" data-id="'.$item->id_px.'" data-nama="'.$item->nama_px.'" class="btn btn-icon btn-bg-light btn-active-color-primary mdl_delPasien btn-sm m-1">
+                                            <a href="#" title="Hapus Pasien" data-bs-toggle="modal" data-bs-target="#mdl_delPasien" data-id="' . $item->id_px . '" data-nama="' . $item->nama_px . '" class="btn btn-icon btn-bg-light btn-active-color-primary mdl_delPasien btn-sm m-1">
                                                 <span class="svg-icon svg-icon-3">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                         <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor" />
@@ -78,9 +78,9 @@
                                         </td>
                                     </tr>
                                     ';
-                                    $no++;
-                                }
-                            ?>                            
+                                $no++;
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -104,12 +104,27 @@
                 </div>
             </div>
             <div class="modal-body">
-                <form action="<?= site_url('datapasien/tambah') ?>" method="post">
+                <form action="<?= site_url('datapasien/tambah') ?>" id="form_addPasien" method="post">
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                             <span class="required">NIK</span>
                         </label>
-                        <input type="text" class="form-control form-control-solid" placeholder="Masukan NIK" name="nik_px" required />
+                        <div class="fv-row row">
+                            <div class="col">
+                                <input type="text" class="form-control form-control-solid" placeholder="Masukan NIK" name="nik_px" required />
+
+                            </div>
+                            <div class="col-3">
+                                <button href="#" id="btn_cek" class="btn btn-warning ">
+                                    <span class="indicator-label">
+                                    Cek !
+                                    </span>
+                                    <span class="indicator-progress">
+                                        Tunggu... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
@@ -537,7 +552,7 @@
     $("#edit_tglLahir").flatpickr({
         dateFormat: "d F Y",
     });
-    
+
     $("#add_tglSakit").flatpickr({
         dateFormat: "d F Y",
     });
@@ -616,4 +631,84 @@
         $('#hapusPasien').val(id)
         $('#hapusNama').html(nama)
     })
+
+    // Define form element
+    const form = document.getElementById('form_addPasien');
+
+    // Init form validation rules. For more info check the FormValidation plugin's official documentation:https://formvalidation.io/
+    var validator = FormValidation.formValidation(
+        form, {
+            fields: {
+                'nik_px': {
+                    validators: {
+                        integer: {
+                            message: 'Masukan NIK yang valid !'
+                        },
+                        notEmpty: {
+                            message: 'NIK Diperlukan !'
+                        },
+                        stringLength: {
+                            message: 'NIK Harus 16 Digit !',
+                            min: 16,
+                            max: 16,
+                        }
+                    }
+                },
+            },
+
+            plugins: {
+                trigger: new FormValidation.plugins.Trigger(),
+                bootstrap: new FormValidation.plugins.Bootstrap5({
+                    rowSelector: '.fv-row',
+                    eleInvalidClass: '',
+                    eleValidClass: ''
+                })
+            }
+        }
+    );
+
+    // Submit button handler
+    const submitButton = document.getElementById('btn_cek');
+    submitButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (validator) {
+            validator.validate().then(function(status) {
+                console.log('validated!');
+
+                if (status == 'Valid') {
+                    // Show loading indication
+                    submitButton.setAttribute('data-kt-indicator', 'on');
+                    submitButton.disabled = true;
+                    setTimeout(function() {
+                        submitButton.removeAttribute('data-kt-indicator');
+                        submitButton.disabled = false;
+
+                        // Sukses POPUP 
+                        Swal.fire({
+                            text: "NIK Berhasi Ditemukan",
+                            icon: "success",
+                            buttonsStyling: false,
+                            confirmButtonText: "Ok, Mengerti !",
+                            customClass: {
+                                confirmButton: "btn btn-primary"
+                            }
+                        });
+
+                        // Gak Sukses POP UP 
+                        // Swal.fire({
+                        //     text: "NIK Tidak Ditemukan",
+                        //     icon: "error",
+                        //     buttonsStyling: false,
+                        //     confirmButtonText: "Ok, Mengerti !",
+                        //     customClass: {
+                        //         confirmButton: "btn btn-danger"
+                        //     }
+                        // });
+
+                        //form.submit(); // Submit form
+                    }, 2000);
+                }
+            });
+        }
+    });
 </script>
