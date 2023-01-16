@@ -2282,7 +2282,7 @@
 			grades = [0, 5, 10, 20],
 			labels = [];
 			
-		kondisi = ['0-4 Rendah', '5-9 Sedang', '10-19 Tinggi', '≥ 20 Sangat Tinggi'];
+		kondisi = ['0-5 Rendah', '6-10 Sedang', '11-20 Tinggi', '> 20 Sangat Tinggi'];
 
 		// loop through our density intervals and generate a label with a colored square for each interval
 		for (var i = 0; i < grades.length; i++) {
