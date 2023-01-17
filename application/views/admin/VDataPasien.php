@@ -683,7 +683,8 @@
                         submitButton.removeAttribute('data-kt-indicator');
                         submitButton.disabled = false;
 
-                        // Sukses POPUP 
+                        // NIK TEMU POPUP 
+                        // KALO ADA MUNCUL DI FORM DATANYA
                         Swal.fire({
                             text: "NIK Berhasi Ditemukan",
                             icon: "success",
@@ -694,16 +695,16 @@
                             }
                         });
 
-                        // Gak Sukses POP UP 
-                        // Swal.fire({
-                        //     text: "NIK Tidak Ditemukan",
-                        //     icon: "error",
-                        //     buttonsStyling: false,
-                        //     confirmButtonText: "Ok, Mengerti !",
-                        //     customClass: {
-                        //         confirmButton: "btn btn-danger"
-                        //     }
-                        // });
+                        // BELUM ADA NIK POP UP 
+                        Swal.fire({
+                            text: "NIK Belum Ada dan Silahkan masukan NIK Tersebut ! ",
+                            icon: "info",
+                            buttonsStyling: false,
+                            confirmButtonText: "Ok, Mengerti !",
+                            customClass: {
+                                confirmButton: "btn btn-info"
+                            }
+                        });
 
                         //form.submit(); // Submit form
                     }, 2000);
