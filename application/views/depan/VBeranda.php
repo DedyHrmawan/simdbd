@@ -81,10 +81,10 @@
 						</div>
 					</div>
 				</div>
-				<div class="d-flex flex-column w-100 min-h-350px min-h-lg-500px px-9">
+				<div class="d-flex flex-column w-100 min-h-350px min-h-lg-500px">
 					<div class="mb-5 mb-lg-8 py-10 py-lg-20">
 						<div class="row">
-							<div class="col-8">
+							<div class="col-6">
 								<div class="tns tns-default">
 									<div data-tns="true" data-tns-loop="true" data-tns-swipe-angle="false" data-tns-speed="2000" data-tns-autoplay="true" data-tns-autoplay-timeout="8000" data-tns-controls="true" data-tns-nav="false" data-tns-items="1" data-tns-center="false" data-tns-dots="false" data-tns-prev-button="#kt_team_slider_prev1" data-tns-next-button="#kt_team_slider_next1">
 										<?php
@@ -113,7 +113,7 @@
 									</button>
 								</div>
 							</div>
-							<div class="col mt-xl-20 text-left text-white">
+							<div class="col mt-xl-15 text-left text-white">
 								<h1 class="text-white" style="font-size: calc(1.6rem + 0.6vw) !important;">Puskesmas Dinoyo adalah salah satu puskesmas di Kota Malang.</h1>
 								<br>
 								<p style="font-size: calc(1.3rem + 0.6vw) !important;">Wilayah kerja puskesmas meliputi :</p>
