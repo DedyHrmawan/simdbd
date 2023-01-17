@@ -50,8 +50,8 @@
 									</span>
 								</button>
 								<a href="<?= site_url('') ?>">
-									<img alt="Logo" src="assets/media/logos/logo-blue.png" class="logo-default h-45px h-lgx-50px" />
-									<img alt="Logo" src="assets/media/logos/logo-blue.png" class="logo-sticky h-40px h-lg-45px" />
+									<img alt="Logo" src="assets/media/logos/logo-blue.png" class="logo-default h-60px h-lgx-65px" />
+									<img alt="Logo" src="assets/media/logos/logo-blue.png" class="logo-sticky h-55px h-lg-60px" />
 								</a>
 							</div>
 							<div class="d-lg-block" id="kt_header_nav_wrapper">
@@ -114,10 +114,10 @@
 								</div>
 							</div>
 							<div class="col mt-xl-20 text-left text-white">
-								<h1 class="text-white">Puskesmas Dinoyo adalah salah satu puskesmas di Kota Malang.</h1>
+								<h1 class="text-white" style="font-size: calc(1.6rem + 0.6vw) !important;">Puskesmas Dinoyo adalah salah satu puskesmas di Kota Malang.</h1>
 								<br>
-								<p class="fs-5">Wilayah kerja puskesmas meliputi :</p>
-								<ol class="fs-6">
+								<p style="font-size: calc(1.3rem + 0.6vw) !important;">Wilayah kerja puskesmas meliputi :</p>
+								<ol style="font-size: calc(1.25rem + 0.6vw) !important;">
 									<li>Kelurahan Ketawanggede.</li>
 									<li>Kelurahan Dinoyo.</li>
 									<li>Kelurahan Tlogomas.</li>
