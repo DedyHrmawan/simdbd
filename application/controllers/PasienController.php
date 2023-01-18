@@ -60,6 +60,19 @@ class PasienController extends CI_Controller
         echo json_encode($datas);
     }
 
+    public function ajxGetTambah(){
+        $data['filter'] = 'nik_px = '.$_POST['nik_px'];
+
+        $datas = $this->Pasien->get($data);
+        
+        if(!empty($datas)){            
+            $date=date_create($datas[0]->dob_px);
+            $datas[0]->dob_px = date_format($date,"d F Y");
+        }
+
+        echo json_encode($datas);
+    }
+
     public function edit(){
         $param = $_POST;
 

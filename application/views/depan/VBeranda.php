@@ -160,9 +160,14 @@
 												</select>
 											</div>
 											<div class="col-sm-2">
-												<select class="form-select form-select-solid" data-control="select2" id="">
-													<option value="">2022</option>
-													<option value="">2023</option>
+												<select class="form-select form-select-solid" data-control="select2" id="selTahun">
+													<?php 
+														foreach($tahun as $item){
+															echo '
+																<option value="'.$item['tahun'].'">'.$item['tahun'].'</option>
+															';
+														}
+													?>
 												</select>
 											</div>
 										</div>
@@ -370,12 +375,37 @@
 
 	$("#selKel").change(function(e) {
         var kel = $("#selKel").val();
+        var thn = $("#selTahun").val();
         $.ajax({
             url: "<?= site_url('getChartVal') ?>",
             type: "post",
             dataType: 'json',
             data: {
-                kel: kel
+                kel: kel,
+				thn : thn
+            },
+            success: res => {
+				var db = JSON.stringify(res);
+				console.log(JSON.parse(db))
+				
+				chart.updateSeries([{
+					name: 'Kasus DBD',
+					data: JSON.parse(db)
+				}])
+            }
+        })
+    });
+
+	$("#selTahun").change(function(e) {
+        var kel = $("#selKel").val();
+        var thn = $("#selTahun").val();
+        $.ajax({
+            url: "<?= site_url('getChartVal') ?>",
+            type: "post",
+            dataType: 'json',
+            data: {
+                kel: kel,
+				thn : thn
             },
             success: res => {
 				var db = JSON.stringify(res);
