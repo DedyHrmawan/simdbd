@@ -111,7 +111,7 @@
                         </label>
                         <div class="fv-row row">
                             <div class="col">
-                                <input type="text" class="form-control form-control-solid" placeholder="Masukan NIK" name="nik_px" required />
+                                <input type="text" class="form-control form-control-solid" placeholder="Masukan NIK" name="nik_px" id="nik_tambah" required />
 
                             </div>
                             <div class="col-3">
@@ -130,14 +130,13 @@
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                             <span class="required">Nama Lengkap</span>
                         </label>
-                        <input type="text" class="form-control form-control-solid" placeholder="Masukan Nama Lengkap" name="nama_px" required />
+                        <input type="text" class="form-control form-control-solid" placeholder="Masukan Nama Lengkap" name="nama_px" id="tambahNama" required />
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                             <span class="required">Jenis Kelamin</span>
                         </label>
-                        <select class="form-control form-control-solid" name="gender_px" id="">
-                            <option value="Laki-laki">Pilih Jenis Kelamin !</option>
+                        <select class="form-control form-control-solid" name="gender_px" id="tambahGender">
                             <option value="Laki-laki">Laki-laki</option>
                             <option value="Perempuan">Perempuan</option>
                         </select>
@@ -152,38 +151,37 @@
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                             <span class="required">Umur</span>
                         </label>
-                        <input type="number" class="form-control form-control-solid" placeholder="Masukan Umur" name="umur_px" min="0" required />
+                        <input type="number" class="form-control form-control-solid" placeholder="Masukan Umur" name="umur_px" id="tambahUmur" min="0" required />
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                             <span class="required">Nama Orang Tua</span>
                         </label>
-                        <input type="text" class="form-control form-control-solid" placeholder="Masukan Nama Orang Tua" name="namaortu_px" required />
+                        <input type="text" class="form-control form-control-solid" placeholder="Masukan Nama Orang Tua" name="namaortu_px" id="tambahOrtu" required />
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                             <span class="required">Nama Puskesmas</span>
                         </label>
-                        <input type="text" class="form-control form-control-solid" placeholder="Masukan Nama Puskesmas" name="namapuskesmas_px" required />
+                        <input type="text" class="form-control form-control-solid" placeholder="Masukan Nama Puskesmas" name="namapuskesmas_px" id="tambahPuskesmas" required />
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                             <span class="required">Nama Rumah Sakit</span>
                         </label>
-                        <input type="text" class="form-control form-control-solid" placeholder="Masukan Nama Rumah Sakit" name="namarumkit_px" required />
+                        <input type="text" class="form-control form-control-solid" placeholder="Masukan Nama Rumah Sakit" name="namarumkit_px" id="tambahRumkit" required />
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                             <span class="required">Alamat</span>
                         </label>
-                        <input type="text" class="form-control form-control-solid" placeholder="Masukan Alamat" name="alamat_px" required />
+                        <input type="text" class="form-control form-control-solid" placeholder="Masukan Alamat" name="alamat_px" id="tambahAlamat" required />
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                             <span class="required">Kelurahan</span>
                         </label>
-                        <select class="form-control form-control-solid" name="nama_kelurahan" id="" required>
-                            <option value="Ketawanggede">Pilih Kelurahan !</option>
+                        <select class="form-control form-control-solid" name="nama_kelurahan" id="tambahKelurahan" required>
                             <option value="Ketawanggede">Ketawanggede</option>
                             <option value="Dinoyo">Dinoyo</option>
                             <option value="Tlogomas">Tlogomas</option>
@@ -196,13 +194,13 @@
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                             <span class="required">Latitude</span>
                         </label>
-                        <input type="text" class="form-control form-control-solid" placeholder="Masukan Latitude" name="latitude" required />
+                        <input type="text" class="form-control form-control-solid" placeholder="Masukan Latitude" name="latitude" id="tambahLatitude" required />
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                             <span class="required">Longitude</span>
                         </label>
-                        <input type="text" class="form-control form-control-solid" placeholder="Masukan Longitude" name="longitude" required />
+                        <input type="text" class="form-control form-control-solid" placeholder="Masukan Longitude" name="longitude" id="tambahLongitude" required />
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
@@ -679,37 +677,69 @@
                     // Show loading indication
                     submitButton.setAttribute('data-kt-indicator', 'on');
                     submitButton.disabled = true;
-                    setTimeout(function() {
-                        submitButton.removeAttribute('data-kt-indicator');
-                        submitButton.disabled = false;
 
-                        // NIK TEMU POPUP 
-                        // KALO ADA MUNCUL DI FORM DATANYA
-                        Swal.fire({
-                            text: "NIK Berhasi Ditemukan",
-                            icon: "success",
-                            buttonsStyling: false,
-                            confirmButtonText: "Ok, Mengerti !",
-                            customClass: {
-                                confirmButton: "btn btn-primary"
-                            }
-                        });
+                    const id = $("#nik_tambah").val();
+                    $.ajax({
+                        url: "<?= site_url('datapasien/ajxGetTambah') ?>",
+                        type: "post",
+                        dataType: 'json',
+                        data: {
+                            nik_px: id
+                        },
+                        success: res => {
+                            if (res != '') {
+                                setTimeout(function() {
+                                    submitButton.removeAttribute('data-kt-indicator');
+                                    submitButton.disabled = false;
+                                    
+                                    Swal.fire({
+                                        text: "NIK Berhasi Ditemukan",
+                                        icon: "success",
+                                        buttonsStyling: false,
+                                        confirmButtonText: "Ok, Mengerti !",
+                                        customClass: {
+                                            confirmButton: "btn btn-primary"
+                                        }
+                                    });
+                                }, 0);
 
-                        // BELUM ADA NIK POP UP 
-                        Swal.fire({
-                            text: "NIK Belum Ada dan Silahkan masukan NIK Tersebut ! ",
-                            icon: "info",
-                            buttonsStyling: false,
-                            confirmButtonText: "Ok, Mengerti !",
-                            customClass: {
-                                confirmButton: "btn btn-info"
-                            }
-                        });
-
-                        //form.submit(); // Submit form
-                    }, 2000);
+                                $('#tambahNama').val(res[0].nama_px)
+                                $('#tambahGender').val(res[0].gender_px)
+                                $('#add_tglLahir').val(res[0].dob_px)
+                                $('#tambahUmur').val(res[0].umur_px)
+                                $('#tambahOrtu').val(res[0].namaortu_px)
+                                $('#tambahAlamat').val(res[0].alamat_px)
+                                $('#tambahKelurahan').val(res[0].nama_kelurahan)
+                                $('#tambahLatitude').val(res[0].latitude)
+                                $('#tambahLongitude').val(res[0].longitude)
+                                $('#tambahPuskesmas').val(res[0].namapuskesmas_px)
+                                $('#tambahRumkit').val(res[0].namarumkit_px);
+                            }else{     
+                                setTimeout(function() {
+                                    submitButton.removeAttribute('data-kt-indicator');
+                                    submitButton.disabled = false;
+                                
+                                    Swal.fire({
+                                        text: "NIK Belum Ada dan Silahkan masukan NIK Tersebut ! ",
+                                        icon: "info",
+                                        buttonsStyling: false,
+                                        confirmButtonText: "Ok, Mengerti !",
+                                        customClass: {
+                                            confirmButton: "btn btn-info"
+                                        }
+                                    });
+                                }, 0);                           
+                                $('#form_addPasien').trigger("reset")
+                                $('#nik_tambah').val(id);                                
+                            };                          
+                        }
+                    })
                 }
             });
         }
+    });
+
+    $('#mdl_addPasien').on('hidden.bs.modal', function (){
+        $('#form_addPasien').trigger("reset")
     });
 </script>

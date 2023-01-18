@@ -16,13 +16,18 @@ class Depan extends CI_Model{
         $res = $this->db->query($sql)->result();
         return $res;
     }
-    public function getChart(){
-        $sql = "SELECT COUNT(id_px) as total,MONTH(tgl_sakit) as bulan FROM penderita GROUP BY MONTH(tgl_sakit)";
+    public function getYear(){
+        $sql = "SELECT YEAR(tgl_sakit) as tahun FROM PENDERITA GROUP BY YEAR(tgl_sakit) ORDER BY YEAR(tgl_sakit) DESC";
+        $res = $this->db->query($sql)->result_array();
+        return $res;
+    }
+    public function getChart($y){
+        $sql = "SELECT COUNT(id_px) as total,MONTH(tgl_sakit) as bulan FROM penderita WHERE nama_kelurahan = 'Dinoyo' AND YEAR(tgl_sakit) = $y GROUP BY MONTH(tgl_sakit)";
         $res = $this->db->query($sql)->result();
         return $res;
     }
-    public function getChartChange($param){
-        $sql = "SELECT COUNT(id_px) as total,MONTH(tgl_sakit) as bulan FROM penderita WHERE nama_kelurahan = '$param'  GROUP BY MONTH(tgl_sakit)";
+    public function getChartChange($k, $y){
+        $sql = "SELECT COUNT(id_px) as total,MONTH(tgl_sakit) as bulan FROM penderita WHERE nama_kelurahan = '$k' AND YEAR(tgl_sakit) = $y GROUP BY MONTH(tgl_sakit)";
         $res = $this->db->query($sql)->result();
         return $res;
     }

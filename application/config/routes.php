@@ -70,6 +70,7 @@ $route['datapasien/tambah']         = 'PasienController/store';
 $route['datapasien/edit']           = 'PasienController/edit';
 $route['datapasien/hapus']          = 'PasienController/delete';
 $route['datapasien/ajxGet']         = 'PasienController/ajxGet';
+$route['datapasien/ajxGetTambah']         = 'PasienController/ajxGetTambah';
 
 $route['jentik']                    = 'PengamatanController/JentikBerkala';
 $route['jentik/tambah']             = 'PengamatanController/store';

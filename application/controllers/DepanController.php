@@ -10,8 +10,12 @@ class DepanController extends CI_Controller
 	public function Beranda()
 	{
         $carousel = $this->Depan->getCarousel();
-        $informasi = $this->Depan->getInformasi();
-        $chart = $this->Depan->getChart();
+        $informasi = $this->Depan->getInformasi();        
+        $tahun = $this->Depan->getYear(); 
+        if(empty($tahun)){
+            $tahun[0]['tahun'] = date("Y");
+        }
+        $chart = $this->Depan->getChart($tahun[0]['tahun']);
         $mapsdata = $this->Depan->getMapsData(date("m"),date("Y"));
         $dataChart = array();
         $dataStr = '';
@@ -48,7 +52,8 @@ class DepanController extends CI_Controller
             'carousel' => $carousel,
             'informasi' => $informasi,
             'dataChart' => $dataStr,
-            'kasus' => $totalKasus
+            'kasus' => $totalKasus,
+            'tahun' => $tahun
 		);
 		$this->template->depan('depan/VBeranda', $data);
 	}
@@ -89,7 +94,7 @@ class DepanController extends CI_Controller
     }
 
     public function chartChange(){
-        $chart = $this->Depan->getChartChange($_POST['kel']);
+        $chart = $this->Depan->getChartChange($_POST['kel'],$_POST['thn']);
         $dataChart = array();
 
         for($i = 0; $i < 12; $i++){
