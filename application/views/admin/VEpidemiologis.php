@@ -798,137 +798,123 @@
                             <p id="detTetangga"></p>
                         </div>
                     </div>
-                    <h6 class="mt-4 mb-4">Sebutkan ID Penderita / Suspek Lain tersebut :</h6>
-                    <div class="row justify-content-start">
-                        <div class="col-6">
-                            <label class="fw-bold ">Nama</label>
-                        </div>
-                        <div class="col">
-                            <p>Dedy</p>
-                        </div>
-                    </div>
-                    <div class="row justify-content-start">
-                        <div class="col-6">
-                            <label class="fw-bold ">Jenis Kelamin</label>
-                        </div>
-                        <div class="col">
-                            <p>Laki-Laki</p>
-                        </div>
-                    </div>
-                    <div class="row justify-content-start">
-                        <div class="col-6">
-                            <label class="fw-bold ">Umur</label>
-                        </div>
-                        <div class="col">
-                            <p>18</p>
-                        </div>
-                    </div>
-                    <div class="row justify-content-start">
-                        <div class="col-6">
-                            <label class="fw-bold ">Dirawat di</label>
-                        </div>
-                        <div class="col">
-                            <p>Malang RSUD Saiful Anwar</p>
-                        </div>
-                    </div>
-                    <h6 class="mt-4 mb-4">Pemeriksaan Jentik KK</h6>
-                    <div class="row justify-content-start">
-                        <div class="col-6">
-                            <label class="fw-bold ">Nama Kartu Keluarga</label>
-                        </div>
-                        <div class="col">
-                            <p>Dedy Hermawan</p>
-                        </div>
-                    </div>
-                    <div class="row justify-content-start">
-                        <div class="col-6">
-                            <label class="fw-bold ">Latitude</label>
-                        </div>
-                        <div class="col">
-                            <p>-7.983908</p>
-                        </div>
-                    </div>
-                    <div class="row justify-content-start">
-                        <div class="col-6">
-                            <label class="fw-bold ">Longitude</label>
-                        </div>
-                        <div class="col">
-                            <p>112.621391</p>
-                        </div>
-                    </div>
-                    <div class="row justify-content-start">
-                        <div class="col-6">
-                            <label class="fw-bold ">Tanggal Pemeriksaan</label>
-                        </div>
-                        <div class="col">
-                            <p>08 Oktober 2022</p>
-                        </div>
-                    </div>
-                    <div class="separator"></div>
-                    <div class="text-center mb-2">
-                        <div class="row">
+                    <div class="detSuspek">
+                        <h6 class="mt-4 mb-4">Sebutkan ID Penderita / Suspek Lain tersebut :</h6>
+                        <div class="row justify-content-start">
+                            <div class="col-6">
+                                <label class="fw-bold ">Nama</label>
+                            </div>
                             <div class="col">
-                                <label class="fw-bold text-center">Pemeriksaan Tandon Air Dalam Rumah</label>
+                                <p id="detNamaSuspek">-</p>
+                            </div>
+                        </div>
+                        <div class="row justify-content-start">
+                            <div class="col-6">
+                                <label class="fw-bold ">Jenis Kelamin</label>
+                            </div>
+                            <div class="col">
+                                <p id="detJenkelSuspek">-</p>
+                            </div>
+                        </div>
+                        <div class="row justify-content-start">
+                            <div class="col-6">
+                                <label class="fw-bold ">Umur</label>
+                            </div>
+                            <div class="col">
+                                <p id="detUmurSuspek">-</p>
                             </div>
                         </div>
                     </div>
-                    <div class="row justify-content-start">
-                        <div class="col-6">
-                            <label class="fw-bold ">Jumlah Tandon Periksa</label>
+                    <div class="detKK">
+                        <h6 class="mt-4 mb-4">Pemeriksaan Jentik KK</h6>
+                        <div class="row justify-content-start">
+                            <div class="col-6">
+                                <label class="fw-bold ">Nama Kartu Keluarga</label>
+                            </div>
+                            <div class="col">
+                                <p id="detNamaKK"></p>
+                            </div>
                         </div>
-                        <div class="col">
-                            <p>8</p>
+                        <div class="row justify-content-start">
+                            <div class="col-6">
+                                <label class="fw-bold ">Latitude</label>
+                            </div>
+                            <div class="col">
+                                <p id="detLatitudeKK"></p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-start">
-                        <div class="col-6">
-                            <label class="fw-bold ">Jumlah Positif Jentik</label>
+                        <div class="row justify-content-start">
+                            <div class="col-6">
+                                <label class="fw-bold ">Longitude</label>
+                            </div>
+                            <div class="col">
+                                <p id="detLongitudeKK"></p>
+                            </div>
+                        </div>                    
+                        <div class="text-center mb-2">
+                            <div class="row">
+                                <div class="col">
+                                    <label class="fw-bold text-center">Pemeriksaan Tandon Air Dalam Rumah</label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col">
-                            <p>8</p>
+                        <div class="row justify-content-start">
+                            <div class="col-6">
+                                <label class="fw-bold ">Jumlah Tandon Periksa</label>
+                            </div>
+                            <div class="col">
+                                <p id="detTandonPeriksa"></p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="separator"></div>
-                    <div class="text-center mb-2">
+                        <div class="row justify-content-start">
+                            <div class="col-6">
+                                <label class="fw-bold ">Jumlah Positif Jentik</label>
+                            </div>
+                            <div class="col">
+                                <p id="detPosJentik"></p>
+                            </div>
+                        </div>       
+                        <div class="text-center mb-2">
                         <div class="row">
                             <div class="col">
                                 <label class="fw-bold text-center">Pemeriksaan Tandon Air Luar Rumah</label>
                             </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-start">
-                        <div class="col-6">
-                            <label class="fw-bold ">Jumlah Tandon Periksa</label>
                         </div>
-                        <div class="col">
-                            <p>8</p>
+                        <div class="row justify-content-start">
+                            <div class="col-6">
+                                <label class="fw-bold ">Jumlah Tandon Periksa</label>
+                            </div>
+                            <div class="col">
+                                <p id="detTandonPeriksaLuar"></p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-start">
-                        <div class="col-6">
-                            <label class="fw-bold ">Jumlah Positif Jentik</label>
+                        <div class="row justify-content-start">
+                            <div class="col-6">
+                                <label class="fw-bold ">Jumlah Positif Jentik</label>
+                            </div>
+                            <div class="col">
+                                <p id="detPosJentikLuar"></p>
+                            </div>
+                        </div>  
+                        <div class="separator mb-2"></div>
+                        <div class="row justify-content-start">
+                            <div class="col-6">
+                                <label class="fw-bold ">Total Periksa</label>
+                            </div>
+                            <div class="col">
+                                <p id="detTotalPeriksa"></p>
+                            </div>
                         </div>
-                        <div class="col">
-                            <p>8</p>
-                        </div>
-                    </div>
-                    <div class="separator"></div>
-                    <div class="row justify-content-start">
-                        <div class="col-6">
-                            <label class="fw-bold ">Total Periksa</label>
-                        </div>
-                        <div class="col">
-                            <p>8</p>
-                        </div>
-                    </div>
-                    <div class="row justify-content-start">
-                        <div class="col-6">
-                            <label class="fw-bold ">Total Positif Jentik</label>
-                        </div>
-                        <div class="col">
-                            <p>8</p>
-                        </div>
-                    </div>
+                        <div class="row justify-content-start">
+                            <div class="col-6">
+                                <label class="fw-bold ">Total Positif Jentik</label>
+                            </div>
+                            <div class="col">
+                                <p id="detTotalPos"></p>
+                            </div>
+                        </div>           
+                    </div>                    
                 </div>
             </div>
             <div class="modal-footer">
@@ -1382,6 +1368,170 @@
                 $('#detBepergian').html(res[0].bepergian)
                 $('#detTamu').html(res[0].riw_tamu)
                 $('#detTetangga').html(res[0].tetangga)
+
+                var resss = $('body').find('.detSuspek');
+                for (var i = 1; i < resss.length; i++) {
+                    resss[i].remove();
+                }
+                var reskk = $('body').find('.detKK');
+                for (var i = 1; i < reskk.length; i++) {
+                    reskk[i].remove();
+                }
+
+                if(res[0].listnama != ''){
+                    $('#detNamaSuspek').html(res[0].listnama[0])
+                    $('#detJenkelSuspek').html(res[0].listgender[0])
+                    $('#detUmurSuspek').html(res[0].listumur[0])
+
+                    for (var i = 1; i < res[0].listnama.length; i++) {
+                        var fieldHTML =
+                        '<div class="detSuspek"><hr><div class="row justify-content-start">'+
+                            '<div class="col-6">'+
+                                '<label class="fw-bold ">Nama</label>'+
+                            '</div>'+
+                            '<div class="col">'+
+                                '<p>'+res[0].listnama[i]+'</p>'+
+                            '</div>'+
+                        '</div>'+
+                        '<div class="row justify-content-start">'+
+                            '<div class="col-6">'+
+                                '<label class="fw-bold ">Jenis Kelamin</label>'+
+                            '</div>'+
+                            '<div class="col">'+
+                                '<p>'+res[0].listgender[i]+'</p>'+
+                            '</div>'+
+                        '</div>'+
+                        '<div class="row justify-content-start">'+
+                            '<div class="col-6">'+
+                                '<label class="fw-bold ">Umur</label>'+
+                            '</div>'+
+                            '<div class="col">'+
+                                '<p>'+res[0].listumur[i]+'</p>'+
+                            '</div>'+
+                        '</div></div>';
+                        $('body').find('.detSuspek:last').after(fieldHTML);
+                    }
+                }else{
+                    $('#detNamaSuspek').html('-')
+                    $('#detJenkelSuspek').html('-')
+                    $('#detUmurSuspek').html('-')
+                }
+
+                if(res[0].listkk != ''){
+                    $('#detNamaKK').html(res[0].listkk[0])
+                    $('#detLatitudeKK').html(res[0].listlat[0])
+                    $('#detLongitudeKK').html(res[0].listlong[0])
+                    $('#detTandonPeriksa').html(res[0].listdlmper[0])
+                    $('#detPosJentik').html(res[0].listdlmpos[0])
+                    $('#detTandonPeriksaLuar').html(res[0].listluarper[0])
+                    $('#detPosJentikLuar').html(res[0].listluarpos[0])
+                    $('#detTotalPeriksa').html(res[0].listtotalper[0])
+                    $('#detTotalPos').html(res[0].listtotalpos[0])
+
+                    for (var i = 1; i < res[0].listkk.length; i++) {
+                        var fieldHTML =
+                        '<div class="detKK"><hr>'+
+                            '<div class="row justify-content-start">'+
+                                '<div class="col-6">'+
+                                    '<label class="fw-bold ">Nama Kartu Keluarga</label>'+
+                                '</div>'+
+                                '<div class="col">'+
+                                    '<p>'+res[0].listkk[i]+'</p>'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="row justify-content-start">'+
+                                '<div class="col-6">'+
+                                    '<label class="fw-bold ">Latitude</label>'+
+                                '</div>'+
+                                '<div class="col">'+
+                                   ' <p>'+res[0].listlat[i]+'</p>'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="row justify-content-start">'+
+                               ' <div class="col-6">'+
+                                    '<label class="fw-bold ">Longitude</label>'+
+                                '</div>'+
+                                '<div class="col">'+
+                                   ' <p>'+res[0].listlong[i]+'</p>'+
+                                '</div>'+
+                            '</div>'+                            
+                            '<div class="text-center mb-2">'+
+                                '<div class="row">'+
+                                    '<div class="col">'+
+                                        '<label class="fw-bold text-center">Pemeriksaan Tandon Air Dalam Rumah</label>'+
+                                    '</div>'+
+                            ' </div>'+
+                            '</div>'+
+                            '<div class="row justify-content-start">'+
+                                '<div class="col-6">'+
+                                    '<label class="fw-bold ">Jumlah Tandon Periksa</label>'+
+                                '</div>'+
+                                '<div class="col">'+
+                                ' <p>'+res[0].listdlmper[i]+'</p>'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="row justify-content-start">'+
+                                '<div class="col-6">'+
+                                    '<label class="fw-bold ">Jumlah Positif Jentik</label>'+
+                                '</div>'+
+                                '<div class="col">'+
+                                    '<p>'+res[0].listdlmpos[i]+'</p>'+
+                                '</div>'+
+                            '</div>   '    +
+                            '<div class="text-center mb-2">'+
+                            '<div class="row">'+
+                                '<div class="col">'+
+                                        '<label class="fw-bold text-center">Pemeriksaan Tandon Air Luar Rumah</label>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="row justify-content-start">'+
+                                '<div class="col-6">'+
+                                    '<label class="fw-bold ">Jumlah Tandon Periksa</label>'+
+                                '</div>'+
+                                '<div class="col">'+
+                                ' <p>'+res[0].listluarper[i]+'</p>'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="row justify-content-start">'+
+                                '<div class="col-6">'+
+                                    '<label class="fw-bold ">Jumlah Positif Jentik</label>'+
+                                '</div>'+
+                                '<div class="col">'+
+                                    '<p>'+res[0].listluarpos[i]+'</p>'+
+                                '</div>'+
+                            '</div>  ' +
+                            '<div class="separator mb-2"></div>'+
+                            '<div class="row justify-content-start">'+
+                                '<div class="col-6">'+
+                                    '<label class="fw-bold ">Total Periksa</label>'+
+                                '</div>'+
+                                '<div class="col">'+
+                                    '<p>'+res[0].listtotalper[i]+'</p>'+
+                               ' </div>'+
+                            '</div>'+
+                            '<div class="row justify-content-start">'+
+                                '<div class="col-6">'+
+                                   ' <label class="fw-bold ">Total Positif Jentik</label>'+
+                                '</div>'+
+                                '<div class="col">'+
+                                    '<p>'+res[0].listtotalpos[i]+'</p>'+
+                                '</div>'+
+                            '</div>'  +
+                       ' </div>';
+                        $('body').find('.detKK:last').after(fieldHTML);
+                    }
+                }else{
+                    $('#detNamaKK').html('-')
+                    $('#detLatitudeKK').html('-')
+                    $('#detLongitudeKK').html('-')
+                    $('#detTandonPeriksa').html('-')
+                    $('#detPosJentik').html('-')
+                    $('#detTandonPeriksaLuar').html('-')
+                    $('#detPosJentikLuar').html('-')
+                    $('#detTotalPeriksa').html('-')
+                    $('#detTotalPos').html('-')
+                }
 
                 if (res[0].bepergian == "Ya") {                     
                     $('#detKemana').html(res[0].riw_perjalanan)
