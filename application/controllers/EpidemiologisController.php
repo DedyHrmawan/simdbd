@@ -154,6 +154,8 @@ class EpidemiologisController extends CI_Controller
         $listdlmpos = explode(";", $datas[0]->tandon_dlm_pos);
         $listluarper = explode(";", $datas[0]->tandon_luar_periksa);
         $listluarpos = explode(";", $datas[0]->tandon_luar_pos);
+        $listtotalper = explode(";", $datas[0]->total_periksa);
+        $listtotalpos = explode(";", $datas[0]->total_pos);
 
         $datas[0]->listnama = $namalist;
         $datas[0]->listgender = $listgender;
@@ -165,6 +167,8 @@ class EpidemiologisController extends CI_Controller
         $datas[0]->listdlmpos = $listdlmpos;
         $datas[0]->listluarper = $listluarper;
         $datas[0]->listluarpos = $listluarpos;
+        $datas[0]->listtotalper = $listtotalper;
+        $datas[0]->listtotalpos = $listtotalpos;
 
         echo json_encode($datas);
     }
